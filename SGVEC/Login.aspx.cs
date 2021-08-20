@@ -32,29 +32,20 @@ namespace SGVEC
                 }
                 else
                 {
-                    cnt.DataBaseConnect();
+                    try
+                    {
+                        cnt.DataBaseConnect();
+                    }
+                    catch
+                    {
+                        lblError.Text = "Senha ou Login estão incorretos!";
+                    }
                 }
             }
             catch(Exception ex)
             {
                 lblError.Text = ex.Message;
             }
-        }
-
-        protected void imgBtnLogin_Click(object sender, ImageClickEventArgs e)
-        {
-            if (txtLogin.Text == "")
-            {
-                cptValidate.ComponentsValidation(txtLogin.ID, "É necessário preencher o campo ");
-            }
-            else if (txtPassword.Text == "")
-            {
-                cptValidate.ComponentsValidation("Senha", "É necessário preencher o campo ");
-            }
-            else
-            {
-
-            }
-        }
+        }        
     }
 }
