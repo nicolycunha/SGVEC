@@ -1,0 +1,12 @@
+﻿@import "variables.css";
+
+body {
+    background-color: red;
+}
+
+
+.btn-login {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+}

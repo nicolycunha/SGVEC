@@ -1,0 +1,12 @@
+﻿:root {
+    --color-primary: #4E20A9;
+    --color-primary-transparent: rgba(78, 32, 169, 0.4);
+    --color-success: #2AAA19;
+    --color-success-transparent: rgba(42, 170, 25, 0.4);
+    --color-info: #136CF2;
+    --color-info-transparent: rgba(19, 108, 242, 0.4);
+    --color-warning: #FFC700;
+    --color-warning-transparent: rgba(255, 199, 0, 0.4);
+    --color-danger: #CE381A;
+    --color-danger-transparent: rgba(206, 56, 26, 0.4);
+}
