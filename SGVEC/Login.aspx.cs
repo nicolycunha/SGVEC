@@ -1,6 +1,6 @@
 ﻿using System;
 using SGVEC.Models;
-using SGVEC.Controllers;
+using SGVEC.Controller;
 
 namespace SGVEC
 {

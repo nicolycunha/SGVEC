@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SGVEC.View {
+namespace SGVEC.View.Screen {
     
     
-    public partial class DashBoard {
+    public partial class WebForm1 {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,57 @@ namespace SGVEC.View {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// imgButtonEmployee control.
+        /// txtCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonEmployee;
+        protected global::System.Web.UI.WebControls.TextBox txtCode;
         
         /// <summary>
-        /// imgButtonTypeProduct control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonTypeProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// imgButtonProduct control.
+        /// txtCPF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtCPF;
         
         /// <summary>
-        /// ImageButtonSupplier control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonSupplier;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// imgButtonStorege control.
+        /// gvEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonStorege;
+        protected global::System.Web.UI.WebControls.GridView gvEmployee;
         
         /// <summary>
-        /// imgButtonSales control.
+        /// btnSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgButtonSales;
+        protected global::System.Web.UI.WebControls.Button btnSelect;
     }
 }

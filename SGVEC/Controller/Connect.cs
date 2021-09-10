@@ -1,9 +1,8 @@
 ﻿using SGVEC.Models;
 using System.Data;
-using System.Web;
 using MySql.Data.MySqlClient;
 
-namespace SGVEC.Controllers
+namespace SGVEC.Controller
 {
     public class Connect
     {
@@ -12,16 +11,17 @@ namespace SGVEC.Controllers
         private ComponentError cptValidate = new ComponentError();
         private Master mt = new Master();
 
-        public void DataBaseConnect()
+        public MySqlConnection DataBaseConnect()
         {
-            ConnectToDataBase();
+            return ConnectToDataBase();
         }
 
-        private void ConnectToDataBase()
+        private MySqlConnection ConnectToDataBase()
         {
             try
             {
                 cn.Open();
+                return cn;
             }
             catch
             {

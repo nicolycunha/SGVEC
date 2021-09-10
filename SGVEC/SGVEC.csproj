@@ -221,12 +221,14 @@
     <Content Include="Styles\login.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="View\Dashboard.aspx" />
+    <Content Include="View\Screen\Employee.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controller\DataManipulation.cs" />
     <Compile Include="Models\Master.cs" />
     <Compile Include="View\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -276,6 +278,13 @@
     </Compile>
     <Compile Include="View\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

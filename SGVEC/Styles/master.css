@@ -1,12 +1,73 @@
 ﻿@import "variables.css";
 
-body {
-    /*background-color: red;*/
+.container {
+    margin-top: 6rem;
 }
+
+.login-image {
+    margin-top: 5rem;
+}
+
+
+.container-fluid {
+    margin: 1rem
+}
+
+h4.title-page {
+    margin-bottom: 3rem
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem 4rem 0 4rem;
+}
+
+.input-group {
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 3rem;
+    align-items: center !important;
+}
+
+i.fas {
+    padding-right: 1rem;
+}
+
+input#txtCode, input#txtName, input#txtCPF {
+    outline: 0;
+    border-width: 0;
+    width: 30%;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--color-primary) !important
+}
+
+    a:hover {
+        color: var(--color-info) !important
+    }
 
 
 .btn-login {
+    margin: 1rem 5rem;
+    background-color: transparent;
+    border-color: var(--color-primary);
+    border-radius: 20px;
     color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    border-radius: 10px;
+    height: 2.5rem;
+    box-shadow: none;
 }
+
+    .btn-login:hover {
+        background-color: var(--color-primary);
+        color: #fff
+    }

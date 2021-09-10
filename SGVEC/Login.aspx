@@ -8,7 +8,6 @@
     <link href="Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" ></script>
-    <script src="https://kit.fontawesome.com/9abeffea05.js" crossorigin="anonymous"></script>
 
     <title>SGVEC - Login</title>
 </head>
@@ -22,14 +21,6 @@
                 </div>
 
                 <div class="col">
-                    <%--   <ul class="nav justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Registrar</a>
-                            </li>
-                        </ul>--%>
                     <div class="form-login">
                         <h4 class="text-center title-page">Login</h4>
 
@@ -54,9 +45,7 @@
 
                         <asp:Button ID="btnLogin" runat="server" Text="ENTRAR" OnClick="btnLogin_Click" CssClass="btn-login" BorderStyle="Solid" />
 
-
                         <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
-
                     </div>
                 </div>
             </div>
