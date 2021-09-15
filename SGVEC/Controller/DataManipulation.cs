@@ -11,13 +11,15 @@ namespace SGVEC.Controller
         private MySqlConnection cn = new MySqlConnection();
         private MySqlCommand cm = new MySqlCommand();
 
-        public DataTable ExecuteStringQuery(string CommandText)
+        //A partir do parâmetro executa a query
+        public DataTable ExecDtTableStringQuery(string CommandText)
         {
             cn = cnt.DataBaseConnect();
-            return ExecuteQuery(CommandText);
+            return ExecDtTableQuery(CommandText);
         }
 
-        private DataTable ExecuteQuery(string CommandText)
+        //Retorna uma tabela de dados, podendo ser usada no gridview
+        private DataTable ExecDtTableQuery(string CommandText)
         {
             try
             {
@@ -26,6 +28,29 @@ namespace SGVEC.Controller
                 mySqlDtAdpt.Fill(dtTable);
 
                 return dtTable;
+            }
+            catch
+            {
+                cm.Connection.Close();
+                return null;
+            }
+        }
+
+        public MySqlDataReader ExecuteStringQuery(string CommandText)
+        {            
+            //cn = cnt.DataBaseConnect();
+            return ExecuteQuery(CommandText);
+        }
+
+        //Retorna uma tabela de dados, podendo ser usada no gridview
+        private MySqlDataReader ExecuteQuery(string CommandText)
+        {
+            try
+            {
+                MySqlCommand cm = new MySqlCommand(CommandText, cn);
+                MySqlDataReader MySqlDtReader = cm.ExecuteReader();
+
+                return MySqlDtReader;
             }
             catch
             {

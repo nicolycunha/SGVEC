@@ -25,6 +25,8 @@ namespace SGVEC.Controller
             }
             catch
             {
+                //Não fecho a conexão, para poder obter informação do motivo do erro (se houver)
+                //Sendo assim, retorna para o método anterior e faz o tratamento de erro retornando para a tela.
                 throw;
             }
         }
@@ -47,7 +49,7 @@ namespace SGVEC.Controller
                 while (leitor.Read())
                 {
                     mt.codFunc = leitor.GetInt32(0);
-                    cm.Connection.Close();                    
+                    cm.Connection.Close();
                     return true;
                 }
 

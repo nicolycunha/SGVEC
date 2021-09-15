@@ -8,17 +8,41 @@ namespace SGVEC.View.Screen
     {
         private ComponentError cptValidate = new ComponentError();
         private DataManipulation cnt = new DataManipulation();
+        private string strCode = "0";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string strCode = "0";
             if (txtCode.Text != "")
             {
                 strCode = txtCode.Text;
             }
 
-            gvEmployee.DataSource = cnt.ExecuteStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
+            //Atualiza o grid
+            gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
+            gvEmployee.DataBind();
+
+            //Preenche o ComboBox com os cadastros da Tabela - Cargo
+            ddlCodCargo.DataSource = cnt.ExecuteStringQuery("SELECT * FROM CARGO");
+            ddlCodCargo.DataBind();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtCode.Text != "")
+            {
+                strCode = txtCode.Text;
+            }
+
+            //Atualiza o grid
+            gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
             gvEmployee.DataBind();
         }
+
+
+        protected void btnComplete_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
