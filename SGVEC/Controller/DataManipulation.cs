@@ -14,6 +14,9 @@ namespace SGVEC.Controller
         //A partir do parâmetro executa a query
         public DataTable ExecDtTableStringQuery(string CommandText)
         {
+            cnt = new Connect();
+            cn = new MySqlConnection();
+
             cn = cnt.DataBaseConnect();
             return ExecDtTableQuery(CommandText);
         }
@@ -37,8 +40,11 @@ namespace SGVEC.Controller
         }
 
         public MySqlDataReader ExecuteStringQuery(string CommandText)
-        {            
-            //cn = cnt.DataBaseConnect();
+        {
+            cnt = new Connect();
+            cn = new MySqlConnection();
+
+            cn = cnt.DataBaseConnect();
             return ExecuteQuery(CommandText);
         }
 
