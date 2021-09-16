@@ -2,7 +2,13 @@
 
 .container {
     margin-top: 6rem;
+    width: 900px;
+    background: #9FC;
+    border-width: 10px !important;
+    background-color: #ffffff;
+    border-radius: 20px !important;
 }
+
 
 .login-image {
     margin-top: 5rem;
@@ -17,7 +23,7 @@ h4.title-page {
     margin-bottom: 3rem
 }
 
-.form-login {
+.form-Employee {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +44,7 @@ i.fas {
 input#txtCode, input#txtName, input#txtCPF {
     outline: 0;
     border-width: 0;
-    width: 30%;
+    width: 90%;
 }
 
 .form-group {
@@ -57,17 +63,30 @@ a {
     }
 
 
-.btn-login {
-    margin: 1rem 5rem;
+.btn-btnSearch {
+    margin: 0rem 1rem;
     background-color: transparent;
-    border-color: var(--color-primary);
-    border-radius: 20px;
-    color: var(--color-primary);
+    border-color: #0d6efd;
+    border-radius: 10px;
+    color: #0d6efd;
     height: 2.5rem;
     box-shadow: none;
 }
 
-    .btn-login:hover {
-        background-color: var(--color-primary);
-        color: #fff
+    .btn-btnSearch:hover {
+        background-color: #0d6efd;
+        color: #ffffff
     }
+
+
+/* Search */
+input#txtSearchCodFunc, input#txtSearchNomeFunc, input#txtSearchCpfFunc, 
+input#txtSearchRGFunc, input#txtSearchDtNascFunc, input#txtSearchTelFunc, 
+input#txtSearchCelFunc, input#txtSearchEnderecoFunc, input#txtSearchNumEndecFunc, 
+input#txtSearchBairroFunc, input#txtSearchCepFunc, input#txtSearchCidadeFunc, 
+input#txtSearchUFFunc, input#txtSearchEmailFunc, input#txtSearchSenhaFunc, 
+input#txtSearchDtDeslig {
+    outline: 0;
+    border-width: 0;
+    width: 90%;
+}

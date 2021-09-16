@@ -293,7 +293,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Styles\master.css" />
+    <Content Include="Styles\employee.css" />
     <Content Include="Styles\variables.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

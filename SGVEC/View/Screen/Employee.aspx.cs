@@ -21,9 +21,18 @@ namespace SGVEC.View.Screen
             gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
             gvEmployee.DataBind();
 
+            if (gvEmployee.Rows.Count == 0)
+            {
+                lblError.Visible = true;
+            }
+            else
+            {
+                lblError.Visible = false;
+            }
+
             //Preenche o ComboBox com os cadastros da Tabela - Cargo
-            ddlCodCargo.DataSource = cnt.ExecuteStringQuery("SELECT * FROM CARGO");
-            ddlCodCargo.DataBind();
+            ddlSearchCargoFunc.DataSource = cnt.ExecuteStringQuery("SELECT * FROM CARGO");
+            ddlSearchCargoFunc.DataBind();
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -36,13 +45,35 @@ namespace SGVEC.View.Screen
             //Atualiza o grid
             gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
             gvEmployee.DataBind();
+
+            if (gvEmployee.Rows.Count == 0)
+            {
+                lblError.Visible = true;
+            }
+            else
+            {
+                lblError.Visible = false;
+            }
         }
 
-
-        protected void btnComplete_Click(object sender, EventArgs e)
+        protected void btnSendSearch_Click(object sender, EventArgs e)
         {
             
         }
 
+        protected void btnSendInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSendUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSendDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
