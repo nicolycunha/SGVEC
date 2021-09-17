@@ -229,7 +229,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controller\DataManipulation.cs" />
-    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\GeneralComponent.cs" />
     <Compile Include="View\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

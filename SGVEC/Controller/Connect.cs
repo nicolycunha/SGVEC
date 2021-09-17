@@ -9,7 +9,7 @@ namespace SGVEC.Controller
         private MySqlConnection cn = new MySqlConnection("Server=127.0.0.1;Database=SGVEC;UID=root;PWD=root123");
         private MySqlCommand cm = new MySqlCommand();
         private ComponentError cptValidate = new ComponentError();
-        private Master mt = new Master();
+        private GeneralComponent gc = new GeneralComponent();
 
         public MySqlConnection DataBaseConnect()
         {
@@ -47,8 +47,10 @@ namespace SGVEC.Controller
                 MySqlDataReader leitor = cm.ExecuteReader();
 
                 while (leitor.Read())
-                {
-                    mt.codFunc = leitor.GetInt32(0);
+                {                    
+                    gc.CodFunc = leitor.GetInt32(0);
+                    gc.CPF = leitor.GetString(1);
+                    gc.Nome = leitor.GetString(2);
                     cm.Connection.Close();
                     return true;
                 }

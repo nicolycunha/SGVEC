@@ -7,7 +7,7 @@ namespace SGVEC.View.Screen
     public partial class WebForm1 : System.Web.UI.Page
     {
         private ComponentError cptValidate = new ComponentError();
-        private DataManipulation cnt = new DataManipulation();
+        private DataManipulation dtManip = new DataManipulation();
         private string strCode = "0";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -18,7 +18,7 @@ namespace SGVEC.View.Screen
             }
 
             //Atualiza o grid
-            gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
+            gvEmployee.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
             gvEmployee.DataBind();
 
             if (gvEmployee.Rows.Count == 0)
@@ -31,7 +31,7 @@ namespace SGVEC.View.Screen
             }
 
             //Preenche o ComboBox com os cadastros da Tabela - Cargo
-            ddlSearchCargoFunc.DataSource = cnt.ExecuteStringQuery("SELECT * FROM CARGO");
+            ddlSearchCargoFunc.DataSource = dtManip.ExecuteStringQuery("SELECT * FROM CARGO");
             ddlSearchCargoFunc.DataBind();
         }
 
@@ -43,7 +43,7 @@ namespace SGVEC.View.Screen
             }
 
             //Atualiza o grid
-            gvEmployee.DataSource = cnt.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
+            gvEmployee.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
             gvEmployee.DataBind();
 
             if (gvEmployee.Rows.Count == 0)

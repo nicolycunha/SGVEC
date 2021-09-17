@@ -11,17 +11,44 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h3><%: Title %>Seja bem vindo(a)
-                <label id="lblNomeFunc">Nome do Usuário</label></h3>
-        </div>
-        <div>
-            <asp:ImageButton ID="imgButtonEmployee" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonEmployee_Click" />
-            <asp:ImageButton ID="imgButtonTypeProduct" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonTypeProduct_Click" />
-            <asp:ImageButton ID="imgButtonProduct" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonProduct_Click" />
-            <asp:ImageButton ID="ImageButtonSupplier" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSupplier_Click" />
-            <asp:ImageButton ID="imgButtonStorege" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonStorege_Click" />
-            <asp:ImageButton ID="imgButtonSales" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSales_Click" />
+        <div class="card shadow bg-white p-4">
+            <br />
+            <div class="row">
+                <div class="col-md-10">
+                    <h3><%: Title %>Seja bem vindo(a)
+                    <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
+                </div>
+                <div class="col-md-2">
+                    <asp:Button ID="btnExit" runat="server" Text="Sair" CssClass="btn-primary" OnClick="btnExit_Click" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonEmployee" Enabled="true" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonEmployee_Click" />
+                </div>
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonTypeProduct" Enabled="true" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonEmployee_Click" />
+                </div>
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonProduct" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonProduct_Click" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <asp:ImageButton ID="ImageButtonSupplier" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSupplier_Click" />
+                </div>
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonStorege" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonStorege_Click" />
+                </div>
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonSales" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSales_Click" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <asp:ImageButton ID="imgButtonReport" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonReport_Click" />
+                </div>
+            </div>
         </div>
     </form>
     <footer>

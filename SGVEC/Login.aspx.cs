@@ -7,17 +7,20 @@ namespace SGVEC
     public partial class Login : System.Web.UI.Page
     {
         private ComponentError cptValidate = new ComponentError();
-        private Connect cnt = new Connect();
+        private Connect cnt = new Connect();        
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
+                cnt = new Connect();
+                cptValidate = new ComponentError();
+
                 lblError.Text = "";
 
                 if (txtLogin.Text == "")

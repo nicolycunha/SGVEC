@@ -64,5 +64,38 @@ namespace SGVEC.Controller
                 return null;
             }
         }
+
+        public MySqlDataReader ExecuteDataReader(string CommandText)
+        {
+            cnt = new Connect();
+            cn = new MySqlConnection();
+
+            cn = cnt.DataBaseConnect();
+            return ExecuteDtReader(CommandText);
+        }
+
+        //Retorna uma tabela de dados, podendo ser usada no gridview
+        private MySqlDataReader ExecuteDtReader(string CommandText)
+        {
+            try
+            {
+                cm = new MySqlCommand(CommandText, cn);
+                cm.ExecuteNonQuery();
+
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cm);
+
+                da.Fill(dt);
+
+                MySqlDataReader leitor = cm.ExecuteReader();
+
+                return leitor;
+            }
+            catch
+            {
+                cm.Connection.Close();
+                return null;
+            }
+        }
     }
 }

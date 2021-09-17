@@ -46,6 +46,7 @@
                         <asp:Button ID="btnLogin" runat="server" Text="ENTRAR" OnClick="btnLogin_Click" CssClass="btn-login" BorderStyle="Solid" />
 
                         <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
                     </div>
                 </div>
             </div>
