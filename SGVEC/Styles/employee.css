@@ -9,7 +9,6 @@
     border-radius: 20px !important;
 }
 
-
 .login-image {
     margin-top: 5rem;
 }
@@ -41,7 +40,13 @@ i.fas {
     padding-right: 1rem;
 }
 
-input#txtCode, input#txtName, input#txtCPF {
+input#txtCode, input#txtName, input#txtCPF,
+input#txtCodFunc, input#txtNomeFunc, input#txtCpfFunc,
+input#txtRGFunc, input#txtDtNascFunc, input#txtTelFunc,
+input#txtCelFunc, input#txtEnderecoFunc, input#txtNumEndecFunc,
+input#txtBairroFunc, input#txtCepFunc, input#txtCidadeFunc,
+input#txtUFFunc, input#txtEmailFunc, input#txtSenhaFunc,
+input#txtDtDeslig {
     outline: 0;
     border-width: 0;
     width: 90%;
@@ -77,16 +82,3 @@ a {
         background-color: #0d6efd;
         color: #ffffff
     }
-
-
-/* Search */
-input#txtSearchCodFunc, input#txtSearchNomeFunc, input#txtSearchCpfFunc, 
-input#txtSearchRGFunc, input#txtSearchDtNascFunc, input#txtSearchTelFunc, 
-input#txtSearchCelFunc, input#txtSearchEnderecoFunc, input#txtSearchNumEndecFunc, 
-input#txtSearchBairroFunc, input#txtSearchCepFunc, input#txtSearchCidadeFunc, 
-input#txtSearchUFFunc, input#txtSearchEmailFunc, input#txtSearchSenhaFunc, 
-input#txtSearchDtDeslig {
-    outline: 0;
-    border-width: 0;
-    width: 90%;
-}

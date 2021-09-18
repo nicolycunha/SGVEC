@@ -79,110 +79,113 @@
                         <div class="row clearfix">
                             <div class="col-md-3">
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchCodFunc" type="number" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtCodFunc" type="number" MaxLength="5" placeholder="Código"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchNomeFunc" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtNomeFunc" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtCpfFunc" type="number" MaxLength="14" placeholder="CPF"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:Button ID="btnSendSearch" runat="server" Text="Consultar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendSearch_Click" />
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtRGFunc" Enabled="false" type="number" MaxLength="12" placeholder="RG"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtDtNascFunc" Enabled="false" type="date" placeholder="Data Nascimento"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:DropDownList ID="ddlCargoFunc" Enabled="false" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtTelFunc" Enabled="false" type="number" MaxLength="15" placeholder="Telefone"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtCelFunc" Enabled="false" type="number" MaxLength="15" placeholder="Celular"></asp:TextBox>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtEnderecoFunc" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtNumEndecFunc" Enabled="false" type="number" MaxLength="5" placeholder="Número Endec."></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchCpfFunc" type="number" MaxLength="14" placeholder="CPF"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtBairroFunc" Enabled="false" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchRGFunc" type="number" MaxLength="12" placeholder="RG"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchDtNascFunc" type="date" placeholder="Data Nascimento"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchTelFunc" type="number" MaxLength="15" placeholder="Telefone"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchCelFunc" type="number" MaxLength="15" placeholder="Celular"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchEnderecoFunc" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchNumEndecFunc" type="number" MaxLength="5" placeholder="Número Endec."></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchBairroFunc" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchCepFunc" type="number" MaxLength="9" placeholder="CEP"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchCidadeFunc" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchUFFunc" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchEmailFunc" type="number" MaxLength="50" placeholder="Email"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchSenhaFunc" type="number" MaxLength="20" placeholder="Senha"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <asp:TextBox runat="server" ID="txtSearchDtDeslig" type="number" placeholder="Data Desligamento"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <asp:DropDownList ID="ddlSearchCargoFunc" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
                             <div class="col-md-2">
-                                <asp:Button ID="btnSendSearch" runat="server" Text="Consultar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendSearch_Click" />
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtCepFunc" Enabled="false" type="number" MaxLength="9" placeholder="CEP"></asp:TextBox>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtCidadeFunc" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
+                                </div>
                             </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtUFFunc" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtEmailFunc" Enabled="false" type="email" MaxLength="50" placeholder="Email"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtSenhaFunc" Enabled="false" type="password" MaxLength="20" placeholder="Senha"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtDtDeslig" Enabled="false" type="date" placeholder="Data Desligamento"></asp:TextBox>
+                                </div>
+                            </div>   
+                            <div class="col-md-2">
+                                <asp:Button ID="btnClearComponents" runat="server" Text="Limpar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnClearComponents_Click" />
+                            </div>
+                        </div>
+                        <div class="row clearfix">                            
                             <div class="col-md-2">
                                 <asp:Button ID="btnSendInsert" runat="server" Text="Incluir" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendInsert_Click" />
                             </div>
                             <div class="col-md-2">
-                                <asp:Button ID="btnSendUpdate" runat="server" Text="Alterar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendUpdate_Click" />
+                                <asp:Button ID="btnSendUpdate" runat="server" Enabled="false" Text="Alterar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendUpdate_Click" />
                             </div>
                             <div class="col-md-2">
-                                <asp:Button ID="btnSendDelete" runat="server" Text="Excluir" CssClass="btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                                <asp:Button ID="btnSendDelete" runat="server" Enabled="false" Text="Excluir" CssClass="btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                             </div>
                         </div>
                     </div>

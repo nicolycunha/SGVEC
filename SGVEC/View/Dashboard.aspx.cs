@@ -17,10 +17,7 @@ namespace SGVEC.View
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + 0 + "', '" + gc.CPF + "', '" + gc.Nome + "')");
 
-            if (leitor.Read())
-            {
-                lblNomeFunc.Text = leitor[2].ToString();
-            }
+            if (leitor.Read())lblNomeFunc.Text = leitor[2].ToString();
 
             if (gc.CodFunc == 1)
             {
