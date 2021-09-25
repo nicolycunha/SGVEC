@@ -87,7 +87,7 @@ namespace SGVEC.View.Screen
                         txtEmailFunc.Text = leitor[13].ToString();
                         txtSenhaFunc.Text = leitor[14].ToString();
                         txtDtDeslig.Text = leitor[15].ToString();
-                        ddlCargoFunc.SelectedValue = leitor[16].ToString();
+                        ddlCargoFunc.SelectedValue = Convert.ToDateTime(leitor[16].ToString()).ToString("yyyy-MM-dd");
 
                         EnableComponents(true);
                     }
