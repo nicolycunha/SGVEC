@@ -23,18 +23,13 @@ namespace SGVEC.View
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
-        /// <summary>
-<<<<<<< HEAD
-        /// Controle lblNomeFunc.
-=======
-        /// btnButtonHome control.
->>>>>>> d5b6e3ec3a8a764e685e39a531a71d511d20adde
+       /// <summary>
+        /// Controle btnExit.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label lblNomeFunc;
 
         /// <summary>
@@ -46,10 +41,14 @@ namespace SGVEC.View
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExit;
 
-=======
+        /// <summary>
+        /// Controle btnExit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnButtonHome;
-        
->>>>>>> d5b6e3ec3a8a764e685e39a531a71d511d20adde
         /// <summary>
         /// Controle imgButtonEmployee.
         /// </summary>
@@ -113,22 +112,5 @@ namespace SGVEC.View
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgButtonReport;
         
-        /// <summary>
-        /// btnExit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExit;
-        
-        /// <summary>
-        /// lblNomeFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomeFunc;
     }
 }
