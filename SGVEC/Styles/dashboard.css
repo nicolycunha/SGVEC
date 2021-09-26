@@ -1,0 +1,61 @@
+﻿@import "variables.css";
+
+.container-principal {
+    display: grid;
+    grid-template-columns: 0.6fr 1.5fr 0.9fr;
+    grid-template-rows: 0.3fr 1.7fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "sidebar navbar navbar"
+        "sidebar conteudo conteudo"
+        "sidebar conteudo conteudo";
+}
+
+.navbar {
+    grid-area: navbar;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.menu{
+    margin-top: 70px;
+}
+
+.menu-item{
+    display: flex;
+    margin: 25px;
+}
+
+.menu-icon{
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1.04rem;
+    color: black;
+}
+
+    .menu-icon:hover {
+        color: var(--color-primary);
+    }
+
+    .menu-icon > img {
+        width: 27.5px;
+        height: 27.5px;
+        margin-right: 8px;
+    }
+
+label {
+    font-size: 1.1rem;
+}
+
+
+.conteudo {
+    grid-area: conteudo;
+}
+
+.logo {
+    width: 90%;
+    margin-top: 10px;
+}

@@ -71,6 +71,7 @@ C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\Microsoft.AI.Web.xml
 C:\Users\bubuf\source\repos\SGVEC\SGVEC\obj\Debug\SGVEC.csprojResolveAssemblyReference.cache
 C:\Users\bubuf\source\repos\SGVEC\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\bubuf\source\repos\SGVEC\SGVEC\obj\Debug\SGVEC.pdb
+C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\System.Memory.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\ApplicationInsights.config
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\roslyn\csc.exe
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\roslyn\csc.exe.config
@@ -117,6 +118,7 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.CodeDom.Providers.DotN
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.ScriptManager.MSAjax.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.ScriptManager.WebForms.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\MySql.Data.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Newtonsoft.Json.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\System.Web.Optimization.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\WebGrease.dll
@@ -141,9 +143,7 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.DependencyCollector
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.Web.xml
-C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csprojAssemblyReference.cache
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CoreCompileInputs.cache
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CopyComplete
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.pdb
-C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\System.Memory.dll
