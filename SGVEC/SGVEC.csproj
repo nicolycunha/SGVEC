@@ -128,7 +128,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\Dashboard\businessman.png" />
+    <Content Include="images\Dashboard\codbarras.png" />
     <Content Include="images\Dashboard\funcionario.png" />
+    <Content Include="images\Dashboard\openbox.png" />
+    <Content Include="images\Dashboard\shopify.png" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
@@ -151,6 +155,8 @@
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.js" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.min.js" />
+    <Content Include="Styles\dashboard.css" />
+    <Content Include="Styles\employee.css" />
     <Content Include="View\About.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -293,7 +299,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Styles\master.css" />
     <Content Include="Styles\variables.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿@import "variables.css";
+@import "variables.css";
 
 .container-principal {
     display: grid;
@@ -7,10 +6,7 @@
     grid-template-rows: 0.3fr 1.7fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-        "sidebar navbar navbar"
-        "sidebar conteudo conteudo"
-        "sidebar conteudo conteudo";
+    grid-template-areas: "sidebar navbar navbar" "sidebar conteudo conteudo" "sidebar conteudo conteudo";
 }
 
 .navbar {
@@ -21,16 +17,16 @@
     grid-area: sidebar;
 }
 
-.menu{
+.menu {
     margin-top: 70px;
 }
 
-.menu-item{
+.menu-item {
     display: flex;
     margin: 25px;
 }
 
-.menu-icon{
+.menu-icon {
     margin-left: 10px;
     text-decoration: none;
     font-size: 1.04rem;
@@ -60,6 +56,3 @@ label {
     width: 90%;
     margin-top: 10px;
 }
-=======
-﻿
->>>>>>> d5b6e3ec3a8a764e685e39a531a71d511d20adde

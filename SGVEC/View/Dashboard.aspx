@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="/Styles/dashboard.css" rel="stylesheet" />
-    <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Styles/dashboard.css" rel="stylesheet" />
+    <link href="../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Scripts/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <title>SGVEC | Dashboard</title>
@@ -90,8 +90,7 @@
                     <br />
                     <div class="row">
                         <div class="col-md-10">
-                            <h3><%: Title %>Seja bem vindo(a)
-                    <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
+                            <h3>Seja bem vindo(a)<asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
                         </div>
                         <div class="col-md-2">
                             <asp:Button ID="btnExit" runat="server" Text="Sair" CssClass="btn-primary" OnClick="btnExit_Click" />
