@@ -13,7 +13,15 @@
 
 <body>
     <div class="container-principal">
-        <div class="navbar"></div>
+        <div class="navbar">
+            <div class="flex-d flex-column-reverse">
+                <a href="http://localhost:52149/Login#" class="menu-icon">
+                    <img src="../images/Dashboard/sair.png" alt="Ícone de Sair pela icons8" />
+                    Sair
+                </a>
+            </div>
+
+        </div>
 
         <div class="sidebar">
             <img src="../images/Dashboard/SGVEC_Logo.png" alt="SGVEC Logo" class="logo" />
@@ -57,7 +65,7 @@
                 <div class="row">
                     <div class="menu-item">
                         <a href="http://localhost:52149/View/Screen/TypeProduct#" class="menu-icon">
-                            <img src="../images/Dashboard/openbox.png" alt="Ícone de Tipo de Produto pela icons8" />
+                            <img src="../images/Dashboard/tipoproduto.png" alt="Ícone de Tipo de Produto pela icons8" />
                             Tipo de produto
                         </a>
                     </div>
@@ -66,7 +74,7 @@
                 <div class="row">
                     <div class="menu-item">
                         <a href="http://localhost:52149/View/Screen/Supplier#" class="menu-icon">
-                            <img src="../images/Dashboard/openbox.png" alt="Ícone de Fornecedor pela icons8" />
+                            <img src="../images/Dashboard/fornecedor.png" alt="Ícone de Fornecedor pela icons8" />
                             Fornecedor
                         </a>
                     </div>
@@ -75,7 +83,7 @@
                 <div class="row">
                     <div class="menu-item">
                         <a href="http://localhost:52149/View/Screen/Report#" class="menu-icon">
-                            <img src="../images/Dashboard/openbox.png" alt="Ícone de Relatórios pela icons8" />
+                            <img src="../images/Dashboard/relatorio.png" alt="Ícone de Relatórios pela icons8" />
                             Relatórios
                         </a>
                     </div>

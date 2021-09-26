@@ -35,6 +35,7 @@
 
     .menu-icon:hover {
         color: var(--color-primary);
+        text-decoration: none;
     }
 
     .menu-icon > img {
