@@ -2,12 +2,11 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>    
+<head>
     <link href="../../Scripts/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="../../Styles/employee.css" rel="stylesheet" />
-    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <title>SGVEC | Funcionários</title>
 </head>
 <body>
@@ -71,7 +70,9 @@
                             <SortedDescendingCellStyle BackColor="#E5E5E5" />
                         </asp:GridView>
 
-                        <asp:Label runat="server" ID="lblError" Visible="false" ForeColor="#865fc5">Registro não encontrado!</asp:Label>
+                        <div class="alert alert-danger" role="alert">
+                            <asp:Label runat="server" ID="lblErrorTab1" Visible="false" ForeColor="#ff0000"></asp:Label>
+                        </div>
                     </div>
 
                     <!------ Tab Funcionário -------------------------------------------------------------------------------------------->
@@ -121,7 +122,7 @@
                                 <div class="input-group">
                                     <asp:TextBox runat="server" ID="txtCelFunc" Enabled="false" type="number" MaxLength="15" placeholder="Celular"></asp:TextBox>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-4">
@@ -143,7 +144,7 @@
                                 <div class="input-group">
                                     <asp:TextBox runat="server" ID="txtCepFunc" Enabled="false" type="number" MaxLength="9" placeholder="CEP"></asp:TextBox>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-3">
@@ -172,12 +173,12 @@
                                 <div class="input-group">
                                     <asp:TextBox runat="server" ID="txtDtDeslig" Enabled="false" type="date" placeholder="Data Desligamento"></asp:TextBox>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="col-md-2">
                                 <asp:Button ID="btnClearComponents" runat="server" Text="Limpar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnClearComponents_Click" />
                             </div>
                         </div>
-                        <div class="row clearfix">                            
+                        <div class="row clearfix">
                             <div class="col-md-2">
                                 <asp:Button ID="btnSendInsert" runat="server" Text="Incluir" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendInsert_Click" />
                             </div>
@@ -188,13 +189,21 @@
                                 <asp:Button ID="btnSendDelete" runat="server" Enabled="false" Text="Excluir" CssClass="btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                             </div>
                         </div>
+                        <div class="row clearfix">
+                            <div class="alert alert-danger" role="alert">
+                                <asp:Label runat="server" ID="lblErrorTab2" Visible="false" ForeColor="#ff0000"></asp:Label>
+
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                <asp:Label runat="server" ID="lblSucess" Visible="false" ForeColor="#00cc00"></asp:Label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <footer>
-                <div class="row">
-                </div>
+                <p>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</p>
             </footer>
         </div>
     </form>
@@ -202,5 +211,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="../../Scripts/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

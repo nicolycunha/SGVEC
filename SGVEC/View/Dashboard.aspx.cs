@@ -17,68 +17,7 @@ namespace SGVEC.View
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + 0 + "', '" + gc.CPF + "', '" + gc.Nome + "')");
 
-            if (leitor.Read())lblNomeFunc.Text = leitor[2].ToString();
-
-            if (gc.CodFunc == 1)
-            {
-                imgButtonEmployee.Enabled = false;
-                imgButtonTypeProduct.Enabled = false;
-                imgButtonProduct.Enabled = true;
-                ImageButtonSupplier.Enabled = false;
-                imgButtonStorege.Enabled = false;
-                imgButtonSales.Enabled = true;
-                imgButtonReport.Enabled = false;
-            }
-            else if (gc.CodFunc == 2)
-            {
-                imgButtonEmployee.Enabled = false;
-                imgButtonTypeProduct.Enabled = false;
-                imgButtonProduct.Enabled = false;
-                ImageButtonSupplier.Enabled = false;
-                imgButtonStorege.Enabled = false;
-                imgButtonSales.Enabled = true;
-                imgButtonReport.Enabled = false;
-            }
-            else if (gc.CodFunc == 3)
-            {
-                imgButtonEmployee.Enabled = true;
-                imgButtonTypeProduct.Enabled = true;
-                imgButtonProduct.Enabled = true;
-                ImageButtonSupplier.Enabled = true;
-                imgButtonStorege.Enabled = true;
-                imgButtonSales.Enabled = true;
-                imgButtonReport.Enabled = true;
-            }
-            else if (gc.CodFunc == 4)
-            {
-                imgButtonEmployee.Enabled = true;
-                imgButtonTypeProduct.Enabled = true;
-                imgButtonProduct.Enabled = true;
-                ImageButtonSupplier.Enabled = false;
-                imgButtonStorege.Enabled = true;
-                imgButtonSales.Enabled = true;
-                imgButtonReport.Enabled = false;
-            }
-            else if (gc.CodFunc == 5)
-            {
-                imgButtonEmployee.Enabled = false;
-                imgButtonTypeProduct.Enabled = false;
-                imgButtonProduct.Enabled = true;
-                ImageButtonSupplier.Enabled = false;
-                imgButtonStorege.Enabled = false;
-                imgButtonSales.Enabled = true;
-                imgButtonReport.Enabled = false;
-            }
-            else if (gc.CodFunc == 6)
-            {
-                imgButtonEmployee.Enabled = false;
-                imgButtonTypeProduct.Enabled = false;
-                imgButtonProduct.Enabled = true;
-                ImageButtonSupplier.Enabled = true;
-                imgButtonStorege.Enabled = true;
-                imgButtonSales.Enabled = false;
-                imgButtonReport.Enabled = false;
-            }
+            if (leitor.Read())lblNomeFunc.Text = leitor[2].ToString();            
         }
 
         protected void imgButtonEmployee_Click(object sender, ImageClickEventArgs e)

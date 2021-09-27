@@ -67,13 +67,13 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.GridView gvEmployee;
         
         /// <summary>
-        /// lblError control.
+        /// lblErrorTab1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.Label lblErrorTab1;
         
         /// <summary>
         /// txtCodFunc control.
@@ -272,5 +272,23 @@ namespace SGVEC.View.Screen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSendDelete;
+        
+        /// <summary>
+        /// lblErrorTab2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorTab2;
+        
+        /// <summary>
+        /// lblSucess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSucess;
     }
 }
