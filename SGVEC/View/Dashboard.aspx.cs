@@ -19,45 +19,6 @@ namespace SGVEC.View
 
             if (leitor.Read())lblNomeFunc.Text = leitor[2].ToString();            
         }
-
-        protected void imgButtonEmployee_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Employee#");
-        }
-
-        protected void imgButtonTypeProduct_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/TypeProduct#");
-        }
-
-        protected void imgButtonProduct_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Product#");
-        }
-
-        protected void imgButtonSupplier_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Supplier#");
-        }
-
-        protected void imgButtonStorege_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Storege#");
-        }
-
-        protected void imgButtonSales_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Sales#");
-        }
-
-        protected void imgButtonReport_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/View/Screen/Report#");
-        }
-
-        protected void btnExit_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("http://localhost:52149/Login#");
-        }
+       
     }
 }

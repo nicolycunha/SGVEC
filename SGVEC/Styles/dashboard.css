@@ -57,3 +57,10 @@ label {
     width: 90%;
     margin-top: 10px;
 }
+
+.footer{
+    background-color:purple;
+    color: white;
+    position: fixed;
+    width: 100%;    
+}

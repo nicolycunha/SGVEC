@@ -7,7 +7,7 @@
     <link href="../Styles/dashboard.css" rel="stylesheet" />
     <link href="../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../Scripts/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet" />
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>SGVEC | Dashboard</title>
 </head>
 
@@ -94,49 +94,57 @@
 
         <div class="conteudo">
             <form id="form1" runat="server">
-                <div class="card shadow bg-white p-4">
-                    <br />
+                <div class="card shadow bg-white p-4 col-md-11">
                     <div class="row">
                         <div class="col-md-10">
-                            <h3>Seja bem vindo(a)<asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
-                        </div>
-                        <div class="col-md-2">
-                            <asp:Button ID="btnExit" runat="server" Text="Sair" CssClass="btn-primary" OnClick="btnExit_Click" />
+                            <h3>Seja bem vindo(a)
+                                <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonEmployee" Enabled="true" runat="server" ImageUrl="~/images/Dashboard/businessman.png" OnClick="imgButtonEmployee_Click" />
-                        </div>
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonTypeProduct" Enabled="true" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonEmployee_Click" />
-                        </div>
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonProduct" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonProduct_Click" />
-                        </div>
+
+                    <div class="col-md-4">
+                        <canvas id="myChart"></canvas>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="ImageButtonSupplier" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSupplier_Click" />
-                        </div>
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonStorege" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonStorege_Click" />
-                        </div>
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonSales" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonSales_Click" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <asp:ImageButton ID="imgButtonReport" Width="200px" runat="server" ImageUrl="~/images/Dashboard/funcionario.png" OnClick="imgButtonReport_Click" />
-                        </div>
-                    </div>
+
+                    <script>
+                        const labels = [
+                            'January',
+                            'February',
+                            'March',
+                            'April',
+                            'May',
+                            'June',
+                        ];
+
+                        const data = {
+                            labels: labels,
+                            datasets: [{
+                                label: 'My First dataset',
+                                backgroundColor: 'rgb(255, 99, 132)',
+                                borderColor: 'rgb(255, 99, 132)',
+                                data: [0, 10, 5, 2, 20, 30, 45],
+                            }]
+                        };
+
+                        const config = {
+                            type: 'line',
+                            data: data,
+                            options: {}
+                        };
+
+                        var myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                        );
+                    </script>
+
+
                 </div>
             </form>
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</p>
-            </footer>
         </div>
+        <footer class="row footer">
+            <p>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</p>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
