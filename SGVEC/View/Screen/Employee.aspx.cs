@@ -2,6 +2,7 @@
 using SGVEC.Models;
 using SGVEC.Controller;
 using MySql.Data.MySqlClient;
+using System.Web.UI.WebControls;
 
 namespace SGVEC.View.Screen
 {
@@ -124,14 +125,14 @@ namespace SGVEC.View.Screen
                         txtUFFunc.Text = leitor[12].ToString();
                         txtEmailFunc.Text = leitor[13].ToString();
                         txtSenhaFunc.Text = leitor[14].ToString();
-                        txtDtDeslig.Text = leitor[15].ToString();
-                        ddlCargoFunc.SelectedValue = Convert.ToDateTime(leitor[16].ToString()).ToString("yyyy-MM-dd");
+                        if (leitor[15].ToString() != "") { txtDtDeslig.Text = Convert.ToDateTime(leitor[15].ToString()).ToString("yyyy-MM-dd"); } else { txtDtDeslig.Text = ""; };
+                        ddlCargoFunc.SelectedValue = leitor[16].ToString();
 
                         EnableComponents(true);
                     }
                     else { lblErrorTab2.Text = "Não há funcionários com essas informações no sistema!"; }
                 }
-                else lblErrorTab2.Text = "É necessário preencher os campos obrigatórios!"; ClearComponents();
+                else { lblErrorTab2.Text = "É necessário preencher os campos obrigatórios!"; ClearComponents(); }
             }
             catch (Exception ex)
             {
@@ -169,6 +170,7 @@ namespace SGVEC.View.Screen
 
                             lblSucess.Text = "Funcionário cadastrado com sucesso!";
                             lblSucess.Visible = true;
+                            ClearComponents();
                         }
                     }
                 }
@@ -252,6 +254,21 @@ namespace SGVEC.View.Screen
             else if (ddlCargoFunc.SelectedItem.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Cargo", MSG_NECESSARIO); return false; }
 
             return true;
+        }
+
+        protected void gvEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int teste = 1;
+        }
+
+        protected void gvEmployee_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int teste = 1;
+        }
+
+        public void teste()
+        {
+            int teste = 1;
         }
     }
 }

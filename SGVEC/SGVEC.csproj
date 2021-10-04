@@ -140,6 +140,7 @@
     <Content Include="images\Dashboard\sair.png" />
     <Content Include="images\Dashboard\shopify.png" />
     <Content Include="images\Dashboard\tipoproduto.png" />
+    <Content Include="images\Employee\icons8-pesquisa-propriedade-30.png" />
     <Content Include="images\logo.png" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
