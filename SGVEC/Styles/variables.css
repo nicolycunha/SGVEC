@@ -1,5 +1,6 @@
 ﻿:root {
     --color-primary: #4E20A9;
+    --color-primary-hover: #8655e7;
     --color-primary-transparent: rgba(78, 32, 169, 0.4);
     --color-success: #2AAA19;
     --color-success-transparent: rgba(42, 170, 25, 0.4);
@@ -9,4 +10,6 @@
     --color-warning-transparent: rgba(255, 199, 0, 0.4);
     --color-danger: #CE381A;
     --color-danger-transparent: rgba(206, 56, 26, 0.4);
+    --color-background: #f5f5f5;
+    --color-text-gray: #767676;
 }

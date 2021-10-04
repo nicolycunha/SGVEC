@@ -4,107 +4,93 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="../Styles/dashboard.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link href="../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Scripts/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Styles/dashboard.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>SGVEC | Dashboard</title>
 </head>
 
+
+
 <body>
-    <div class="container-principal">
-        <div class="navbar">
-            <div class="flex-d flex-column-reverse">
-                <a href="http://localhost:52149/Login#" class="menu-icon">
-                    <img src="../images/Dashboard/sair.png" alt="Ícone de Sair pela icons8" />
-                    Sair
-                </a>
+    <div class="flex-dashboard">
+        <aside>
+            <div class="sidebar-title">
+                <img src="../images/logo.png" alt="SGVEC" />
             </div>
-
-        </div>
-
-        <div class="sidebar">
-            <img src="../images/Dashboard/SGVEC_Logo.png" alt="SGVEC Logo" class="logo" />
             <div class="menu">
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Employee#" class="menu-icon">
-                            <img src="../images/Dashboard/businessman.png" alt="Ícone de Funcionários pela icons8" />
-                            Funcionários
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Sales#" class="menu-icon">
-                            <img src="../images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
-                            Vendas
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Storege#" class="menu-icon">
+                <ul>
+                    <li>
+                        <a href="/View/Screen/Storage">
                             <img src="../images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
                             Estoque
                         </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Product#" class="menu-icon">
-                            <img src="../images/Dashboard/codbarras.png" alt="Ícone de Produto pela icons8" />
-                            Produtos
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/TypeProduct#" class="menu-icon">
-                            <img src="../images/Dashboard/tipoproduto.png" alt="Ícone de Tipo de Produto pela icons8" />
-                            Tipo de produto
-                        </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Supplier#" class="menu-icon">
+                    </li>
+                    <li>
+                        <a href="/View/Screen/Supplier">
                             <img src="../images/Dashboard/fornecedor.png" alt="Ícone de Fornecedor pela icons8" />
                             Fornecedor
                         </a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="menu-item">
-                        <a href="http://localhost:52149/View/Screen/Report#" class="menu-icon">
+                    </li>
+                    <li>
+                        <a href="/View/Screen/Employee">
+                            <img src="../images/Dashboard/businessman.png" alt="Ícone de Funcionários pela icons8" />
+                            Funcionários
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/View/Screen/Product">
+                            <img src="../images/Dashboard/codbarras.png" alt="Ícone de Produto pela icons8" />
+                            Produtos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/View/Screen/TypeProduct">
+                            <img src="../images/Dashboard/tipoproduto.png" alt="Ícone de Tipo de Produto pela icons8" />
+                            Tipo de produto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/View/Screen/Sales">
+                            <img src="../images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
+                            Vendas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/View/Screen/Report">
                             <img src="../images/Dashboard/relatorio.png" alt="Ícone de Relatórios pela icons8" />
                             Relatórios
                         </a>
-                    </div>
-                </div>
-
+                    </li>
+                </ul>
+                 <footer class="footer">
+                    <a href="/View/Manual" class="manual">
+                        <img src="../images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
+                        <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span> 
+                    </a>
+                </footer>
             </div>
-        </div>
+        </aside>
 
-        <div class="conteudo">
-            <form id="form1" runat="server">
-                <div class="card shadow bg-white p-4 col-md-11">
-                    <div class="row">
-                        <div class="col-md-10">
-                            <h3>Seja bem vindo(a)
-                                <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label></h3>
-                        </div>
-                    </div>
+        <main>
+            <header>
+                <a href="#">Dashboard</a>
+                <a href="/Login" class="logout">
+                    <img src="../images/Dashboard/sair.png" alt="Ícone de Sair pela icons8" />
+                    sair
+                </a>
+            </header>
 
-                    <div class="col-md-4">
-                        <canvas id="myChart"></canvas>
-                    </div>
+            <div class="conteudo">
+                <h4>Seja bem vindo(a)
+                   <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label>
+                </h4>
+
+                <div class="card p-4 col-md-4">
+                    <canvas id="myChart"></canvas>
 
                     <script>
                         const labels = [
@@ -120,8 +106,8 @@
                             labels: labels,
                             datasets: [{
                                 label: 'My First dataset',
-                                backgroundColor: 'rgb(255, 99, 132)',
-                                borderColor: 'rgb(255, 99, 132)',
+                                backgroundColor: 'rgb(78, 32, 169)',
+                                borderColor: 'rgb(78, 32, 169)',
                                 data: [0, 10, 5, 2, 20, 30, 45],
                             }]
                         };
@@ -137,18 +123,10 @@
                             config
                         );
                     </script>
-
-
                 </div>
-            </form>
-        </div>
-        <footer class="row footer">
-            <p>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</p>
-        </footer>
+            </div>
+        </main>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -134,11 +134,13 @@
     <Content Include="images\Dashboard\codbarras.png" />
     <Content Include="images\Dashboard\fornecedor.png" />
     <Content Include="images\Dashboard\funcionario.png" />
+    <Content Include="images\Dashboard\info.png" />
     <Content Include="images\Dashboard\openbox.png" />
     <Content Include="images\Dashboard\relatorio.png" />
     <Content Include="images\Dashboard\sair.png" />
     <Content Include="images\Dashboard\shopify.png" />
     <Content Include="images\Dashboard\tipoproduto.png" />
+    <Content Include="images\logo.png" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
