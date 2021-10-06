@@ -237,6 +237,12 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="View\Dashboard.aspx" />
     <Content Include="View\Screen\Employee.aspx" />
+    <Content Include="View\Screen\Product.aspx" />
+    <Content Include="View\Screen\Report.aspx" />
+    <Content Include="View\Screen\Sales.aspx" />
+    <Content Include="View\Screen\Storage.aspx" />
+    <Content Include="View\Screen\Supplier.aspx" />
+    <Content Include="View\Screen\TypeProduct.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -300,6 +306,48 @@
     </Compile>
     <Compile Include="View\Screen\Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Sales.aspx.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Sales.aspx.designer.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Storage.aspx.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Storage.aspx.designer.cs">
+      <DependentUpon>Storage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Supplier.aspx.cs">
+      <DependentUpon>Supplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Supplier.aspx.designer.cs">
+      <DependentUpon>Supplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\TypeProduct.aspx.cs">
+      <DependentUpon>TypeProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\TypeProduct.aspx.designer.cs">
+      <DependentUpon>TypeProduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -77,7 +77,7 @@
 
         <main>
             <header>
-                <a href="#">Dashboard</a>
+                <span>Dashboard</span>
                 <a href="/Login" class="logout">
                     <img src="../images/Dashboard/sair.png" alt="Ícone de Sair pela icons8" />
                     sair
