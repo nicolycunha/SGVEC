@@ -11,8 +11,9 @@ namespace SGVEC.View.Screen
         private Connect cnt = new Connect();
         private ComponentError ce = new ComponentError();
         private DataManipulation dtManip = new DataManipulation();
-        private GeneralComponent gc = new GeneralComponent();
+        //private GeneralComponent gc = new GeneralComponent();
         private string strCode = "0";
+        private string objCodFunc = "0";
         private readonly string MSG_NECESSARIO = "É necessário preencher o campo ";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,40 +21,30 @@ namespace SGVEC.View.Screen
             try
             {
                 //Controle de uso do sistema por cargo
-                if (gc.CodFunc == 1) //Atendente
-                {
-                    btnSendSearch.Enabled = false;
-                    btnSendInsert.Enabled = false;
-                    EnableComponents(false);
-                }
-                else if (gc.CodFunc == 2) //Caixa
-                {
-                    btnSendSearch.Enabled = false;
-                    btnSendInsert.Enabled = false;
-                    EnableComponents(false);
-                }
-                else if (gc.CodFunc == 3) //Gerente de Loja
-                {
-                    btnSendSearch.Enabled = true;
-                    btnSendInsert.Enabled = true;
-                }
-                else if (gc.CodFunc == 4) //Gerente de Área
-                {
-                    btnSendSearch.Enabled = true;
-                    btnSendInsert.Enabled = true;
-                }
-                else if (gc.CodFunc == 5) //Treinador
-                {
-                    btnSendSearch.Enabled = false;
-                    btnSendInsert.Enabled = false;
-                    EnableComponents(false);
-                }
-                else if (gc.CodFunc == 6) //Técnico de Qualidade
-                {
-                    btnSendSearch.Enabled = false;
-                    btnSendInsert.Enabled = false;
-                    EnableComponents(false);
-                }
+                //if (gc.CodFunc == 1) //Atendente
+                //{
+                //    EnableComponents(false);
+                //}
+                //else if (gc.CodFunc == 2) //Caixa
+                //{
+                //    EnableComponents(false);
+                //}
+                //else if (gc.CodFunc == 3) //Gerente de Loja
+                //{
+                //}
+                //else if (gc.CodFunc == 4) //Gerente de Área
+                //{                
+                //}
+                //else if (gc.CodFunc == 5) //Treinador
+                //{
+                //    EnableComponents(false);
+                //}
+                //else if (gc.CodFunc == 6) //Técnico de Qualidade
+                //{
+                //    EnableComponents(false);
+                //}
+
+                EnableComponents(false);
 
                 if (txtCode.Text != "") strCode = txtCode.Text;
 
@@ -61,8 +52,8 @@ namespace SGVEC.View.Screen
                 gvEmployee.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
                 gvEmployee.DataBind();
 
-                if (gvEmployee.Rows.Count == 0) { lblErrorTab1.Visible = true; lblErrorTab1.Text = "Não há funcionários com essas informações no sistema!"; }
-                else lblErrorTab1.Visible = false;
+                if (gvEmployee.Rows.Count == 0) { lblError.Visible = true; lblError.Text = "Não há funcionários com essas informações no sistema!"; }
+                else lblError.Visible = false;
 
                 //Preenche o ComboBox com os cadastros da Tabela - Cargo
                 ddlCargoFunc.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM CARGO");
@@ -72,8 +63,8 @@ namespace SGVEC.View.Screen
             }
             catch (Exception ex)
             {
-                lblErrorTab1.Text = ex.Message;
-                lblErrorTab1.Visible = true;
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
             }
         }
 
@@ -87,26 +78,26 @@ namespace SGVEC.View.Screen
                 gvEmployee.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
                 gvEmployee.DataBind();
 
-                if (gvEmployee.Rows.Count == 0) { lblErrorTab1.Visible = true; lblErrorTab1.Text = "Não há funcionários com essas informações no sistema!"; }
-                else lblErrorTab1.Visible = false;
+                if (gvEmployee.Rows.Count == 0) { lblError.Visible = true; lblError.Text = "Não há funcionários com essas informações no sistema!"; }
+                else lblError.Visible = false;
 
                 txtCode.Text = ""; txtCPF.Text = ""; txtName.Text = "";
             }
             catch (Exception ex)
             {
-                lblErrorTab1.Text = ex.Message;
-                lblErrorTab1.Visible = true;
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
             }
         }
 
-        protected void btnSendSearch_Click(object sender, EventArgs e)
+        protected void btnSearchEmployee_Click()
         {
             try
             {
-                if (txtCodFunc.Text != "" || txtNomeFunc.Text != "" || txtCpfFunc.Text != "")
+                if (objCodFunc != "0")
                 {
                     cnt.DataBaseConnect();
-                    MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + txtCodFunc.Text + "', '" + txtCpfFunc.Text + "', '" + txtNomeFunc.Text + "')");
+                    MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + objCodFunc + "', '', '')");
 
                     if (leitor.Read())
                     {
@@ -128,20 +119,21 @@ namespace SGVEC.View.Screen
                         if (leitor[15].ToString() != "") { txtDtDeslig.Text = Convert.ToDateTime(leitor[15].ToString()).ToString("yyyy-MM-dd"); } else { txtDtDeslig.Text = ""; };
                         ddlCargoFunc.SelectedValue = leitor[16].ToString();
 
-                        EnableComponents(true);
+                        if(lblValue.Text == "1") { EnableComponents(false); }
+                        else if (lblValue.Text == "2") { EnableComponents(true); }                        
                     }
-                    else { lblErrorTab2.Text = "Não há funcionários com essas informações no sistema!"; }
+                    else { lblErrorModal.Text = "Não há funcionários com essas informações no sistema!"; }
                 }
-                else { lblErrorTab2.Text = "É necessário preencher os campos obrigatórios!"; ClearComponents(); }
+                else { lblErrorModal.Text = "É necessário selecionar um funcionário!"; ClearComponents(); }
             }
             catch (Exception ex)
             {
-                lblErrorTab2.Text = ex.Message;
-                lblErrorTab2.Visible = true;
+                lblErrorModal.Text = ex.Message;
+                lblErrorModal.Visible = true;
             }
         }
 
-        protected void btnSendInsert_Click(object sender, EventArgs e)
+        protected void btnSendInsert_Click()
         {
             try
             {
@@ -152,14 +144,14 @@ namespace SGVEC.View.Screen
 
                     if (leitor.Read())
                     {
-                        lblErrorTab2.Text = "Já existe o Funcionário informado cadastrado no sistema!";
-                        lblErrorTab2.Visible = true;
+                        lblErrorModal.Text = "Já existe o Funcionário informado cadastrado no sistema!";
+                        lblErrorModal.Visible = true;
                     }
                     else
                     {
                         ValidateComponents();
 
-                        if (lblErrorTab2.Text == "")
+                        if (lblErrorModal.Text == "")
                         {
                             cnt.DataBaseConnect();
                             dtManip.ExecuteDataReader("CALL PROC_INSERT_FUNC('" + txtCPF.Text + "', '" + txtNomeFunc.Text + "', '" + txtRGFunc.Text + "', '"
@@ -176,39 +168,13 @@ namespace SGVEC.View.Screen
                 }
                 else
                 {
-                    lblErrorTab2.Visible = true;
+                    lblErrorModal.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                lblErrorTab2.Text = ex.Message;
-                lblErrorTab2.Visible = true;
-            }
-        }
-
-        protected void btnSendUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                lblErrorTab2.Text = ex.Message;
-                lblErrorTab2.Visible = true;
-            }
-        }
-
-        protected void btnSendDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                lblErrorTab2.Text = ex.Message;
-                lblErrorTab2.Visible = true;
+                lblErrorModal.Text = ex.Message;
+                lblErrorModal.Visible = true;
             }
         }
 
@@ -234,41 +200,33 @@ namespace SGVEC.View.Screen
             txtCelFunc.Enabled = value; txtEnderecoFunc.Enabled = value; txtNumEndecFunc.Enabled = value;
             txtBairroFunc.Enabled = value; txtCepFunc.Enabled = value; txtCidadeFunc.Enabled = value;
             txtUFFunc.Enabled = value; txtEmailFunc.Enabled = value; txtSenhaFunc.Enabled = value; txtDtDeslig.Enabled = value;
-            btnSendUpdate.Enabled = value; btnSendDelete.Enabled = value; btnClearComponents.Enabled = value;
+            btnDeleteEmployee.Enabled = value;
         }
 
         private bool ValidateComponents()
         {
-            if (txtCpfFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("CPF", MSG_NECESSARIO); return false; }
-            else if (txtNomeFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Nome", MSG_NECESSARIO); return false; }
-            else if (txtRGFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("RG", MSG_NECESSARIO); return false; }
-            else if (txtDtNascFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Data de Nascimento", MSG_NECESSARIO); return false; }
-            else if (txtEnderecoFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Endereço", MSG_NECESSARIO); return false; }
-            else if (txtNumEndecFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Número", MSG_NECESSARIO); return false; }
-            else if (txtBairroFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Bairro", MSG_NECESSARIO); return false; }
-            else if (txtCepFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("CEP", MSG_NECESSARIO); return false; }
-            else if (txtCidadeFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Cidade", MSG_NECESSARIO); return false; }
-            else if (txtUFFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("UF", MSG_NECESSARIO); return false; }
-            else if (txtEmailFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Email", MSG_NECESSARIO); return false; }
-            else if (txtSenhaFunc.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Senha", MSG_NECESSARIO); return false; }
-            else if (ddlCargoFunc.SelectedItem.Text == "") { lblErrorTab2.Text = ce.ComponentsValidation("Cargo", MSG_NECESSARIO); return false; }
+            if (txtCpfFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("CPF", MSG_NECESSARIO); return false; }
+            else if (txtNomeFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Nome", MSG_NECESSARIO); return false; }
+            else if (txtRGFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("RG", MSG_NECESSARIO); return false; }
+            else if (txtDtNascFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Data de Nascimento", MSG_NECESSARIO); return false; }
+            else if (txtEnderecoFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Endereço", MSG_NECESSARIO); return false; }
+            else if (txtNumEndecFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Número", MSG_NECESSARIO); return false; }
+            else if (txtBairroFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Bairro", MSG_NECESSARIO); return false; }
+            else if (txtCepFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("CEP", MSG_NECESSARIO); return false; }
+            else if (txtCidadeFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Cidade", MSG_NECESSARIO); return false; }
+            else if (txtUFFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("UF", MSG_NECESSARIO); return false; }
+            else if (txtEmailFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Email", MSG_NECESSARIO); return false; }
+            else if (txtSenhaFunc.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Senha", MSG_NECESSARIO); return false; }
+            else if (ddlCargoFunc.SelectedItem.Text == "") { lblErrorModal.Text = ce.ComponentsValidation("Cargo", MSG_NECESSARIO); return false; }
 
             return true;
         }
 
         protected void gvEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int teste = 1;
-        }
-
-        protected void gvEmployee_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int teste = 1;
-        }
-
-        public void teste()
-        {
-            int teste = 1;
+            objCodFunc = (sender as LinkButton).CommandArgument; //Código do funcionário selecionado no grid
+            if (objCodFunc == "0") { ClearComponents(); }
+            else { btnSearchEmployee_Click(); }
         }
     }
 }

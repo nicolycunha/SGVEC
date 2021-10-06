@@ -12,20 +12,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container shadow bg-white p-4">
+        <div class="container shadow bg-white p-3">
             <div class="col-md-12">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Consultar</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-search-tab" data-bs-toggle="pill" data-bs-target="#pills-search" type="button" role="tab" aria-controls="pills-search" aria-selected="false">Funcionário</button>
-                    </li>
-                </ul>
-
                 <div class="row clearfix">
                     <br />
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="input-group">
                             <asp:TextBox runat="server" ID="txtCode" type="number" placeholder="Código" MaxLength="5"></asp:TextBox>
                         </div>
@@ -35,22 +26,19 @@
                             <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="input-group">
                             <asp:TextBox ID="txtCPF" type="text" runat="server" placeholder="CPF" MaxLength="14"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-2">
                         <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn-btnSearch" BorderStyle="Solid" OnClick="btnSearch_Click" />
                     </div>
                 </div>
 
                 <br />
-                <br />
-
                 <div class="row clearfix">
-                    <asp:GridView ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal"
-                        OnSelectedIndexChanged="gvEmployee_SelectedIndexChanged" OnRowDeleting="gvEmployee_RowDeleting">
+                    <asp:GridView CssClass="col-md-12" ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
                         <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -63,12 +51,15 @@
                             <asp:BoundField DataField="TELEFONE_FUNC" HeaderText="Telefone" />
                             <asp:BoundField DataField="CELULAR_FUNC" HeaderText="Celular" />
                             <asp:BoundField DataField="DATA_DESLIGAMENTO" HeaderText="Data Deslig." />
-                            <asp:ButtonField ButtonType="Button" CommandName="Select" Text="Selecionar" />
-                            <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Deletar" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_FUNC") %>' OnClick="gvEmployee_SelectedIndexChanged"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                         <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
                         <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                        <SelectedRowStyle BackColor="#00ccff" ForeColor="#F7F7F7" Font-Bold="True" />
                         <SortedAscendingCellStyle BackColor="#F4F4FD" />
                         <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
                         <SortedDescendingCellStyle BackColor="#D8D8F0" />
@@ -77,14 +68,27 @@
                 </div>
 
                 <div class="row clearfix">
-                    <asp:Label runat="server" ID="lblErrorTab1" Visible="false" ForeColor="#ff0000"></asp:Label>
+                    <asp:Label runat="server" ID="lblError" Visible="false" ForeColor="#ff0000"></asp:Label>
                 </div>
             </div>
 
-            <!-- Button trigger modal -->
-            <button type="button" id="btnSearchEmployee" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
-            <button type="button" id="btnInsertEmployee" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Incluir</button>
-            <button type="button" id="btnUpdateEmployee" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Alterar</button>
+            <br />
+            <div class="row clearfix">
+                <!-- Button trigger modal -->
+                <div class="col-md-2">
+                    <button id="btnSearchEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
+                </div>
+                <div class="col-md-2">
+                    <button id="btnInsertEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Incluir</button>
+                </div>
+                <div class="col-md-2">
+                    <button id="btnUpdateEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Alterar</button>
+                </div>
+                <div class="col-md-2">
+                    <asp:Button ID="btnDeleteEmployee" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" />
+                </div>
+                <asp:Label ID="lblValue" runat="server" Text="0" Visible="false"></asp:Label>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="lblEmployeeModal" aria-hidden="true">
@@ -110,9 +114,6 @@
                                     <div class="input-group">
                                         <asp:TextBox runat="server" ID="txtCpfFunc" type="text" MaxLength="14" placeholder="CPF"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <asp:Button ID="btnSendSearch" runat="server" Text="Consultar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendSearch_Click" />
                                 </div>
                             </div>
                             <div class="row clearfix">
@@ -193,23 +194,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <asp:Button ID="btnClearComponents" runat="server" Text="Limpar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnClearComponents_Click" />
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-md-2">
-                                    <asp:Button ID="btnSendInsert" runat="server" Text="Incluir" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendInsert_Click" />
-                                </div>
-                                <div class="col-md-2">
-                                    <asp:Button ID="btnSendUpdate" runat="server" Enabled="false" Text="Alterar" CssClass="btn-primary" BorderStyle="Solid" OnClick="btnSendUpdate_Click" />
-                                </div>
-                                <div class="col-md-2">
-                                    <asp:Button ID="btnSendDelete" runat="server" Enabled="false" Text="Excluir" CssClass="btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                                    <button id="btnClearComponents" type="button" class="btn btn-primary" >Limpar</button>                                    
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div>
-                                    <asp:Label runat="server" ID="lblErrorTab2" Visible="false" ForeColor="#ff0000"></asp:Label>
+                                    <asp:Label runat="server" ID="lblErrorModal" Visible="false" ForeColor="#ff0000"></asp:Label>
                                 </div>
                                 <div>
                                     <asp:Label runat="server" ID="lblSucess" Visible="false" ForeColor="#00cc00"></asp:Label>
@@ -219,7 +209,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-success">Salvar</button>
+                            <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" />
                         </div>
                     </div>
                 </div>

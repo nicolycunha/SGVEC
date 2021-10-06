@@ -67,13 +67,31 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.GridView gvEmployee;
         
         /// <summary>
-        /// lblErrorTab1 control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorTab1;
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// btnDeleteEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteEmployee;
+        
+        /// <summary>
+        /// lblValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValue;
         
         /// <summary>
         /// txtCodFunc control.
@@ -101,15 +119,6 @@ namespace SGVEC.View.Screen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCpfFunc;
-        
-        /// <summary>
-        /// btnSendSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendSearch;
         
         /// <summary>
         /// txtRGFunc control.
@@ -238,49 +247,13 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.TextBox txtDtDeslig;
         
         /// <summary>
-        /// btnClearComponents control.
+        /// lblErrorModal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearComponents;
-        
-        /// <summary>
-        /// btnSendInsert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendInsert;
-        
-        /// <summary>
-        /// btnSendUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendUpdate;
-        
-        /// <summary>
-        /// btnSendDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSendDelete;
-        
-        /// <summary>
-        /// lblErrorTab2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorTab2;
+        protected global::System.Web.UI.WebControls.Label lblErrorModal;
         
         /// <summary>
         /// lblSucess control.
@@ -290,5 +263,14 @@ namespace SGVEC.View.Screen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSucess;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

@@ -164,6 +164,7 @@
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.js" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\Screen\Config.js" />
     <Content Include="Styles\dashboard.css" />
     <Content Include="Styles\employee.css" />
     <Content Include="View\About.aspx" />
