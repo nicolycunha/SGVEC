@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Estoque</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/Storage">
                             <img src="/images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
                             Estoque

@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Tipo de Produto</title>
 </head>
 <body>
@@ -41,7 +42,7 @@
                             Produtos
                         </a>
                     </li>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/TypeProduct">
                             <img src="/images/Dashboard/tipoproduto.png" alt="Ícone de Tipo de Produto pela icons8" />
                             Tipo de produto

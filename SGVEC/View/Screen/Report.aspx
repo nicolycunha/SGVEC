@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Relatório</title>
 </head>
 <body>
@@ -53,7 +54,7 @@
                             Vendas
                         </a>
                     </li>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/Report">
                             <img src="/images/Dashboard/relatorio.png" alt="Ícone de Relatórios pela icons8" />
                             Relatórios

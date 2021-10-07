@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+    <link href="/Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Fornecedor</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
                             Estoque
                         </a>
                     </li>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/Supplier">
                             <img src="/images/Dashboard/fornecedor.png" alt="Ícone de Fornecedor pela icons8" />
                             Fornecedor

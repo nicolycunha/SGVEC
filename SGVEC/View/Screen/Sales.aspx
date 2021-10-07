@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
      <link href="/Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Vendas</title>
 </head>
 <body>
@@ -47,7 +48,7 @@
                             Tipo de produto
                         </a>
                     </li>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/Sales">
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas
