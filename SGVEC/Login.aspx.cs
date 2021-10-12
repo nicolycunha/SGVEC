@@ -1,11 +1,13 @@
 ﻿using System;
 using SGVEC.Models;
 using SGVEC.Controller;
+using MySql.Data.MySqlClient;
 
 namespace SGVEC
 {
     public partial class Login : System.Web.UI.Page
     {
+        private DataManipulation dtManip = new DataManipulation();
         private ComponentError ce = new ComponentError();
         private Connect cnt = new Connect();        
 
@@ -36,8 +38,21 @@ namespace SGVEC
                     cnt.DataBaseConnect();
                     if (cnt.ExecuteStringQuery("CALL PROC_LOGIN_FUNC('" + txtLogin.Text.ToString() + "', '" + txtPassword.Text.ToString() + "')"))
                     {
-                        //Acessar Dashboard
-                        Response.Redirect("http://localhost:52149/View/Dashboard#");
+                        cnt.DataBaseConnect();
+                        MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_LOGIN_FUNC('" + txtLogin.Text.ToString() + "', '" + txtPassword.Text.ToString() + "')");
+
+                        if (leitor.Read())
+                        {
+                            if (leitor[3].ToString() != "")
+                            {
+                                lblError.Text = "Atenção! Seu acesso enconstra-se Desligado. Entrar em contato com um Gerente!";
+                            }
+                            else
+                            {
+                                //Acessar Dashboard
+                                Response.Redirect("http://localhost:52149/View/Dashboard#");
+                            }
+                        }
                     }
                     else
                     {
