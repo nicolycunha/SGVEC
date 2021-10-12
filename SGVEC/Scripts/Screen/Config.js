@@ -19,10 +19,10 @@
         if ($('#lblSucess')[0].innerText != "") {
             $('#divAlertSucess').prop('style', 'display:block');
         }
-    }
+    }    
 
     $('#btnSearchEmployee').click(function () {
-        $('#btnSave').prop('disabled', 'false');
+        $('#btnSave').prop('disabled', false);
         $('#btnClearComponents').prop('disabled', 'false');
         DisableComponents(true);
     });
@@ -30,6 +30,11 @@
     $('#btnInsertEmployee').click(function () {
         ClearComponents();
         DisableComponents(false);
+    });
+
+    $('#btnUpdateEmployee').click(function () {
+        DisableComponents(false);
+        $('#txtCpfFunc').prop('disabled', true);
     });
 
     $('#btnClearComponents').click(function () {

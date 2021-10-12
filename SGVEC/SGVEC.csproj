@@ -130,18 +130,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\Dashboard\businessman.png" />
-    <Content Include="images\Dashboard\codbarras.png" />
-    <Content Include="images\Dashboard\fornecedor.png" />
-    <Content Include="images\Dashboard\funcionario.png" />
-    <Content Include="images\Dashboard\info.png" />
-    <Content Include="images\Dashboard\openbox.png" />
-    <Content Include="images\Dashboard\relatorio.png" />
-    <Content Include="images\Dashboard\sair.png" />
-    <Content Include="images\Dashboard\shopify.png" />
-    <Content Include="images\Dashboard\tipoproduto.png" />
-    <Content Include="images\Employee\icons8-pesquisa-propriedade-30.png" />
-    <Content Include="images\logo.png" />
+    <Content Include="Images\Dashboard\businessman.png" />
+    <Content Include="Images\Dashboard\codbarras.png" />
+    <Content Include="Images\Dashboard\fornecedor.png" />
+    <Content Include="Images\Dashboard\funcionario.png" />
+    <Content Include="Images\Dashboard\info.png" />
+    <Content Include="Images\Dashboard\openbox.png" />
+    <Content Include="Images\Dashboard\relatorio.png" />
+    <Content Include="Images\Dashboard\sair.png" />
+    <Content Include="Images\Dashboard\shopify.png" />
+    <Content Include="Images\Dashboard\tipoproduto.png" />
+    <Content Include="Images\Employee\icons8-pesquisa-propriedade-30.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
@@ -204,7 +204,7 @@
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap-5.0.2-dist\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="images\undraw_Login.svg" />
+    <Content Include="Images\undraw_Login.svg" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

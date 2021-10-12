@@ -18,7 +18,7 @@
             <div class="row">
 
                 <div class="col">
-                    <img src="images/undraw_Login.svg" class="img-fluid login-image" alt="Login" />
+                    <img src="Images/undraw_Login.svg" class="img-fluid login-image" alt="Login" />
                 </div>
 
                 <div class="col">

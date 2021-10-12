@@ -3,7 +3,6 @@ using SGVEC.Models;
 using SGVEC.Controller;
 using MySql.Data.MySqlClient;
 using System.Web.UI.WebControls;
-using System.Web.Services;
 
 namespace SGVEC.View.Screen
 {
@@ -14,37 +13,13 @@ namespace SGVEC.View.Screen
         private DataManipulation dtManip = new DataManipulation();
         private GeneralComponent gc = new GeneralComponent();
         private string strCode = "0";
-        private readonly string MSG_NECESSARIO = "É necessário preencher o campo ";
-
-        public string uma = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                //Controle de uso do sistema por cargo
-                //if (gc.CodFunc == 1) //Atendente
-                //{
-                //    EnableComponents(false);
-                //}
-                //else if (gc.CodFunc == 2) //Caixa
-                //{
-                //    EnableComponents(false);
-                //}
-                //else if (gc.CodFunc == 3) //Gerente de Loja
-                //{
-                //}
-                //else if (gc.CodFunc == 4) //Gerente de Área
-                //{                
-                //}
-                //else if (gc.CodFunc == 5) //Treinador
-                //{
-                //    EnableComponents(false);
-                //}
-                //else if (gc.CodFunc == 6) //Técnico de Qualidade
-                //{
-                //    EnableComponents(false);
-                //}
+                lblError.Text = "";
+                lblSucess.Text = "";
 
                 EnableComponents(false);
 
@@ -70,10 +45,13 @@ namespace SGVEC.View.Screen
             }
         }
 
+        #region Search
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
+                gc.strCodFunc = "0";
+
                 if (txtCode.Text != "") strCode = txtCode.Text;
 
                 //Atualiza o grid
@@ -131,7 +109,9 @@ namespace SGVEC.View.Screen
                 lblError.Visible = true;
             }
         }
+        #endregion
 
+        #region Insert
         protected void btnSendInsert_Click()
         {
             try
@@ -145,7 +125,7 @@ namespace SGVEC.View.Screen
                     {
                         if (leitor.Read())
                         {
-                            if (txtCodFunc.Text == leitor[0].ToString() && txtCpfFunc.Text == leitor[1].ToString())
+                            if (gc.strCodFunc == leitor[0].ToString() && txtCpfFunc.Text == leitor[1].ToString())
                             {
                                 btnSendUpdate_Click();
                             }
@@ -156,19 +136,26 @@ namespace SGVEC.View.Screen
 
                                 if (ValidateComponents())
                                 {
-                                    var strDataDeslig = (txtDtDeslig.Text).Replace("-", "");
-
                                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_FUNC('" + txtCpfFunc.Text + "', '" + txtNomeFunc.Text + "', '" + txtRGFunc.Text + "', '"
-                                         + (txtDtNascFunc.Text).Replace("-", "") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
+                                         + (txtDtNascFunc.Text).Replace("-", "/") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
                                          + txtNumEndecFunc.Text + "', '" + txtBairroFunc.Text + "', '" + txtCepFunc.Text + "', '" + txtCidadeFunc.Text + "', '"
-                                         + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + strDataDeslig + "', '"
+                                         + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + (txtDtDeslig.Text).Replace("-", "") + "', '"
                                          + ddlCargoFunc.SelectedItem.Value + "')");
 
                                     if (objRetorno != null)
                                     {
-                                        lblSucess.Text = "Funcionário cadastrado com sucesso!";
-                                        lblSucess.Visible = true;
-                                        ClearComponents();
+                                        if (objRetorno == true)
+                                        {
+                                            lblSucess.Text = "Funcionário cadastrado com sucesso!";
+                                            lblSucess.Visible = true;
+                                            ClearComponents();
+                                        }
+                                        else
+                                        {
+                                            lblError.Text = "Atenção! Funcionário não cadastrado, verifique os dados digitados!";
+                                            lblError.Visible = true;
+                                            ClearComponents();
+                                        }
                                     }
                                 }
                                 else { lblError.Visible = true; }
@@ -183,20 +170,24 @@ namespace SGVEC.View.Screen
                         lblError.Text = "";
                         lblSucess.Text = "";
 
-                        var strDataDeslig = (txtDtDeslig.Text).Replace("-", "");
-
                         var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_FUNC('" + txtCpfFunc.Text + "', '" + txtNomeFunc.Text + "', '" + txtRGFunc.Text + "', '"
-                             + (txtDtNascFunc.Text).Replace("-", "") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
+                             + (txtDtNascFunc.Text).Replace("-", "/") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
                              + txtNumEndecFunc.Text + "', '" + txtBairroFunc.Text + "', '" + txtCepFunc.Text + "', '" + txtCidadeFunc.Text + "', '"
-                             + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + strDataDeslig + "', '"
+                             + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + (txtDtDeslig.Text).Replace("-", "/") + "', '"
                              + ddlCargoFunc.SelectedItem.Value + "')");
 
-                        if (objRetorno != null)
+                        if (objRetorno == true)
                         {
                             lblSucess.Text = "Funcionário cadastrado com sucesso!";
                             lblSucess.Visible = true;
                             ClearComponents();
-                        }                        
+                        }
+                        else
+                        {
+                            lblError.Text = "Atenção! Funcionário não cadastrado, verifique os dados digitados!";
+                            lblError.Visible = true;
+                            ClearComponents();
+                        }
                     }
                     else { lblError.Visible = true; }
                 }
@@ -207,17 +198,104 @@ namespace SGVEC.View.Screen
                 lblError.Visible = true;
             }
         }
+        #endregion
 
+        #region Update
         protected void btnSendUpdate_Click()
         {
+            try
+            {
+                lblError.Text = "";
+                lblSucess.Text = "";
 
+                if (ValidateComponents())
+                {
+                    var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_UPDATE_FUNC('" + txtCpfFunc.Text + "', '" + txtNomeFunc.Text + "', '" + txtRGFunc.Text + "', '"
+                         + (txtDtNascFunc.Text).Replace("-", "/") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
+                         + txtNumEndecFunc.Text + "', '" + txtBairroFunc.Text + "', '" + txtCepFunc.Text + "', '" + txtCidadeFunc.Text + "', '"
+                         + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + (txtDtDeslig.Text).Replace("-", "/") + "', '"
+                         + ddlCargoFunc.SelectedItem.Value + "')");
+
+                    if (objRetorno != null)
+                    {
+                        if (objRetorno == true)
+                        {
+                            lblSucess.Text = "Funcionário alterado com sucesso!";
+                            lblSucess.Visible = true;
+                            ClearComponents();
+                        }
+                        else
+                        {
+                            lblError.Text = "Atenção! O Funcionário não foi alterado, verifique os dados digitados!";
+                            lblError.Visible = true;
+                            ClearComponents();
+                        }
+                    }
+                }
+                else { lblError.Visible = true; }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
         }
+        #endregion
+
+        #region Delete
+        protected void btnSendDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gc.strCodFunc != "0")
+                {
+                    if (ValidateComponents())
+                    {
+                        var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_UPDATE_FUNC('" + txtCpfFunc.Text + "', '" + txtNomeFunc.Text + "', '" + txtRGFunc.Text + "', '"
+                     + (txtDtNascFunc.Text).Replace("-", "/") + "', '" + txtTelFunc.Text + "', '" + txtCelFunc.Text + "', '" + txtEnderecoFunc.Text + "', '"
+                     + txtNumEndecFunc.Text + "', '" + txtBairroFunc.Text + "', '" + txtCepFunc.Text + "', '" + txtCidadeFunc.Text + "', '"
+                     + txtUFFunc.Text + "', '" + txtEmailFunc.Text + "', '" + txtSenhaFunc.Text + "', '" + DateTime.Now.ToString("dd/MM/yyyy") + "', '"
+                     + ddlCargoFunc.SelectedItem.Value + "')");
+
+                        if (objRetorno != null)
+                        {
+                            if (objRetorno == true)
+                            {
+                                lblSucess.Text = "Funcionário desligado com sucesso!";
+                                lblSucess.Visible = true;
+                                ClearComponents();
+                            }
+                            else
+                            {
+                                lblError.Text = "Atenção! O Funcionário não foi desligado, verifique os dados selecionados!";
+                                lblError.Visible = true;
+                                ClearComponents();
+                            }
+                        }
+                    }
+                    else { lblError.Visible = true; }
+                }
+                else
+                {
+                    lblError.Text = "Atenção! É necessário selecionar um Funcionáro.";
+                    lblError.Visible = true;
+                    ClearComponents();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
+        }
+        #endregion
 
         protected void btnClearComponents_Click(object sender, EventArgs e)
         {
             ClearComponents();
         }
 
+        #region Components
         private void ClearComponents()
         {
             gc.strCodFunc = "0"; txtCodFunc.Enabled = true;
@@ -235,22 +313,31 @@ namespace SGVEC.View.Screen
             txtCelFunc.Enabled = value; txtEnderecoFunc.Enabled = value; txtNumEndecFunc.Enabled = value;
             txtBairroFunc.Enabled = value; txtCepFunc.Enabled = value; txtCidadeFunc.Enabled = value;
             txtUFFunc.Enabled = value; txtEmailFunc.Enabled = value; txtSenhaFunc.Enabled = value; txtDtDeslig.Enabled = value;
-            btnDeleteEmployee.Enabled = value;
         }
+        #endregion
 
+        #region Validate
         private bool ValidateComponents()
         {
-            if (txtCpfFunc.Text == "") { lblError.Text = ce.ComponentsValidation("CPF", MSG_NECESSARIO); return false; }
-            else if (txtNomeFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Nome", MSG_NECESSARIO); return false; }
-            else if (txtRGFunc.Text == "") { lblError.Text = ce.ComponentsValidation("RG", MSG_NECESSARIO); return false; }
-            else if (txtDtNascFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Data de Nascimento", MSG_NECESSARIO); return false; }            
-            else if (txtEmailFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Email", MSG_NECESSARIO); return false; }
-            else if (txtSenhaFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Senha", MSG_NECESSARIO); return false; }
-            else if (ddlCargoFunc.SelectedItem.Text == "") { lblError.Text = ce.ComponentsValidation("Cargo", MSG_NECESSARIO); return false; }
+            if (txtCpfFunc.Text == "") { lblError.Text = ce.ComponentsValidation("CPF", gc.MSG_NECESSARIO); return false; }
+            else if (txtNomeFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Nome", gc.MSG_NECESSARIO); return false; }
+            else if (txtRGFunc.Text == "") { lblError.Text = ce.ComponentsValidation("RG", gc.MSG_NECESSARIO); return false; }
+            else if (txtDtNascFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Data de Nascimento", gc.MSG_NECESSARIO); return false; }
+            else if (txtEmailFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Email", gc.MSG_NECESSARIO); return false; }
+            else if (txtSenhaFunc.Text == "") { lblError.Text = ce.ComponentsValidation("Senha", gc.MSG_NECESSARIO); return false; }
+            else if (ddlCargoFunc.SelectedItem.Text == "") { lblError.Text = ce.ComponentsValidation("Cargo", gc.MSG_NECESSARIO); return false; }
+            else if (gc.CodFunc == 1) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Atendente
+            else if (gc.CodFunc == 2) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Caixa
+            else if (gc.CodFunc == 5) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Treinador
+            else if (gc.CodFunc == 6) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Técnico de Qualidade         
+            //3 -- Gerente de Loja
+            //4 -- Gerente de Área
 
             return true;
         }
+        #endregion
 
+        #region SelectedIndex
         protected void gvEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearComponents();
@@ -258,11 +345,15 @@ namespace SGVEC.View.Screen
             gc.strCodFunc = (sender as LinkButton).CommandArgument; //Código do funcionário selecionado no grid
             if (gc.strCodFunc != "0") { btnSearchEmployee_Click(); }
         }
+        #endregion
 
+        #region btnSave
         protected void btnSendSave_Click(object sender, EventArgs e)
         {
             btnSendInsert_Click();
             ClearComponents();
         }
+        #endregion
+
     }
 }
