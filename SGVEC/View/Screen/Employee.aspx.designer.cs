@@ -10,7 +10,7 @@
 namespace SGVEC.View.Screen {
     
     
-    public partial class WebForm1 {
+    public partial class Employee {
         
         /// <summary>
         /// form1 control.
@@ -67,15 +67,6 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.GridView gvEmployee;
         
         /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-        
-        /// <summary>
         /// btnDeleteEmployee control.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,22 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.Button btnDeleteEmployee;
         
         /// <summary>
-        /// lblValue control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValue;
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// lblSucess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSucess;
         
         /// <summary>
         /// txtCodFunc control.
@@ -245,24 +245,6 @@ namespace SGVEC.View.Screen {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDtDeslig;
-        
-        /// <summary>
-        /// lblErrorModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorModal;
-        
-        /// <summary>
-        /// lblSucess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSucess;
         
         /// <summary>
         /// btnSave control.

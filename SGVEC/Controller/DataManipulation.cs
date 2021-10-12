@@ -11,7 +11,6 @@ namespace SGVEC.Controller
         private MySqlConnection cn = new MySqlConnection();
         private MySqlCommand cm = new MySqlCommand();
 
-        //A partir do parâmetro executa a query
         public DataTable ExecDtTableStringQuery(string CommandText)
         {
             cnt = new Connect();
@@ -21,7 +20,7 @@ namespace SGVEC.Controller
             return ExecDtTableQuery(CommandText);
         }
 
-        //Retorna uma tabela de dados, podendo ser usada no gridview
+        //Retorna uma tabela de dados, podendo ser usada no gridview ou no dropdowlist
         private DataTable ExecDtTableQuery(string CommandText)
         {
             try
@@ -37,33 +36,7 @@ namespace SGVEC.Controller
                 cm.Connection.Close();
                 return null;
             }
-        }
-
-        public MySqlDataReader ExecuteStringQuery(string CommandText)
-        {
-            cnt = new Connect();
-            cn = new MySqlConnection();
-
-            cn = cnt.DataBaseConnect();
-            return ExecuteQuery(CommandText);
-        }
-
-        //Retorna uma tabela de dados, podendo ser usada no gridview
-        private MySqlDataReader ExecuteQuery(string CommandText)
-        {
-            try
-            {
-                MySqlCommand cm = new MySqlCommand(CommandText, cn);
-                MySqlDataReader MySqlDtReader = cm.ExecuteReader();
-
-                return MySqlDtReader;
-            }
-            catch
-            {
-                cm.Connection.Close();
-                return null;
-            }
-        }
+        }        
 
         public MySqlDataReader ExecuteDataReader(string CommandText)
         {
@@ -95,6 +68,34 @@ namespace SGVEC.Controller
             {
                 cm.Connection.Close();
                 return null;
+            }
+        }
+
+        public bool ExecuteStringQuery(string CommandText)
+        {
+            cnt = new Connect();
+            cn = new MySqlConnection();
+
+            cn = cnt.DataBaseConnect();
+            return ExecuteQuery(CommandText);
+        }
+
+        private bool ExecuteQuery(string CommandText)
+        {
+            try
+            {
+                cm.Connection = cn;
+                cm.CommandType = CommandType.Text;
+                cm.CommandText = CommandText;
+                cm.ExecuteNonQuery();
+
+                cm.Connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                cm.Connection.Close();
+                return false;
             }
         }
     }

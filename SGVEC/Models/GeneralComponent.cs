@@ -6,6 +6,7 @@ namespace SGVEC.Models
         public static int _intCodFunc;
         public static string _strCPF;
         public static string _strNome;
+        public static string _strCodFunc = "0";
     }
 
     public class GeneralComponent
@@ -26,6 +27,12 @@ namespace SGVEC.Models
         {
             get { return Global._strNome; }
             set { Global._strNome = value; }
+        }
+
+        public string strCodFunc
+        {
+            get { return Global._strCodFunc; }
+            set { Global._strCodFunc = value; }
         }
     }
 }
