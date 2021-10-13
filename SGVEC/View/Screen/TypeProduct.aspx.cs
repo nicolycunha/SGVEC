@@ -13,5 +13,25 @@ namespace SGVEC.View.Screen
         {
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvTypeProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSendDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSendSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

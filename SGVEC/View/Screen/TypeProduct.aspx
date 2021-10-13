@@ -4,10 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />    
     <link href="../../Styles/forms.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <link href="../../Styles/typeproduct.css" rel="stylesheet" />
     <title>SGVEC | Tipo de Produto</title>
 </head>
 <body>
@@ -81,11 +84,108 @@
 
             <div class="conteudo">
                 <form id="form1" runat="server">
-                    <div>
+                    <div class="container shadow bg-white p-3">
+                        <div class="col-md-12">
+                            <div class="row clearfix">
+                                <br />
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="row clearfix">
+                                <asp:GridView CssClass="col-md-12" ID="gvTypeProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                    <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
+                                    <AlternatingRowStyle BackColor="#F7F7F7" />
+                                    <Columns>
+                                        <asp:BoundField DataField="COD_TIPO_PROD" HeaderText="Código" />
+                                        <asp:BoundField DataField="NOME_TIPO_PROD" HeaderText="Nome" />
+                                        <asp:TemplateField HeaderText="-">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_TIPO_PROD") %>' OnClick="gvTypeProduct_SelectedIndexChanged"></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="row clearfix">
+                            <div class="col-md-3">
+                                <button id="btnSearchTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Consultar</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="btnInsertTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Incluir</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="btnUpdateTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Alterar</button>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:Button ID="btnDeleteTypeProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
+                                    <asp:Label runat="server" ID="lblError"></asp:Label>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="divAlertSucess" style="display: none" class="alert alert-success alert-dismissible">
+                                    <asp:Label runat="server" ID="lblSucess"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="typeProductModal" tabindex="-1" aria-labelledby="lblTypeProductModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tipo de Produto</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row clearfix">
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtCodTypeProduct" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtNomeTypeProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
         </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="../../Scripts/Screen/TypeProduct.js"></script>
+    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

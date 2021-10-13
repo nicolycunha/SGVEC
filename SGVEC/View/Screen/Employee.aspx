@@ -11,7 +11,6 @@
 
     <link href="../../Styles/employee.css" rel="stylesheet" />
     <title>SGVEC | Funcionário</title>
-
 </head>
 <body>
     <div class="flex-dashboard">
@@ -286,7 +285,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="../../Scripts/Screen/Config.js"></script>
+    <script src="../../Scripts/Screen/Employee.js"></script>
     <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
