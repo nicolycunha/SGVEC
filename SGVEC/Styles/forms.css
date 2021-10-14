@@ -6,3 +6,7 @@ li.selected {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+
+input {
+    border-radius: 7px;
+}

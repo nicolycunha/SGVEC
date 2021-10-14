@@ -8,8 +8,10 @@
     <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
-    <link href="../../Styles/employee.css" rel="stylesheet" />
+   
+    <%--<link href="../../Styles/employee.css" rel="stylesheet" />--%>
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+     <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Funcionário</title>
 </head>
 <body>
@@ -20,6 +22,12 @@
             </div>
             <div class="menu">
                 <ul>
+                    <li>
+                        <a href="/View/Dashboard">
+                            <img src="/Images/Dashboard/casa.png" alt="Ícone de Dashboard pela icons8" />
+                            Dashboard
+                        </a>
+                    </li>
                     <li>
                         <a href="/View/Screen/Storage">
                             <img src="/Images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
@@ -32,7 +40,7 @@
                             Fornecedor
                         </a>
                     </li>
-                    <li>
+                    <li class="selected">
                         <a href="/View/Screen/Employee">
                             <img src="/Images/Dashboard/businessman.png" alt="Ícone de Funcionários pela icons8" />
                             Funcionários
@@ -63,6 +71,12 @@
                         </a>
                     </li>
                 </ul>
+                <footer class="footer">
+                    <a href="/View/Manual" class="manual">
+                        <img src="/images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
+                        <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
+                    </a>
+                </footer>
             </div>
         </aside>
 

@@ -38,7 +38,7 @@ aside {
 
 div.menu ul {
     list-style-type: none;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
     div.menu ul li {
@@ -68,7 +68,7 @@ div.menu ul {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 10px 10px 20px;
+    padding: 0 10px 0 20px;
     text-decoration: none;
 }
 

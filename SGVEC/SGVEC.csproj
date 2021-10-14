@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Dashboard\businessman.png" />
+    <Content Include="Images\Dashboard\casa.png" />
     <Content Include="Images\Dashboard\codbarras.png" />
     <Content Include="Images\Dashboard\fornecedor.png" />
     <Content Include="Images\Dashboard\funcionario.png" />
