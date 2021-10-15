@@ -48,9 +48,9 @@ namespace SGVEC.Controller
 
                 while (leitor.Read())
                 {                    
-                    gc.CodFunc = leitor.GetInt32(0);
+                    gc.CodEmployee = leitor.GetInt32(0);
                     gc.CPF = leitor.GetString(1);
-                    gc.Nome = leitor.GetString(2);
+                    gc.Name = leitor.GetString(2);
                     cm.Connection.Close();
                     return true;
                 }

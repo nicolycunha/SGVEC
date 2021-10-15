@@ -170,6 +170,7 @@
     <Content Include="Styles\dashboard.css" />
     <Content Include="Styles\employee.css" />
     <Content Include="Styles\forms.css" />
+    <Content Include="Styles\supplier.css" />
     <Content Include="Styles\typeproduct.css" />
     <Content Include="View\About.aspx" />
     <Content Include="Content\bootstrap.css" />

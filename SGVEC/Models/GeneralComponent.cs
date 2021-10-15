@@ -3,10 +3,10 @@ namespace SGVEC.Models
 {
     public static class Global
     {
-        public static int _intCodFunc;
+        public static int _intCodEmployee;
         public static string _strCPF;
-        public static string _strNome;
-        public static string _strCodFunc = "0";
+        public static string _strName;
+        public static string _strCodEmployee = "0";
         public static string _MSG_NECESSARIO = "É necessário preencher o campo ";
         public static string _MSG_SEUPERFIL = "Seu perfil não é adequado para essa funcionalidade!";
         public static string _strCodTypeProduct = "0";
@@ -14,10 +14,10 @@ namespace SGVEC.Models
 
     public class GeneralComponent
     {
-        public int CodFunc
+        public int CodEmployee
         {
-            get { return Global._intCodFunc; }   
-            set { Global._intCodFunc = value; }     
+            get { return Global._intCodEmployee; }   
+            set { Global._intCodEmployee = value; }     
         }
 
         public string CPF
@@ -26,16 +26,16 @@ namespace SGVEC.Models
             set { Global._strCPF = value; }
         }
 
-        public string Nome
+        public string Name
         {
-            get { return Global._strNome; }
-            set { Global._strNome = value; }
+            get { return Global._strName; }
+            set { Global._strName = value; }
         }
 
-        public string strCodFunc
+        public string strCodEmployee
         {
-            get { return Global._strCodFunc; }
-            set { Global._strCodFunc = value; }
+            get { return Global._strCodEmployee; }
+            set { Global._strCodEmployee = value; }
         }
 
         public string MSG_NECESSARIO

@@ -156,6 +156,8 @@ div.conteudo {
 .card {
     background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 16.5px );
+    -webkit-backdrop-filter: blur( 16.5px ) !important;
     border-radius: 10px;
 }
 
@@ -165,13 +167,7 @@ div.conteudo {
     align-items: center !important;
 }
 
-input#txtCode, input#txtName, input#txtCPF,
-input#txtCodEmployee, input#txtNomeEmployee, input#txtCpfEmployee,
-input#txtRGEmployee, input#txtDtNascEmployee, input#txtTelEmployee,
-input#txtCelEmployee, input#txtEnderecoEmployee, input#txtNumEndecEmployee,
-input#txtBairroEmployee, input#txtCepEmployee, input#txtCidadeEmployee,
-input#txtUFEmployee, input#txtEmailEmployee, input#txtSenhaEmployee,
-input#txtDtDeslig { 
+input#txtCode, input#txtName, input#txtCodTpProduct, input#txtNameTpProduct {
     outline: 0;
     border-width: 0;
     width: 90%;
