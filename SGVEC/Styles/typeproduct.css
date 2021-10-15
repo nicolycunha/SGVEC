@@ -160,3 +160,15 @@ div.conteudo {
     -webkit-backdrop-filter: blur( 16.5px ) !important;
     border-radius: 10px;
 }
+
+.input-group {
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 3rem;
+    align-items: center !important;
+}
+
+input#txtCode, input#txtName, input#txtCodTpProduct, input#txtNameTpProduct {
+    outline: 0;
+    border-width: 0;
+    width: 90%;
+}

@@ -22,6 +22,15 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// txtCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCode;
+        
+        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -76,22 +85,22 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.Label lblSucess;
         
         /// <summary>
-        /// txtCodTypeProduct control.
+        /// txtCodTpProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodTypeProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtCodTpProduct;
         
         /// <summary>
-        /// txtNomeTypeProduct control.
+        /// txtNameTpProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeTypeProduct;
+        protected global::System.Web.UI.WebControls.TextBox txtNameTpProduct;
         
         /// <summary>
         /// btnSave control.

@@ -88,9 +88,14 @@
                         <div class="col-md-12">
                             <div class="row clearfix">
                                 <br />
-                                <div class="col-md-8">
+                                <div class="col-md-2">
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
+                                        <asp:TextBox ID="txtCode" runat="server" type="text" placeholder="Código" MaxLength="4"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="30"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -158,12 +163,12 @@
                                     <div class="row clearfix">
                                         <div class="col-md-2">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodTypeProduct" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCodTpProduct" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNomeTypeProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNameTpProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-2">

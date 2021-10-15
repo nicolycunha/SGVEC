@@ -28,6 +28,7 @@
     });
 
     $('#btnInsertEmployee').click(function () {
+        $('#txtCodFunc').val("");
         ClearComponents();
         DisableComponents(false);
     });
@@ -42,7 +43,7 @@
     });
 
     function ClearComponents() {
-        $('#txtCodFunc').val(""); $('#txtNomeFunc').val(""); $('#txtCpfFunc').val("");
+        $('#txtNomeFunc').val(""); $('#txtCpfFunc').val("");
         $('#txtRGFunc').val(""); $('#txtDtNascFunc').val(""); $('#txtTelFunc').val("");
         $('#txtCelFunc').val(""); $('#txtEnderecoFunc').val(""); $('#txtNumEndecFunc').val("");
         $('#txtBairroFunc').val(""); $('#txtCepFunc').val(""); $('#txtCidadeFunc').val("");

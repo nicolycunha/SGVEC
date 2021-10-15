@@ -13,7 +13,6 @@ namespace SGVEC.View.Screen
 
     public partial class Employee
     {
-
         /// <summary>
         /// Controle form1.
         /// </summary>
@@ -22,6 +21,15 @@ namespace SGVEC.View.Screen
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Controle form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
         /// Controle txtCode.

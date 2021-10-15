@@ -9,6 +9,7 @@ namespace SGVEC.Models
         public static string _strCodFunc = "0";
         public static string _MSG_NECESSARIO = "É necessário preencher o campo ";
         public static string _MSG_SEUPERFIL = "Seu perfil não é adequado para essa funcionalidade!";
+        public static string _strCodTypeProduct = "0";
     }
 
     public class GeneralComponent
@@ -47,6 +48,12 @@ namespace SGVEC.Models
         {
             get { return Global._MSG_SEUPERFIL; }
             set { Global._MSG_SEUPERFIL = value; }
+        }
+
+        public string strCodTypeProduct
+        {
+            get { return Global._strCodTypeProduct; }
+            set { Global._strCodTypeProduct = value; }
         }
     }
 }
