@@ -95,12 +95,12 @@
                                 </div>
                                 <div class="col-md-5">
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtRazao" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
+                                        <asp:TextBox ID="txtRazao" type="text" runat="server" placeholder="Razão Social" MaxLength="50"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtCNPJ" type="text" runat="server" placeholder="CPF" MaxLength="14"></asp:TextBox>
+                                        <asp:TextBox ID="txtCNPJ" type="text" runat="server" placeholder="CNPJ" MaxLength="14"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -117,11 +117,6 @@
                                         <asp:BoundField DataField="COD_FORNEC" HeaderText="Código" />
                                         <asp:BoundField DataField="RAZAO_SOCIAL" HeaderText="Razão Social" />
                                         <asp:BoundField DataField="CNPJ_FORNEC" HeaderText="CNPJ" />
-                                        <asp:BoundField DataField="ENDERECO_FORNEC" HeaderText="Endereço" />
-                                        <asp:BoundField DataField="BAIRRO_FORNEC" HeaderText="Bairro" />
-                                        <asp:BoundField DataField="CEP_FORNEC" HeaderText="CEP" />
-                                        <asp:BoundField DataField="CIDADE_FORNEC" HeaderText="Cidade" />
-                                        <asp:BoundField DataField="UF_FORNEC" HeaderText="UF" />
                                         <asp:BoundField DataField="TEL_FORNEC" HeaderText="Telefone" />
                                         <asp:TemplateField HeaderText="-">
                                             <ItemTemplate>         
@@ -136,13 +131,13 @@
                         <br />
                         <div class="row clearfix">
                             <div class="col-md-2">
-                                <button id="btnSearchSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
+                                <button id="btnSearchSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Consultar</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnInsertSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Incluir</button>
+                                <button id="btnInsertSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Incluir</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnUpdateSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Alterar</button>
+                                <button id="btnUpdateSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Alterar</button>
                             </div>
                             <div class="col-md-2">
                                 <asp:Button ID="btnDeleteSupplier" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
@@ -175,97 +170,60 @@
                                     <div class="row clearfix">
                                         <div class="col-md-2">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodFunc" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCodSupplier" disabled="true" CssClass="form-control" type="text" MaxLength="4" placeholder="Código"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-7">
+                                        <div class="col-md-4">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNomeFunc" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtRazaoSupplier" CssClass="form-control is-invalid" type="text" MaxLength="100" placeholder="Razão Social"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCpfFunc" CssClass="form-control is-invalid" type="text" MaxLength="14" placeholder="CPF"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtRGFunc" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="12" placeholder="RG"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtNascFunc" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="10" placeholder="Data Nascimento"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <asp:DropDownList ID="ddlCargoFunc" Enabled="false" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtTelFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCNPJSupplier" CssClass="form-control is-invalid" type="text" MaxLength="18" placeholder="CNPJ"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCelFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Celular"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNumTel" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">
+                                    <div class="row clearfix">                                        
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtEnderecoFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtEndecSupplier" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNumEndecFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Número"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNumSupplier" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="4" placeholder="Número"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtBairroFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtBairroSupplier" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="50" placeholder="Bairro"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCepFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="9" placeholder="CEP"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCidadeFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCEPSupplier" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="9" placeholder="CEP"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtUFFunc" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCidadeSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtEmailFunc" CssClass="form-control is-invalid" Enabled="false" type="email" MaxLength="50" placeholder="Email"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtSenhaFunc" CssClass="form-control is-invalid" Enabled="false" type="password" MaxLength="20" placeholder="Senha"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtUFSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtDeslig" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data Desligamento"></asp:TextBox>
-                                            </div>
-                                        </div>
                                         <div class="col-md-2">
                                             <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
                                         </div>
@@ -279,17 +237,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <hr />
-                    <footer class="footer">
-                        <a href="/View/Manual" class="manual">
-                            <img src="/Images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
-                            <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
-                        </a>
-                    </footer>
                 </form>
             </div>
         </main>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="../../Scripts/Screen/Supplier.js"></script>
+    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

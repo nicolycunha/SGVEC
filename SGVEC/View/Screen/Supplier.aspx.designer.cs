@@ -94,157 +94,94 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.Label lblSucess;
         
         /// <summary>
-        /// txtCodFunc control.
+        /// txtCodSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtCodSupplier;
         
         /// <summary>
-        /// txtNomeFunc control.
+        /// txtRazaoSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtRazaoSupplier;
         
         /// <summary>
-        /// txtCpfFunc control.
+        /// txtCNPJSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpfFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtCNPJSupplier;
         
         /// <summary>
-        /// txtRGFunc control.
+        /// txtNumTel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRGFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtNumTel;
         
         /// <summary>
-        /// txtDtNascFunc control.
+        /// txtEndecSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtNascFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtEndecSupplier;
         
         /// <summary>
-        /// ddlCargoFunc control.
+        /// txtNumSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCargoFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtNumSupplier;
         
         /// <summary>
-        /// txtTelFunc control.
+        /// txtBairroSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtBairroSupplier;
         
         /// <summary>
-        /// txtCelFunc control.
+        /// txtCEPSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCelFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtCEPSupplier;
         
         /// <summary>
-        /// txtEnderecoFunc control.
+        /// txtCidadeSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnderecoFunc;
+        protected global::System.Web.UI.WebControls.TextBox txtCidadeSupplier;
         
         /// <summary>
-        /// txtNumEndecFunc control.
+        /// txtUFSupplier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumEndecFunc;
-        
-        /// <summary>
-        /// txtBairroFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBairroFunc;
-        
-        /// <summary>
-        /// txtCepFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCepFunc;
-        
-        /// <summary>
-        /// txtCidadeFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCidadeFunc;
-        
-        /// <summary>
-        /// txtUFFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUFFunc;
-        
-        /// <summary>
-        /// txtEmailFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailFunc;
-        
-        /// <summary>
-        /// txtSenhaFunc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSenhaFunc;
-        
-        /// <summary>
-        /// txtDtDeslig control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtDeslig;
+        protected global::System.Web.UI.WebControls.TextBox txtUFSupplier;
         
         /// <summary>
         /// btnSave control.
