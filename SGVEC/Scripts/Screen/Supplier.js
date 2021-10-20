@@ -3,7 +3,7 @@
     $("#txtCNPJ").mask("99.999.999/9999-99");
     $("#txtCodSupplier").mask("9999");
     $("#txtCNPJSupplier").mask("99.999.999/9999-99");
-    $("#txtNumTel").mask("(99)9999-9999");
+    $("#txtNumTelSupplier").mask("(99)9999-9999");
     $("#txtNumSupplier").mask("9999");
     $("#txtCEPSupplier").mask("99999-999");
     
@@ -20,20 +20,22 @@
     }
 
     $('#btnSearchSupplier').click(function () {
-        $('#btnSave').prop('disabled', false);
-        $('#btnClearComponents').prop('disabled', 'false');
         DisableComponents(true);
+        $('#btnSave').prop('disabled', false);
+        $('#btnClearComponents').prop('disabled', true);
     });
 
     $('#btnInsertSupplier').click(function () {
-        $('#txtCodFunc').val("");
+        $('#txtCodSupplier').val("");
         ClearComponents();
         DisableComponents(false);
+        $('#btnClearComponents').prop('disabled', false);
     });
 
     $('#btnUpdateSupplier').click(function () {
         DisableComponents(false);
-        $('#txtCpfFunc').prop('disabled', true);
+        $('#btnClearComponents').prop('disabled', false);   
+        $('#txtCNPJSupplier').prop('disabled', true); 
     });
 
     $('#btnClearComponents').click(function () {
@@ -42,14 +44,14 @@
 
     function ClearComponents() {
         $('#txtCodSupplier').val(""); $('#txtRazaoSupplier').val(""); $('#txtCNPJSupplier').val("");
-        $('#txtNumTel').val(""); $('#txtEndecSupplier').val(""); $('#txtNumSupplier').val("");
+        $('#txtNumTelSupplier').val(""); $('#txtEndecSupplier').val(""); $('#txtNumSupplier').val("");
         $('#txtBairroSupplier').val(""); $('#txtCEPSupplier').val(""); $('#txtCidadeSupplier').val("");
         $('#txtUFSupplier').val("");                
     }
 
     function DisableComponents(value) {
         $('#txtRazaoSupplier').prop('disabled', value); $('#txtCNPJSupplier').prop('disabled', value);
-        $('#txtNumTel').prop('disabled', value); $('#txtEndecSupplier').prop('disabled', value);
+        $('#txtNumTelSupplier').prop('disabled', value); $('#txtEndecSupplier').prop('disabled', value);
         $('#txtNumSupplier').prop('disabled', value); $('#txtBairroSupplier').prop('disabled', value);
         $('#txtCEPSupplier').prop('disabled', value); $('#txtCidadeSupplier').prop('disabled', value);
         $('#txtUFSupplier').prop('disabled', value); 

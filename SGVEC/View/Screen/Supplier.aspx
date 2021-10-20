@@ -8,7 +8,7 @@
     <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-   
+
     <link href="../../Styles/supplier.css" rel="stylesheet" />
     <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Fornecedor</title>
@@ -110,7 +110,7 @@
 
                             <br />
                             <div class="row clearfix">
-                                <asp:GridView CssClass="col-md-12" ID="gvSupplier" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">                                    
+                                <asp:GridView CssClass="col-md-12" ID="gvSupplier" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                     <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
@@ -119,7 +119,7 @@
                                         <asp:BoundField DataField="CNPJ_FORNEC" HeaderText="CNPJ" />
                                         <asp:BoundField DataField="TEL_FORNEC" HeaderText="Telefone" />
                                         <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>         
+                                            <ItemTemplate>
                                                 <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_FORNEC") %>' OnClick="gvSupplier_SelectedIndexChanged"></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -146,13 +146,13 @@
                         <br />
                         <div class="row clearfix">
                             <div class="col-md-12">
-                                <div id="divAlertDanger" style="display:none" class="alert alert-danger alert-dismissible">
-                                    <asp:Label runat="server" id="lblError"></asp:Label>
+                                <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
+                                    <asp:Label runat="server" ID="lblError"></asp:Label>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div id="divAlertSucess" style="display:none" class="alert alert-success alert-dismissible">
-                                    <asp:Label runat="server" id="lblSucess"></asp:Label>
+                                <div id="divAlertSucess" style="display: none" class="alert alert-success alert-dismissible">
+                                    <asp:Label runat="server" ID="lblSucess"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -173,57 +173,57 @@
                                                 <asp:TextBox runat="server" ID="txtCodSupplier" disabled="true" CssClass="form-control" type="text" MaxLength="4" placeholder="Código"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtRazaoSupplier" CssClass="form-control is-invalid" type="text" MaxLength="100" placeholder="Razão Social"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtCNPJSupplier" CssClass="form-control is-invalid" type="text" MaxLength="18" placeholder="CNPJ"></asp:TextBox>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNumTel" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNumTelSupplier" CssClass="form-control is-invalid" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row clearfix">                                        
-                                        <div class="col-md-4">
+                                    <div class="row clearfix">
+                                        <div class="col-md-5">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtEndecSupplier" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtEndecSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNumSupplier" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="4" placeholder="Número"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNumSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="4" placeholder="Número"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtBairroSupplier" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="50" placeholder="Bairro"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtBairroSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCEPSupplier" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="9" placeholder="CEP"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCEPSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="9" placeholder="CEP"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-5">
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtCidadeSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtUFSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row clearfix">
                                         <div class="col-md-2">
                                             <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
                                         </div>
