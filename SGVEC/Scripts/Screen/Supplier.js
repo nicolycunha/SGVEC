@@ -35,7 +35,6 @@
     $('#btnUpdateSupplier').click(function () {
         DisableComponents(false);
         $('#btnClearComponents').prop('disabled', false);   
-        $('#txtCNPJSupplier').prop('disabled', true); 
     });
 
     $('#btnClearComponents').click(function () {

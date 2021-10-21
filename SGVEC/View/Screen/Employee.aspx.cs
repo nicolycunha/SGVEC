@@ -3,6 +3,7 @@ using SGVEC.Models;
 using SGVEC.Controller;
 using MySql.Data.MySqlClient;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace SGVEC.View.Screen
 {
@@ -355,5 +356,11 @@ namespace SGVEC.View.Screen
         }
         #endregion
 
+        [WebMethod]
+        protected void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string message = ddlCargoEmployee.SelectedItem.Text + " - " + ddlCargoEmployee.SelectedItem.Value;
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
+        }
     }
 }

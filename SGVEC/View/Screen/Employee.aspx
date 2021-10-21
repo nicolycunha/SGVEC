@@ -206,7 +206,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:DropDownList ID="ddlCargoEmployee" Enabled="false" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlCargoEmployee" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <div class="row clearfix">

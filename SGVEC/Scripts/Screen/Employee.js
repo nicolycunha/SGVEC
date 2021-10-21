@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $("#txtCode").mask("9999");
     $("#txtCodEmployee").mask("9999");
-    $("#txtNumEndecEmployee").mask("9999");    
+    $("#txtNumEndecEmployee").mask("9999");
     $("#txtCPF").mask("999.999.999-99");
     $("#txtCpfEmployee").mask("999.999.999-99");
     $("#txtRGEmployee").mask("99.999.999-9");
@@ -9,7 +9,7 @@
     $("#txtCelEmployee").mask("(99)99999-9999");
     $("#txtCepEmployee").mask("99999-999");
 
-    if ($('#lblError')[0] != undefined){
+    if ($('#lblError')[0] != undefined) {
         if ($('#lblError')[0].innerText != "") {
             $('#divAlertDanger').prop('style', 'display:block');
         }
@@ -19,7 +19,7 @@
         if ($('#lblSucess')[0].innerText != "") {
             $('#divAlertSucess').prop('style', 'display:block');
         }
-    }    
+    }
 
     $('#btnSearchEmployee').click(function () {
         $('#btnSave').prop('disabled', false);
