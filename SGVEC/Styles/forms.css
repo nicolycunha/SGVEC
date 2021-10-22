@@ -1,4 +1,5 @@
 ﻿@import "variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
 li.selected {
@@ -7,6 +8,54 @@ li.selected {
     border-bottom-left-radius: 15px;
 }
 
-input {
+.flex-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-space {
+    margin-bottom: 25px;
+}
+
+input[type=text] {
+    width: 100%;
     border-radius: 7px;
+    border: 2px solid var(--color-primary);
+}
+
+.btn-outline-primary {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: var(--color-warning);
+        border-color: var(--color-warning);
+    }
+
+table {
+    font-family: 'Poppins', sans-serif;
+}
+
+th, td{
+    padding-left: 13px;
+}
+
+.modal-body input{
+    margin-bottom: 16px;
+}
+
+.botoes-forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.hiddencol {
+    display: none;
+}
+
+.selecionado {
+    background-color: #fffc9d;
 }

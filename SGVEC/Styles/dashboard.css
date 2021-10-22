@@ -130,6 +130,7 @@ div.conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #e5e5e5;
 }
 
     div.conteudo::-webkit-scrollbar-track {

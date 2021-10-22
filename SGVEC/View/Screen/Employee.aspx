@@ -8,9 +8,11 @@
     <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-   
-    <link href="../../Styles/employee.css" rel="stylesheet" />
-     <link href="../../Styles/forms.css" rel="stylesheet" />
+
+<%--        <link href="../../Styles/employee.css" rel="stylesheet" />--%>
+
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
+    <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Funcionário</title>
 </head>
 <body>
@@ -92,9 +94,9 @@
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
                         <div class="col-md-12">
-                            <div class="row clearfix">
-                                <br />
-                                <div class="col-md-2">
+
+                            <div class="row clearfix form-space">
+                                 <div class="col-md-2">
                                     <div class="input-group">
                                         <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código" MaxLength="5"></asp:TextBox>
                                     </div>
@@ -110,17 +112,16 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
+                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                                 </div>
                             </div>
 
-                            <br />
-                            <div class="row clearfix">
-                                <asp:GridView CssClass="col-md-12" ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">                                    
-                                    <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
+                            <div class="row clearfix form-space">
+                                <asp:GridView CssClass="col-md-12" ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                    <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
-                                        <asp:BoundField DataField="COD_FUNC" HeaderText="Código" />
+                                        <asp:BoundField DataField="COD_FUNC" HeaderText="Código" ItemStyle-CssClass="hiddencol"  HeaderStyle-CssClass="hiddencol" />
                                         <asp:BoundField DataField="NOME_FUNC" HeaderText="Nome" />
                                         <asp:BoundField DataField="CPF_FUNC" HeaderText="CPF" />
                                         <asp:BoundField DataField="RG_FUNC" HeaderText="RG" />
@@ -129,7 +130,7 @@
                                         <asp:BoundField DataField="CELULAR_FUNC" HeaderText="Celular" />
                                         <asp:BoundField DataField="DATA_DESLIGAMENTO" HeaderText="Data Deslig." />
                                         <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>         
+                                            <ItemTemplate>
                                                 <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_FUNC") %>' OnClick="gvEmployee_SelectedIndexChanged"></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -138,31 +139,25 @@
                             </div>
                         </div>
 
-                        <br />
-                        <div class="row clearfix">
-                            <div class="col-md-2">
-                                <button id="btnSearchEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button id="btnInsertEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Incluir</button>
-                            </div>
-                            <div class="col-md-2">
-                                <button id="btnUpdateEmployee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Alterar</button>
-                            </div>
-                            <div class="col-md-2">
-                                <asp:Button ID="btnDeleteEmployee" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
-                            </div>
+                        <div class="botoes-forms">
+                            <button id="btnSearchEmployee" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
+
+                            <button id="btnInsertEmployee" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Incluir</button>
+
+                            <button id="btnUpdateEmployee" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Alterar</button>
+
+                            <asp:Button ID="btnDeleteEmployee" runat="server" Text="Deletar" CssClass="btn btn-outline-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                         </div>
-                        <br />
+
                         <div class="row clearfix">
                             <div class="col-md-12">
-                                <div id="divAlertDanger" style="display:none" class="alert alert-danger alert-dismissible">
-                                    <asp:Label runat="server" id="lblError"></asp:Label>
+                                <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
+                                    <asp:Label runat="server" ID="lblError"></asp:Label>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div id="divAlertSucess" style="display:none" class="alert alert-success alert-dismissible">
-                                    <asp:Label runat="server" id="lblSucess"></asp:Label>
+                                <div id="divAlertSucess" style="display: none" class="alert alert-success alert-dismissible">
+                                    <asp:Label runat="server" ID="lblSucess"></asp:Label>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +168,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" >Funcionário</h5>
+                                    <h5 class="modal-title">Funcionário</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -206,7 +201,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:DropDownList ID="ddlCargoEmployee" runat="server" DataTextField="NOME_CARGO"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlCargoEmployee" runat="server" DataTextField="NOME_CARGO" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <div class="row clearfix">
@@ -283,7 +278,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                   
+                    </div>
                 </form>
             </div>
         </main>

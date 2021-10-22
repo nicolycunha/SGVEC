@@ -143,8 +143,7 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.DependencyCollector
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.Web.xml
-C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csprojAssemblyReference.cache
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CoreCompileInputs.cache
-C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CopyComplete
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.pdb
+C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.AssemblyReference.cache

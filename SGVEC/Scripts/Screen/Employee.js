@@ -42,6 +42,14 @@
         ClearComponents();
     });
 
+    $("#gvEmployee tr").click(function () {
+        var selected = $(this).hasClass("selecionado");
+        $("#gvEmployee tr").removeClass("selecionado");
+        if (!selected)
+            $(this).addClass("selecionado");
+    });
+
+
     function ClearComponents() {
         $('#txtNomeEmployee').val(""); $('#txtCpfEmployee').val("");
         $('#txtRGEmployee').val(""); $('#txtDtNascEmployee').val(""); $('#txtTelEmployee').val("");
