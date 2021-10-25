@@ -58,13 +58,13 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.GridView gvProduct;
         
         /// <summary>
-        /// btnDeleteSupplier control.
+        /// btnDeleteProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteSupplier;
+        protected global::System.Web.UI.WebControls.Button btnDeleteProduct;
         
         /// <summary>
         /// lblError control.
@@ -157,22 +157,22 @@ namespace SGVEC.View.Screen {
         protected global::System.Web.UI.WebControls.TextBox txtDescProduct;
         
         /// <summary>
-        /// txt control.
+        /// ddlTipoProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoProduct;
         
         /// <summary>
-        /// txtUFSupplier control.
+        /// ddlFornecProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUFSupplier;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFornecProduct;
         
         /// <summary>
         /// btnSave control.

@@ -11,6 +11,7 @@ namespace SGVEC.Models
         public static string _MSG_SEUPERFIL = "Seu perfil não é adequado para essa funcionalidade!";
         public static string _strCodTypeProduct = "0";
         public static string _strCodSupplier = "0";
+        public static string _strCodProduct = "0";
     }
 
     public class GeneralComponent
@@ -61,6 +62,12 @@ namespace SGVEC.Models
         {
             get { return Global._strCodSupplier; }
             set { Global._strCodSupplier = value; }
+        }
+
+        public string strCodProduct
+        {
+            get { return Global._strCodProduct; }
+            set { Global._strCodProduct = value; }
         }
     }
 }

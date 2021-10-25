@@ -5,9 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Styles/login.css" rel="stylesheet" />
-    <link href="Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <script src="Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/9abeffea05.js"></script>
 
     <title>SGVEC - Login</title>
@@ -53,5 +51,7 @@
             </div>
         </div>
     </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

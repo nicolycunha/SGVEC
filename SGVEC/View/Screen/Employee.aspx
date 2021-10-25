@@ -5,11 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
-<%--        <link href="../../Styles/employee.css" rel="stylesheet" />--%>
 
     <link href="../../Styles/dashboard.css" rel="stylesheet" />
     <link href="../../Styles/forms.css" rel="stylesheet" />
@@ -96,7 +94,7 @@
                         <div class="col-md-12">
 
                             <div class="row clearfix form-space">
-                                 <div class="col-md-2">
+                                <div class="col-md-2">
                                     <div class="input-group">
                                         <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código" MaxLength="5"></asp:TextBox>
                                     </div>
@@ -121,7 +119,7 @@
                                     <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
-                                        <asp:BoundField DataField="COD_FUNC" HeaderText="Código" ItemStyle-CssClass="hiddencol"  HeaderStyle-CssClass="hiddencol" />
+                                        <asp:BoundField DataField="COD_FUNC" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                         <asp:BoundField DataField="NOME_FUNC" HeaderText="Nome" />
                                         <asp:BoundField DataField="CPF_FUNC" HeaderText="CPF" />
                                         <asp:BoundField DataField="RG_FUNC" HeaderText="RG" />
@@ -285,7 +283,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="../../Scripts/Screen/Employee.js"></script>
-    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/Screen/Employee.js"></script>    
 </body>
 </html>

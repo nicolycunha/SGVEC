@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="../../Scripts/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-    <link href="../../Styles/product.css" rel="stylesheet" />
+    <link href="../../Styles/dashboard.css" rel="stylesheet" />
     <link href="../../Styles/forms.css" rel="stylesheet" />
     <title>SGVEC | Produtos</title>
 </head>
@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/View/Screen/Supplier">
+                        <a href="/View/Screen/Product">
                             <img src="/images/Dashboard/fornecedor.png" alt="Ícone de Fornecedor pela icons8" />
                             Fornecedor
                         </a>
@@ -127,16 +127,16 @@
                         <br />
                         <div class="row clearfix">
                             <div class="col-md-2">
-                                <button id="btnSearchSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
+                                <button id="btnSearchProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnInsertSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
+                                <button id="btnInsertProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnUpdateSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
+                                <button id="btnUpdateProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
                             </div>
                             <div class="col-md-2">
-                                <asp:Button ID="btnDeleteSupplier" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                                <asp:Button ID="btnDeleteProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" />
                             </div>
                         </div>
                         <br />
@@ -210,15 +210,11 @@
                                                 <asp:TextBox runat="server" ID="txtDescProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="9" TextMode="MultiLine" Height="100" placeholder="Descrição"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txt" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
-                                            </div>
+                                        <div class="col-md-4">
+                                            <asp:DropDownList ID="ddlTipoProduct" runat="server" DataTextField="NOME_TIPO_PROD" CssClass="form-select"></asp:DropDownList>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtUFSupplier" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
-                                            </div>
+                                        <div class="col-md-4">
+                                            <asp:DropDownList ID="ddlFornecProduct" runat="server" DataTextField="RAZAO_SOCIAL" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-2">
                                             <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
@@ -228,7 +224,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
-                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" />
                                 </div>
                             </div>
                         </div>
@@ -239,7 +235,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="../../Scripts/Screen/Supplier.js"></script>
-    <script src="../../Scripts/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/Screen/Product.js"></script>
 </body>
 </html>

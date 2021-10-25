@@ -355,12 +355,5 @@ namespace SGVEC.View.Screen
             ClearComponents();
         }
         #endregion
-
-        [WebMethod]
-        protected void OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            string message = ddlCargoEmployee.SelectedItem.Text + " - " + ddlCargoEmployee.SelectedItem.Value;
-            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
-        }
     }
 }
