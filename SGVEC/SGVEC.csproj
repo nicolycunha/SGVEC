@@ -144,6 +144,7 @@
     <Content Include="Images\Employee\icons8-pesquisa-propriedade-30.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\Screen\Employee.js" />
+    <Content Include="Scripts\Screen\Product.js" />
     <Content Include="Scripts\Screen\Supplier.js" />
     <Content Include="Scripts\Screen\TypeProduct.js" />
     <Content Include="Styles\dashboard.css" />

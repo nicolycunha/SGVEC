@@ -88,9 +88,9 @@
                         <div class="col-md-12">
                             <div class="row clearfix">
                                 <br />
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <div class="input-group">
-                                        <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código de Barras" MaxLength="5"></asp:TextBox>
+                                        <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código de Barras" MaxLength="10"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -126,16 +126,16 @@
 
                         <br />
                         <div class="row clearfix">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <button id="btnSearchProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <button id="btnInsertProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <button id="btnUpdateProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <asp:Button ID="btnDeleteProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" />
                             </div>
                         </div>
@@ -164,56 +164,56 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row clearfix">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodBarrasProduct" disabled="true" CssClass="form-control" type="text" MaxLength="4" placeholder="Código de Barras"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCodBarrasProduct" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="Código de Barras"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNomeProduct" CssClass="form-control is-invalid" type="text" MaxLength="100" placeholder="Nome"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtNomeProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtMarcaProduct" CssClass="form-control is-invalid" type="text" MaxLength="18" placeholder="Marca"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtMarcaProduct" CssClass="form-control is-invalid" type="text" MaxLength="208" placeholder="Marca"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtPrecoProduct" CssClass="form-control is-invalid" type="text" MaxLength="15" placeholder="Preço"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-5">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="100" placeholder="Custo"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="4" placeholder="Data de Cadastro"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Quantidade"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtPrecoProduct" CssClass="form-control is-invalid" type="text" MaxLength="10" placeholder="Preço"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDescProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="9" TextMode="MultiLine" Height="100" placeholder="Descrição"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="10" placeholder="Custo"></asp:TextBox>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data de Cadastro"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="10" placeholder="Quantidade"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
                                         <div class="col-md-4">
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtDescProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="50" TextMode="MultiLine" Height="100" placeholder="Descrição"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
                                             <asp:DropDownList ID="ddlTipoProduct" runat="server" DataTextField="NOME_TIPO_PROD" CssClass="form-select"></asp:DropDownList>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <asp:DropDownList ID="ddlFornecProduct" runat="server" DataTextField="RAZAO_SOCIAL" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-2">
