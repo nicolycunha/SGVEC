@@ -135,9 +135,6 @@
                             <div class="col-md-3">
                                 <button id="btnUpdateProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
                             </div>
-                            <div class="col-md-3">
-                                <asp:Button ID="btnDeleteProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" />
-                            </div>
                         </div>
                         <br />
                         <div class="row clearfix">
@@ -190,17 +187,17 @@
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="10" placeholder="Custo"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="6" placeholder="Custo"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data de Cadastro"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="date" MaxLength="6" placeholder="Data de Cadastro"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="10" placeholder="Quantidade"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Quantidade"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -224,7 +221,7 @@
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
-                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" />
+                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
                                 </div>
                             </div>
                         </div>

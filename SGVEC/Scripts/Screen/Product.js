@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
     $("#txtCode").mask("9999999999");
     $("#txtCodBarrasProduct").mask("9999999999");
-    $("#txtPrecoProduct").mask("999.99");
-    $("#txtCustoProduct").mask("999.999");
+    $("#txtPrecoProduct").mask("999.00");
+    $("#txtCustoProduct").mask("999.00");
     $("#txtQuantidadeProduct").mask("99999");
 
     if ($('#lblError')[0] != undefined) {
@@ -18,13 +18,11 @@
     }
 
     $('#btnSearchProduct').click(function () {
-        $('#btnSave').prop('disabled', false);
-        $('#btnClearComponents').prop('disabled', 'false');
+        $('#btnClearComponents').prop('disabled', true);
         DisableComponents(true);
     });
 
     $('#btnInsertProduct').click(function () {
-        $('#txtCodBarrasProduct').val("");
         ClearComponents();
         DisableComponents(false);
     });
@@ -32,6 +30,7 @@
     $('#btnUpdateProduct').click(function () {
         DisableComponents(false);
         $('#txtCodBarrasProduct').prop('disabled', true);
+        $('#txtNomeProduct').prop('disabled', true);
     });
 
     $('#btnClearComponents').click(function () {
@@ -52,6 +51,7 @@
     }
 
     function DisableComponents(value) {
+        $('#btnSave').prop('disabled', value);
         $('#txtCodBarrasProduct').prop('disabled', value); $('#txtNomeProduct').prop('disabled', value);
         $('#txtMarcaProduct').prop('disabled', value); $('#txtPrecoProduct').prop('disabled', value);
         $('#txtCustoProduct').prop('disabled', value); $('#txtDtCadProduct').prop('disabled', value);
