@@ -31,6 +31,7 @@
         DisableComponents(false);
         $('#txtCodBarrasProduct').prop('disabled', true);
         $('#txtNomeProduct').prop('disabled', true);
+        $('#txtQuantidadeProduct').prop('disabled', true);
     });
 
     $('#btnClearComponents').click(function () {

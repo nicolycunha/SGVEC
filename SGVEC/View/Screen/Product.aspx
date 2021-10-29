@@ -110,10 +110,10 @@
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
                                         <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" />
-                                        <asp:BoundField DataField="NOME_PROD" HeaderText="Razão Social" />
-                                        <asp:BoundField DataField="MARCA_PROD" HeaderText="CNPJ" />
-                                        <asp:BoundField DataField="PRECO_PROD" HeaderText="Telefone" />
-                                        <asp:BoundField DataField="DATA_CAD_PROD" HeaderText="Telefone" />                                        
+                                        <asp:BoundField DataField="NOME_PROD" HeaderText="Nome do Produto" />
+                                        <asp:BoundField DataField="MARCA_PROD" HeaderText="Marca" />
+                                        <asp:BoundField DataField="PRECO_PROD" HeaderText="Preço" />
+                                        <asp:BoundField DataField="DATA_CAD_PROD" HeaderText="Data de Cadastro" />                                        
                                         <asp:TemplateField HeaderText="-">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_BARRAS") %>' OnClick="gvProduct_SelectedIndexChanged"></asp:LinkButton>
