@@ -12,6 +12,7 @@ namespace SGVEC.Models
         public static string _strCodTypeProduct = "0";
         public static string _strCodSupplier = "0";
         public static string _strCodProduct = "0";
+        public static string _strCodSales = "0";
     }
 
     public class GeneralComponent
@@ -68,6 +69,12 @@ namespace SGVEC.Models
         {
             get { return Global._strCodProduct; }
             set { Global._strCodProduct = value; }
+        }
+
+        public string strCodSales
+        {
+            get { return Global._strCodSales; }
+            set { Global._strCodSales = value; }
         }
     }
 }
