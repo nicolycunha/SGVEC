@@ -34,15 +34,15 @@ namespace SGVEC.View.Screen
                 else lblError.Visible = false;
 
                 //Preenche o ComboBox com os cadastros da Tabela - Funcionário
-                ddlFuncSales.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM FUNCIONARIO");
-                ddlFuncSales.DataTextField = "NOME_CARGO";
-                ddlFuncSales.DataValueField = "COD_CARGO";
+                ddlFuncSales.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM FUNCIONARIO WHERE COD_FUNC = '" + gc.CodEmployeeLog + "'");
+                ddlFuncSales.DataTextField = "NOME_FUNC";
+                ddlFuncSales.DataValueField = "COD_FUNC";
                 ddlFuncSales.DataBind();
 
                 //Preenche o ComboBox com os cadastros da Tabela - Tipo de Pagamento
-                ddlTipoPagSales.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM TIPO_PAGAMENTO");
-                ddlTipoPagSales.DataTextField = "NOME_CARGO";
-                ddlTipoPagSales.DataValueField = "COD_CARGO";
+                ddlTipoPagSales.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO");
+                ddlTipoPagSales.DataTextField = "NOME_PROD";
+                ddlTipoPagSales.DataValueField = "COD_BARRAS";
                 ddlTipoPagSales.DataBind();
             }
             catch (Exception ex)

@@ -2,15 +2,10 @@
     $("#txtCode").mask("9999");
     $("#txtCpfCli").mask("999.999.999-99");
     $("#txtCpfFunc").mask("999.999.999-99");
-
-    $("#txtCodEmployee").mask("9999");
-    $("#txtNumEndecEmployee").mask("9999");
-    $("#txtCPF").mask("999.999.999-99");
-    $("#txtCpfEmployee").mask("999.999.999-99");
-    $("#txtRGEmployee").mask("99.999.999-9");
-    $("#txtTelEmployee").mask("(99)9999-9999");
-    $("#txtCelEmployee").mask("(99)99999-9999");
-    $("#txtCepEmployee").mask("99999-999");
+    $("#txtNumParcSales").mask("9999");
+    $("#txtValParcSales").mask("999.00");
+    $("#txtDescontoSales").mask("999.00");
+    $("#txtTotalSales").mask("999.00");
 
     if ($('#lblError')[0] != undefined) {
         if ($('#lblError')[0].innerText != "") {
@@ -24,50 +19,45 @@
         }
     }
 
-    $('#btnSearchEmployee').click(function () {
+    $('#btnSearchSales').click(function () {
         $('#btnSave').prop('disabled', false);
         $('#btnClearComponents').prop('disabled', 'false');
         DisableComponents(true);
     });
 
-    $('#btnInsertEmployee').click(function () {
-        $('#txtCodEmployee').val("");
+    $('#btnInsertSales').click(function () {
+        $('#txtCodSales').val("");
         ClearComponents();
         DisableComponents(false);
-    });
-
-    $('#btnUpdateEmployee').click(function () {
-        DisableComponents(false);
-        $('#txtCpfEmployee').prop('disabled', true);
     });
 
     $('#btnClearComponents').click(function () {
         ClearComponents();
     });
 
-    $("#gvEmployee tr").click(function () {
+    $("#gvSales tr").click(function () {
         var selected = $(this).hasClass("selecionado");
-        $("#gvEmployee tr").removeClass("selecionado");
+        $("#gvSales tr").removeClass("selecionado");
         if (!selected)
             $(this).addClass("selecionado");
     });
 
 
     function ClearComponents() {
-        $('#txtNomeEmployee').val(""); $('#txtCpfEmployee').val("");
-        $('#txtRGEmployee').val(""); $('#txtDtNascEmployee').val(""); $('#txtTelEmployee').val("");
-        $('#txtCelEmployee').val(""); $('#txtEnderecoEmployee').val(""); $('#txtNumEndecEmployee').val("");
-        $('#txtBairroEmployee').val(""); $('#txtCepEmployee').val(""); $('#txtCidadeEmployee').val("");
-        $('#txtUFEmployee').val(""); $('#txtEmailEmployee').val(""); $('#txtSenhaEmployee').val("");
+        $('#txtNomeSales').val(""); $('#txtCpfSales').val("");
+        $('#txtRGSales').val(""); $('#txtDtNascSales').val(""); $('#txtTelSales').val("");
+        $('#txtCelSales').val(""); $('#txtEnderecoSales').val(""); $('#txtNumEndecSales').val("");
+        $('#txtBairroSales').val(""); $('#txtCepSales').val(""); $('#txtCidadeSales').val("");
+        $('#txtUFSales').val(""); $('#txtEmailSales').val(""); $('#txtSenhaSales').val("");
         $('#txtDtDeslig').val("");
     }
 
     function DisableComponents(value) {
-        $('#txtNomeEmployee').prop('disabled', value); $('#txtCpfEmployee').prop('disabled', value);
-        $('#txtRGEmployee').prop('disabled', value); $('#txtDtNascEmployee').prop('disabled', value); $('#txtTelEmployee').prop('disabled', value);
-        $('#txtCelEmployee').prop('disabled', value); $('#txtEnderecoEmployee').prop('disabled', value); $('#txtNumEndecEmployee').prop('disabled', value);
-        $('#txtBairroEmployee').prop('disabled', value); $('#txtCepEmployee').prop('disabled', value); $('#txtCidadeEmployee').prop('disabled', value);
-        $('#txtUFEmployee').prop('disabled', value); $('#txtEmailEmployee').prop('disabled', value); $('#txtSenhaEmployee').prop('disabled', value);
-        $('#txtDtDeslig').prop('disabled', value); $('#ddlCargoEmployee').prop('disabled', value); $('#btnSave').prop('disabled', value);
+        $('#txtNomeSales').prop('disabled', value); $('#txtCpfSales').prop('disabled', value);
+        $('#txtRGSales').prop('disabled', value); $('#txtDtNascSales').prop('disabled', value); $('#txtTelSales').prop('disabled', value);
+        $('#txtCelSales').prop('disabled', value); $('#txtEnderecoSales').prop('disabled', value); $('#txtNumEndecSales').prop('disabled', value);
+        $('#txtBairroSales').prop('disabled', value); $('#txtCepSales').prop('disabled', value); $('#txtCidadeSales').prop('disabled', value);
+        $('#txtUFSales').prop('disabled', value); $('#txtEmailSales').prop('disabled', value); $('#txtSenhaSales').prop('disabled', value);
+        $('#txtDtDeslig').prop('disabled', value); $('#ddlCargoSales').prop('disabled', value); $('#btnSave').prop('disabled', value);
     }
 });

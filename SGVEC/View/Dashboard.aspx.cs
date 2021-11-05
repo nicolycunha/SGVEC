@@ -17,7 +17,7 @@ namespace SGVEC.View
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + 0 + "', '" + gc.CPF + "', '" + gc.Name + "')");
 
-            if (leitor.Read()) { gc.CodEmployee = Convert.ToInt32(leitor[16].ToString()); lblNomeFunc.Text = leitor[2].ToString(); }
+            if (leitor.Read()) { gc.CodEmployeeLog = Convert.ToInt32(leitor[0].ToString()); gc.CodEmployee = Convert.ToInt32(leitor[16].ToString()); lblNomeFunc.Text = leitor[2].ToString(); }
         }
        
     }

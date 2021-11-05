@@ -3,6 +3,7 @@ namespace SGVEC.Models
 {
     public static class Global
     {
+        public static int _intCodEmployeeLog; //Código o usuário logado
         public static int _intCodEmployee;
         public static string _strCPF;
         public static string _strName;
@@ -17,6 +18,12 @@ namespace SGVEC.Models
 
     public class GeneralComponent
     {
+        public int CodEmployeeLog
+        {
+            get { return Global._intCodEmployeeLog; }
+            set { Global._intCodEmployeeLog = value; }
+        }
+
         public int CodEmployee
         {
             get { return Global._intCodEmployee; }   
