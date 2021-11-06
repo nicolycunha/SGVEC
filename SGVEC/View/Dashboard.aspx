@@ -23,6 +23,12 @@
             </div>
             <div class="menu">
                 <ul>
+                    <li class="selected">
+                        <a href="/View/Dashboard">
+                            <img src="/Images/Dashboard/casa.png" alt="Ícone de Dashboard pela icons8" />
+                            Dashboard
+                        </a>
+                    </li>
                     <li>
                         <a href="/View/Screen/Storage">
                             <img src="../Images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
@@ -66,10 +72,10 @@
                         </a>
                     </li>
                 </ul>
-                 <footer class="footer">
+                <footer class="footer">
                     <a href="/View/Manual" class="manual">
                         <img src="../Images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
-                        <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span> 
+                        <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>
                 </footer>
             </div>

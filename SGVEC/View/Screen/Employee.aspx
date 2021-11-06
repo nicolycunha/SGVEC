@@ -170,107 +170,123 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row clearfix">
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodEmployee" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                    <fieldset>
+                                        <legend>Informações pessoais</legend>
+                                        <div class="row clearfix">
+                                            <div class="col-md-2">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtCodEmployee" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtNomeEmployee" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtCpfEmployee" CssClass="form-control is-invalid" type="text" MaxLength="14" placeholder="CPF"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-7">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNomeEmployee" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
+                                        <div class="row clearfix">
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtRGEmployee" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="12" placeholder="RG"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtDtNascEmployee" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="10" placeholder="Data Nascimento" onfocus="if(this.value=='')this.value=this.defaultValue;"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <asp:DropDownList ID="ddlCargoEmployee" runat="server" DataTextField="NOME_CARGO" CssClass="form-select"></asp:DropDownList>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCpfEmployee" CssClass="form-control is-invalid" type="text" MaxLength="14" placeholder="CPF"></asp:TextBox>
+                                        <div class="row clearfix">
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtTelEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtCelEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Celular"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtRGEmployee" CssClass="form-control is-invalid" Enabled="false" type="text" MaxLength="12" placeholder="RG"></asp:TextBox>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend>Endereço</legend>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtEnderecoEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtNumEndecEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Número"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtCidadeEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtNascEmployee" CssClass="form-control is-invalid" Enabled="false" type="date" MaxLength="10" placeholder="Data Nascimento"></asp:TextBox>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtBairroEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtCepEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="9" placeholder="CEP"></asp:TextBox>
+                                                </div>
+                                            </div>                                           
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtUFEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <asp:DropDownList ID="ddlCargoEmployee" runat="server" DataTextField="NOME_CARGO" CssClass="form-select"></asp:DropDownList>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtTelEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Telefone"></asp:TextBox>
+                                    </fieldset>
+
+                                    <fieldset>
+                                        <legend>Informações complementares</legend>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtEmailEmployee" CssClass="form-control is-invalid" Enabled="false" type="email" MaxLength="50" placeholder="Email"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtSenhaEmployee" CssClass="form-control is-invalid" Enabled="false" type="password" MaxLength="20" placeholder="Senha"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-3">
+                                                <div class="input-group">
+                                                    <asp:TextBox runat="server" ID="txtDtDeslig" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data Desligamento"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCelEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="15" placeholder="Celular"></asp:TextBox>
+                                        <div class="row clearfix">
+                                           
+                                            <div class="col-md-2">
+                                                
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtEnderecoEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="100" placeholder="Endereço"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtNumEndecEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Número"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtBairroEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Bairro"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCepEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="9" placeholder="CEP"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCidadeEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtUFEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtEmailEmployee" CssClass="form-control is-invalid" Enabled="false" type="email" MaxLength="50" placeholder="Email"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtSenhaEmployee" CssClass="form-control is-invalid" Enabled="false" type="password" MaxLength="20" placeholder="Senha"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDtDeslig" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data Desligamento"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
-                                        </div>
-                                    </div>
+                                    </fieldset>
+
                                 </div>
 
                                 <div class="modal-footer">
+                                    <button id="btnClearComponents" type="button" class="btn btn-primary float-left">Limpar</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
                                     <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
                                 </div>
@@ -284,6 +300,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../Scripts/Screen/Employee.js"></script>    
+    <script src="../../Scripts/Screen/Employee.js"></script>
 </body>
 </html>

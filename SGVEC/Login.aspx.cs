@@ -45,7 +45,7 @@ namespace SGVEC
                         {
                             if (leitor[3].ToString() != "")
                             {
-                                lblError.Text = "Atenção! Seu acesso enconstra-se Desligado. Entrar em contato com um Gerente!";
+                                lblError.Text = "Atenção! Seu acesso encontra-se Desligado. Entrar em contato com um Gerente!";
                             }
                             else
                             {
