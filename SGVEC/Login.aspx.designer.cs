@@ -42,15 +42,6 @@ namespace SGVEC
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// Controle chkRemember.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkRemember;
-
-        /// <summary>
         /// Controle btnLogin.
         /// </summary>
         /// <remarks>

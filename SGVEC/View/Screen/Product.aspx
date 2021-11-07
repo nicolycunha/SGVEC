@@ -85,55 +85,50 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="col-md-12">
-                            <div class="row clearfix">
-                                <br />
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código de Barras" MaxLength="10"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
+                        <div class="row clearfix form-space">
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código de Barras" MaxLength="10"></asp:TextBox>
                                 </div>
                             </div>
-
-                            <br />
-                            <div class="row clearfix">
-                                <asp:GridView CssClass="col-md-12" ID="gvProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
-                                    <AlternatingRowStyle BackColor="#F7F7F7" />
-                                    <Columns>
-                                        <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" />
-                                        <asp:BoundField DataField="NOME_PROD" HeaderText="Nome do Produto" />
-                                        <asp:BoundField DataField="MARCA_PROD" HeaderText="Marca" />
-                                        <asp:BoundField DataField="PRECO_PROD" HeaderText="Preço" />
-                                        <asp:BoundField DataField="DATA_CAD_PROD" HeaderText="Data de Cadastro" />                                        
-                                        <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_BARRAS") %>' OnClick="gvProduct_SelectedIndexChanged"></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                             </div>
                         </div>
 
-                        <br />
-                        <div class="row clearfix">
+                        <div class="row clearfix form-space">
+                            <asp:GridView CssClass="col-md-12" ID="gvProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
+                                <AlternatingRowStyle BackColor="#F7F7F7" />
+                                <Columns>
+                                    <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                    <asp:BoundField DataField="NOME_PROD" HeaderText="Nome do Produto" />
+                                    <asp:BoundField DataField="MARCA_PROD" HeaderText="Marca" />
+                                    <asp:BoundField DataField="PRECO_PROD" HeaderText="Preço" />
+                                    <asp:BoundField DataField="DATA_CAD_PROD" HeaderText="Data de Cadastro" />
+                                    <asp:TemplateField HeaderText="-">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_BARRAS") %>' OnClick="gvProduct_SelectedIndexChanged"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+
+                        <div class="botoes-forms">
                             <div class="col-md-3">
-                                <button id="btnSearchProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
+                                <button id="btnSearchProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
                             </div>
                             <div class="col-md-3">
-                                <button id="btnInsertProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
+                                <button id="btnInsertProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
                             </div>
                             <div class="col-md-3">
-                                <button id="btnUpdateProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
+                                <button id="btnUpdateProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
                             </div>
                         </div>
                         <br />

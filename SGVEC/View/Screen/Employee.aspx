@@ -91,7 +91,6 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="col-md-12">
 
                             <div class="row clearfix form-space">
                                 <div class="col-md-2">
@@ -116,7 +115,7 @@
 
                             <div class="row clearfix form-space">
                                 <asp:GridView CssClass="col-md-12" ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
+                                    <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
                                         <asp:BoundField DataField="COD_FUNC" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
@@ -135,7 +134,6 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
-                        </div>
 
                         <div class="botoes-forms">
                             <button id="btnSearchEmployee" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#employeeModal">Consultar</button>
@@ -231,7 +229,7 @@
                                                     <asp:TextBox runat="server" ID="txtNumEndecEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Número"></asp:TextBox>
                                                 </div>
                                             </div>
-                                             <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="input-group">
                                                     <asp:TextBox runat="server" ID="txtCidadeEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="50" placeholder="Cidade"></asp:TextBox>
                                                 </div>
@@ -247,7 +245,7 @@
                                                 <div class="input-group">
                                                     <asp:TextBox runat="server" ID="txtCepEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="9" placeholder="CEP"></asp:TextBox>
                                                 </div>
-                                            </div>                                           
+                                            </div>
                                             <div class="col-md-3">
                                                 <div class="input-group">
                                                     <asp:TextBox runat="server" ID="txtUFEmployee" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="UF"></asp:TextBox>
@@ -257,7 +255,7 @@
                                     </fieldset>
 
                                     <fieldset>
-                                        <legend>Informações complementares</legend>
+                                        <legend>Informações de acesso</legend>
                                         <div class="row clearfix">
                                             <div class="col-md-6">
                                                 <div class="input-group">
@@ -269,16 +267,10 @@
                                                     <asp:TextBox runat="server" ID="txtSenhaEmployee" CssClass="form-control is-invalid" Enabled="false" type="password" MaxLength="20" placeholder="Senha"></asp:TextBox>
                                                 </div>
                                             </div>
-                                             <div class="col-md-3">
+                                            <div class="col-md-3">
                                                 <div class="input-group">
                                                     <asp:TextBox runat="server" ID="txtDtDeslig" CssClass="form-control" Enabled="false" type="date" MaxLength="10" placeholder="Data Desligamento"></asp:TextBox>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                           
-                                            <div class="col-md-2">
-                                                
                                             </div>
                                         </div>
                                     </fieldset>
@@ -286,9 +278,13 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button id="btnClearComponents" type="button" class="btn btn-primary float-left">Limpar</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
-                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    <div class="col-footer">
+                                        <button id="btnClearComponents" type="button" class="btn btn-primary float-left">Limpar</button>
+                                    </div>
+                                    <div class="col-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+                                        <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

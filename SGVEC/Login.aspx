@@ -33,14 +33,14 @@
                             <asp:TextBox ID="txtPassword" type="password" runat="server" placeholder="Senha"></asp:TextBox>
                         </div>
 
-                        <div class="form-group">
+                        <%--<div class="form-group">
                             <div>
                                 <asp:CheckBox ID="chkRemember" runat="server" CssClass="check"></asp:CheckBox>
                                 <asp:Label Text="Lembrar senha" runat="server" />
                             </div>
 
                             <a href="#">Esqueceu a senha?</a>
-                        </div>
+                        </div>--%>
 
                         <asp:Button ID="btnLogin" runat="server" Text="ENTRAR" OnClick="btnLogin_Click" CssClass="btn-login" BorderStyle="Solid" />
 

@@ -85,9 +85,7 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="col-md-12">
-                            <div class="row clearfix">
-                                <br />
+                            <div class="row clearfix form-space">                              
                                 <div class="col-md-2">
                                     <div class="input-group">
                                         <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código" MaxLength="5"></asp:TextBox>
@@ -104,17 +102,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
+                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                                 </div>
                             </div>
-
-                            <br />
-                            <div class="row clearfix">
+                            <div class="row clearfix form-space">
                                 <asp:GridView CssClass="col-md-12" ID="gvSupplier" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                     <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
-                                        <asp:BoundField DataField="COD_FORNEC" HeaderText="Código" />
+                                        <asp:BoundField DataField="COD_FORNEC" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                         <asp:BoundField DataField="RAZAO_SOCIAL" HeaderText="Razão Social" />
                                         <asp:BoundField DataField="CNPJ_FORNEC" HeaderText="CNPJ" />
                                         <asp:BoundField DataField="TEL_FORNEC" HeaderText="Telefone" />
@@ -126,24 +122,20 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
-                        </div>
-
-                        <br />
-                        <div class="row clearfix">
+                        <div class="botoes-forms">
                             <div class="col-md-2">
-                                <button id="btnSearchSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Consultar</button>
+                                <button id="btnSearchSupplier" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Consultar</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnInsertSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Incluir</button>
+                                <button id="btnInsertSupplier" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Incluir</button>
                             </div>
                             <div class="col-md-2">
-                                <button id="btnUpdateSupplier" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Alterar</button>
+                                <button id="btnUpdateSupplier" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#supplierModal">Alterar</button>
                             </div>
                             <div class="col-md-2">
-                                <asp:Button ID="btnDeleteSupplier" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                                <asp:Button ID="btnDeleteSupplier" runat="server" Text="Deletar" CssClass="btn btn-outline-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                             </div>
                         </div>
-                        <br />
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">

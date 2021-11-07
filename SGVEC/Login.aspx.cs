@@ -50,7 +50,7 @@ namespace SGVEC
                             else
                             {
                                 //Acessar Dashboard
-                                Response.Redirect("http://localhost:52149/View/Dashboard#");
+                                Response.Redirect("http://localhost:52149/View/Dashboard");
                             }
                         }
                     }

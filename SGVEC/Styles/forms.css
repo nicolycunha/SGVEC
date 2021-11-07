@@ -30,16 +30,20 @@ input[type=text] {
 
     .btn-outline-primary:hover {
         color: #fff;
-        background-color: var(--color-warning);
-        border-color: var(--color-warning);
+        background-color: var(--color-primary);
     }
 
 table {
     font-family: 'Poppins', sans-serif;
 }
 
-th, td{
+th, td {
     padding-left: 13px;
+    font-size: 0.9rem;
+}
+
+tr {
+    font-size: 0.95rem;
 }
 
 .modal-body input{
@@ -50,6 +54,7 @@ th, td{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
 .hiddencol {
@@ -57,18 +62,21 @@ th, td{
 }
 
 .selecionado {
-    background-color: #fffc9d;
+    background-color: #b8a6dd;
 }
 
 fieldset {
-    background-color: #f3f3f3;
-    padding: 20px 10px 0 10px;
-    border-radius: 5px;
+    padding: 0 10px 0 10px;
     margin-bottom: 10px;
 }
 
 legend{
     font-size: 1.25rem;
     color: black;
+}
 
+.modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
