@@ -1,11 +1,13 @@
 ﻿$(document).ready(function () {
     $("#txtCode").mask("9999");
-    $("#txtCpfCli").mask("999.999.999-99");
+    $("#txtCodSales").mask("9999");
+    $("#txtCpfCli").mask("999.999.999-99"); 
+    $("#txtCpfCliSales").mask("999.999.999-99");
     $("#txtCpfFunc").mask("999.999.999-99");
     $("#txtNumParcSales").mask("9999");
     $("#txtValParcSales").mask("999.00");
-    $("#txtDescontoSales").mask("999.00");
     $("#txtTotalSales").mask("999.00");
+    $("#txtDescontoSales").mask("99%");
 
     if ($('#lblError')[0] != undefined) {
         if ($('#lblError')[0].innerText != "") {
@@ -21,7 +23,6 @@
 
     $('#btnSearchSales').click(function () {
         $('#btnSave').prop('disabled', false);
-        $('#btnClearComponents').prop('disabled', 'false');
         DisableComponents(true);
     });
 
@@ -42,22 +43,49 @@
             $(this).addClass("selecionado");
     });
 
+    $('#txtDescontoSales').focusout(function () {
+        if ($('#txtDescontoSales').val() != "") {
+            let intNumParcSales = parseFloat($('#txtNumParcSales').val());
+            let intValParcSales = parseFloat($('#txtValParcSales').val());
+            let intValorDesc = parseInt($('#txtDescontoSales').val());
+
+            let intValorTotal = intValParcSales * intNumParcSales;
+            let flVlDesconto = parseFloat((intValorDesc / 100) * intValorTotal);
+            $('#txtTotalSales').val(intValorTotal - flVlDesconto);
+        }
+    });
+
+    $('#txtValParcSales').focusout(function () {
+        if ($('#txtNumParcSales').val() != "" && $('#txtNumParcSales').val() != "0") {
+            if ($('#txtDescontoSales').val() != "") {
+                let intNumParcSales = parseFloat($('#txtNumParcSales').val());
+                let intValParcSales = parseFloat($('#txtValParcSales').val());
+                let intValorDesc = parseInt($('#txtDescontoSales').val());
+
+                let intValorTotal = intValParcSales * intNumParcSales;
+                let flVlDesconto = parseFloat((intValorDesc / 100) * intValorTotal);
+                $('#txtTotalSales').val(intValorTotal - flVlDesconto);
+            }
+            else {
+                let intNumParcSales = parseInt($('#txtNumParcSales').val());
+                let intValParcSales = parseInt($('#txtValParcSales').val());
+                $('#txtTotalSales').val(intValParcSales * intNumParcSales);
+            }
+        }
+        else {
+            $('#txtTotalSales').val($('#txtValParcSales').val());
+        }
+    });
 
     function ClearComponents() {
-        $('#txtNomeSales').val(""); $('#txtCpfSales').val("");
-        $('#txtRGSales').val(""); $('#txtDtNascSales').val(""); $('#txtTelSales').val("");
-        $('#txtCelSales').val(""); $('#txtEnderecoSales').val(""); $('#txtNumEndecSales').val("");
-        $('#txtBairroSales').val(""); $('#txtCepSales').val(""); $('#txtCidadeSales').val("");
-        $('#txtUFSales').val(""); $('#txtEmailSales').val(""); $('#txtSenhaSales').val("");
-        $('#txtDtDeslig').val("");
+        $('#txtCodSales').val(""); $('#txtNomeCliSales').val(""); $('#txtCpfCliSales').val("");
+        $('#txtDtSales').val(""); $('#txtNumParcSales').val(""); $('#txtValParcSales').val("");
+        $('#txtDescontoSales').val(""); $('#txtTotalSales').val(""); 
     }
 
     function DisableComponents(value) {
-        $('#txtNomeSales').prop('disabled', value); $('#txtCpfSales').prop('disabled', value);
-        $('#txtRGSales').prop('disabled', value); $('#txtDtNascSales').prop('disabled', value); $('#txtTelSales').prop('disabled', value);
-        $('#txtCelSales').prop('disabled', value); $('#txtEnderecoSales').prop('disabled', value); $('#txtNumEndecSales').prop('disabled', value);
-        $('#txtBairroSales').prop('disabled', value); $('#txtCepSales').prop('disabled', value); $('#txtCidadeSales').prop('disabled', value);
-        $('#txtUFSales').prop('disabled', value); $('#txtEmailSales').prop('disabled', value); $('#txtSenhaSales').prop('disabled', value);
-        $('#txtDtDeslig').prop('disabled', value); $('#ddlCargoSales').prop('disabled', value); $('#btnSave').prop('disabled', value);
+        $('#txtNomeCliSales').prop('disabled', value); $('#txtCpfCliSales').prop('disabled', value); $('#txtDtSales').prop('disabled', value);
+        $('#txtNumParcSales').prop('disabled', value); $('#txtValParcSales').prop('disabled', value); $('#txtDescontoSales').prop('disabled', value);
+        $('#txtTotalSales').prop('disabled', value); $('#ddlTipoPagSales').prop('disabled', value); 
     }
 });

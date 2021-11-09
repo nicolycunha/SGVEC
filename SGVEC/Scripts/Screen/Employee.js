@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    var tpBtn = 0;
+
     $("#txtCode").mask("9999");
     $("#txtCodEmployee").mask("9999");
     $("#txtNumEndecEmployee").mask("9999");
@@ -23,11 +25,11 @@
 
     $('#btnSearchEmployee').click(function () {
         $('#btnSave').prop('disabled', false);
-        $('#btnClearComponents').prop('disabled', 'false');
         DisableComponents(true);
     });
 
     $('#btnInsertEmployee').click(function () {
+        tpBtn = 1;
         $('#txtCodEmployee').val("");
         ClearComponents();
         DisableComponents(false);
@@ -51,12 +53,13 @@
 
 
     function ClearComponents() {
-        $('#txtNomeEmployee').val(""); $('#txtCpfEmployee').val("");
-        $('#txtRGEmployee').val(""); $('#txtDtNascEmployee').val(""); $('#txtTelEmployee').val("");
+        if (tpBtn == 1) {
+            $('#txtCpfEmployee').val("");
+        }
+        $('#txtNomeEmployee').val(""); $('#txtRGEmployee').val(""); $('#txtDtNascEmployee').val(""); $('#txtTelEmployee').val("");
         $('#txtCelEmployee').val(""); $('#txtEnderecoEmployee').val(""); $('#txtNumEndecEmployee').val("");
         $('#txtBairroEmployee').val(""); $('#txtCepEmployee').val(""); $('#txtCidadeEmployee').val("");
-        $('#txtUFEmployee').val(""); $('#txtEmailEmployee').val(""); $('#txtSenhaEmployee').val("");
-        $('#txtDtDeslig').val("");
+        $('#txtUFEmployee').val(""); $('#txtEmailEmployee').val(""); $('#txtSenhaEmployee').val(""); $('#txtDtDeslig').val("");
     }
 
     function DisableComponents(value) {
@@ -66,5 +69,6 @@
         $('#txtBairroEmployee').prop('disabled', value); $('#txtCepEmployee').prop('disabled', value); $('#txtCidadeEmployee').prop('disabled', value);
         $('#txtUFEmployee').prop('disabled', value); $('#txtEmailEmployee').prop('disabled', value); $('#txtSenhaEmployee').prop('disabled', value);
         $('#txtDtDeslig').prop('disabled', value); $('#ddlCargoEmployee').prop('disabled', value); $('#btnSave').prop('disabled', value);
+        $('#btnClearComponents').prop('disabled', value);
     }
 });

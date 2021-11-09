@@ -14,6 +14,7 @@ namespace SGVEC.View.Screen
         private DataManipulation dtManip = new DataManipulation();
         private GeneralComponent gc = new GeneralComponent();
         private string strCode = "0";
+        private string strDtDesligamento = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,6 +52,9 @@ namespace SGVEC.View.Screen
         {
             try
             {
+                lblError.Text = "";
+                lblSucess.Text = "";
+
                 gc.strCodEmployee = "0";
 
                 if (txtCode.Text != "") strCode = txtCode.Text;
@@ -117,8 +121,17 @@ namespace SGVEC.View.Screen
         {
             try
             {
+                lblError.Text = "";
+                lblSucess.Text = "";
+
                 if (gc.strCodEmployee != "0")
                 {
+                    if (txtDtDeslig.Text != "")
+                    {
+                        strDtDesligamento = Convert.ToDateTime((txtDtDeslig.Text).Replace("-", "/")).ToString("dd/MM/yyyy");
+                    }
+                    else { strDtDesligamento = ""; }
+
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + gc.strCodEmployee + "', '" + txtCPF.Text.ToString() + "', '')");
 
@@ -132,15 +145,12 @@ namespace SGVEC.View.Screen
                             }
                             else
                             {
-                                lblError.Text = "";
-                                lblSucess.Text = "";
-
                                 if (ValidateComponents())
                                 {
                                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_FUNC('" + txtCpfEmployee.Text + "', '" + txtNomeEmployee.Text + "', '" + txtRGEmployee.Text + "', '"
-                                         + (txtDtNascEmployee.Text).Replace("-", "/") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
+                                         + Convert.ToDateTime((txtDtNascEmployee.Text).Replace("-", "/")).ToString("dd/MM/yyyy") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
                                          + txtNumEndecEmployee.Text + "', '" + txtBairroEmployee.Text + "', '" + txtCepEmployee.Text + "', '" + txtCidadeEmployee.Text + "', '"
-                                         + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + (txtDtDeslig.Text).Replace("-", "") + "', '"
+                                         + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + strDtDesligamento + "', '"
                                          + ddlCargoEmployee.SelectedItem.Value + "')");
 
                                     if (objRetorno != null)
@@ -168,13 +178,10 @@ namespace SGVEC.View.Screen
                 {
                     if (ValidateComponents())
                     {
-                        lblError.Text = "";
-                        lblSucess.Text = "";
-
                         var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_FUNC('" + txtCpfEmployee.Text + "', '" + txtNomeEmployee.Text + "', '" + txtRGEmployee.Text + "', '"
-                             + (txtDtNascEmployee.Text).Replace("-", "/") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
+                             + Convert.ToDateTime((txtDtNascEmployee.Text).Replace("-", "/")).ToString("dd/MM/yyyy") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
                              + txtNumEndecEmployee.Text + "', '" + txtBairroEmployee.Text + "', '" + txtCepEmployee.Text + "', '" + txtCidadeEmployee.Text + "', '"
-                             + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + (txtDtDeslig.Text).Replace("-", "/") + "', '"
+                             + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + strDtDesligamento + "', '"
                              + ddlCargoEmployee.SelectedItem.Value + "')");
 
                         if (objRetorno == true)
@@ -206,15 +213,21 @@ namespace SGVEC.View.Screen
         {
             try
             {
+                if (txtDtDeslig.Text != "")
+                {
+                    strDtDesligamento = Convert.ToDateTime((txtDtDeslig.Text).Replace("-", "/")).ToString("dd/MM/yyyy");
+                }
+                else { strDtDesligamento = ""; }
+
                 lblError.Text = "";
                 lblSucess.Text = "";
 
                 if (ValidateComponents())
                 {
                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_UPDATE_FUNC('" + txtCpfEmployee.Text + "', '" + txtNomeEmployee.Text + "', '" + txtRGEmployee.Text + "', '"
-                         + (txtDtNascEmployee.Text).Replace("-", "/") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
+                         + Convert.ToDateTime((txtDtNascEmployee.Text).Replace("-", "/")).ToString("dd/MM/yyyy") + "', '" + txtTelEmployee.Text + "', '" + txtCelEmployee.Text + "', '" + txtEnderecoEmployee.Text + "', '"
                          + txtNumEndecEmployee.Text + "', '" + txtBairroEmployee.Text + "', '" + txtCepEmployee.Text + "', '" + txtCidadeEmployee.Text + "', '"
-                         + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + (txtDtDeslig.Text).Replace("-", "/") + "', '"
+                         + txtUFEmployee.Text + "', '" + txtEmailEmployee.Text + "', '" + txtSenhaEmployee.Text + "', '" + strDtDesligamento + "', '"
                          + ddlCargoEmployee.SelectedItem.Value + "')");
 
                     if (objRetorno != null)
@@ -248,6 +261,9 @@ namespace SGVEC.View.Screen
         {
             try
             {
+                lblError.Text = "";
+                lblSucess.Text = "";
+
                 if (gc.strCodEmployee != "0")
                 {
                     if (ValidateComponents())

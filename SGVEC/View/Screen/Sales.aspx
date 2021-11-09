@@ -185,6 +185,7 @@
                                             <asp:DropDownList ID="ddlFuncSales" runat="server" disabled="true" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                     </div>
+                                    <br />
                                     <div class="row clearfix">
                                         <div class="col-md-3">
                                             <div class="input-group">
@@ -203,7 +204,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtDescontoSales" CssClass="form-control" Enabled="false" type="text" MaxLength="6" placeholder="Desconto"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtDescontoSales" CssClass="form-control" Enabled="false" type="text" MaxLength="2" placeholder="Desconto"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
