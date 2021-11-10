@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sales.aspx.cs" Inherits="SGVEC.View.Screen.Sales" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Sales_Insert.aspx.cs" Inherits="SGVEC.View.Screen.Sales_Insert" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
 
     <link href="../../Styles/dashboard.css" rel="stylesheet" />
     <link href="../../Styles/forms.css" rel="stylesheet" />
-    <title>SGVEC | Vendas</title>
+    <title>SGVEC | Cadastro de Vendas</title>
 </head>
 <body>
     <div class="flex-dashboard">
@@ -87,56 +87,87 @@
                     <div class="container shadow bg-white p-3">
                         <div class="col-md-12">
                             <div class="row clearfix form-space">
-                                <div class="col-md-2">
+                                <div class="col-md-9">
                                     <div class="input-group">
-                                        <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código" MaxLength="5"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtCpfCli" type="text" runat="server" placeholder="CPF Cliente" MaxLength="14"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtCpfFunc" type="text" runat="server" placeholder="CPF Funcionário" MaxLength="14"></asp:TextBox>
+                                        <asp:TextBox ID="txtNomeCliSales" type="text" runat="server" placeholder="Nome Cliente" MaxLength="14"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtDateSales" type="date" runat="server" placeholder="Data da Venda" MaxLength="10"></asp:TextBox>
+                                        <asp:TextBox ID="txtCpfCliSales" type="text" runat="server" placeholder="CPF Cliente" MaxLength="14"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix form-space">
+                                <div class="col-md-9">
+                                    <asp:DropDownList ID="ddlFuncSales" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtDtSales" type="date" Enabled="false" runat="server" placeholder="Data da Venda" MaxLength="10"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="row clearfix form-space">
+                                <asp:GridView CssClass="col-md-12" ID="gvProdutos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                    <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
+                                    <AlternatingRowStyle BackColor="#F7F7F7" />
+                                    <Columns>
+                                        <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                        <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
+                                        <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
+                                        <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
+                                        <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+
+                            <div class="botoes-forms">
+                                <button id="btnInsertProd" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_Modal">Inserir Produto</button>
+
+                                <asp:Button ID="btnRemoveProd" runat="server" Text="Remover Produto" CssClass="btn btn-outline-danger" BorderStyle="Solid" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="row clearfix form-space">
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtNumParcSales" type="text" runat="server" placeholder="Número Parcelas" MaxLength="2"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtValParcSales" type="text" runat="server" placeholder="Valor Parcelas" MaxLength="14"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtDescontoSales" type="text" runat="server" placeholder="Desconto" MaxLength="10"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtTotalSales" type="text" runat="server" placeholder="Total da Venda" MaxLength="10"></asp:TextBox>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row clearfix form-space">
-                                <asp:GridView CssClass="col-md-12" ID="gvSales" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
-                                    <AlternatingRowStyle BackColor="#F7F7F7" />
-                                    <Columns>
-                                        <asp:BoundField DataField="COD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
-                                        <asp:BoundField DataField="NOME_CLIENTE" HeaderText="Nome Cliente" />
-                                        <asp:BoundField DataField="CPF_CLIENTE" HeaderText="CPF Cliente" />
-                                        <asp:BoundField DataField="DATA_VENDA" HeaderText="Data Venda" />
-                                        <asp:BoundField DataField="TOTAL_VENDA" HeaderText="Total Venda" />
-                                        <asp:BoundField DataField="FK_CPF_FUNC" HeaderText="CPF Funcionário" />
-                                        <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_VENDA") %>' OnClick="gvSales_SelectedIndexChanged"></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
+                                <div class="col-md-4">
+                                    <asp:DropDownList ID="ddlTipoPagSales" runat="server" DataTextField="NOME_TIPO_PAG" CssClass="form-select"></asp:DropDownList>
+                                </div>
                             </div>
                         </div>
 
                         <div class="botoes-forms">
-                            <button id="btnSearchSales" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#salesModal">Consultar</button>
+                            <button id="btnSearchSales" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#salesModal">Finalizar Venda</button>
                         </div>
                         <br />
+
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
@@ -152,29 +183,15 @@
                     </div>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="salesModal" tabindex="-1" aria-labelledby="lblSalesModal" aria-hidden="true">
+                    <div class="modal fade" id="product_Modal" tabindex="-1" aria-labelledby="lblProductModal" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Produtos da Venda</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+
                                 <div class="modal-body">
-                                    <div class="col-md-12">
-                                        <div class="row clearfix form-space">
-                                            <asp:GridView CssClass="col-md-12" ID="gvProdutos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                                <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
-                                                <AlternatingRowStyle BackColor="#F7F7F7" />
-                                                <Columns>
-                                                    <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
-                                                    <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
-                                                    <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
-                                                    <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
-                                                    <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
-                                                </Columns>
-                                            </asp:GridView>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="modal-footer">

@@ -146,6 +146,7 @@
     <Content Include="Scripts\Screen\Employee.js" />
     <Content Include="Scripts\Screen\Product.js" />
     <Content Include="Scripts\Screen\Sales.js" />
+    <Content Include="Scripts\Screen\Sales_Insert.js" />
     <Content Include="Scripts\Screen\Storage.js" />
     <Content Include="Scripts\Screen\Supplier.js" />
     <Content Include="Scripts\Screen\TypeProduct.js" />
@@ -181,6 +182,7 @@
     <Content Include="View\Screen\Employee.aspx" />
     <Content Include="View\Screen\Product.aspx" />
     <Content Include="View\Screen\Report.aspx" />
+    <Content Include="View\Screen\Sales_Insert.aspx" />
     <Content Include="View\Screen\Sales.aspx" />
     <Content Include="View\Screen\Storage.aspx" />
     <Content Include="View\Screen\Supplier.aspx" />
@@ -262,6 +264,13 @@
     </Compile>
     <Compile Include="View\Screen\Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Screen\Sales_Insert.aspx.cs">
+      <DependentUpon>Sales_Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Screen\Sales_Insert.aspx.designer.cs">
+      <DependentUpon>Sales_Insert.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Screen\Sales.aspx.cs">
       <DependentUpon>Sales.aspx</DependentUpon>
