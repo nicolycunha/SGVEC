@@ -137,7 +137,7 @@ namespace SGVEC.View.Screen
                                 if (ValidateComponents())
                                 {
                                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_PROD('" + txtCodBarrasProduct.Text + "', '" + txtNomeProduct.Text + "', '" + txtMarcaProduct.Text + "', '"
-                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + (txtDtCadProduct.Text).Replace("-", "/") + "', '" + txtQuantidadeProduct.Text + "', '"
+                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + Convert.ToDateTime(txtDtCadProduct.Text).ToString("dd/MM/yyyy") + "', '" + txtQuantidadeProduct.Text + "', '"
                                          + txtDescProduct.Text + "', '" + ddlTipoProduct.Text + "', '" + ddlFornecProduct.Text + "')");
 
                                     if (objRetorno != null)
@@ -169,7 +169,7 @@ namespace SGVEC.View.Screen
                         lblSucess.Text = "";
 
                         var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_PROD('" + txtCodBarrasProduct.Text + "', '" + txtNomeProduct.Text + "', '" + txtMarcaProduct.Text + "', '"
-                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + (txtDtCadProduct.Text).Replace("-", "/") + "', '" + txtQuantidadeProduct.Text + "', '"
+                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + Convert.ToDateTime(txtDtCadProduct.Text).ToString("dd/MM/yyyy") + "', '" + txtQuantidadeProduct.Text + "', '"
                                          + txtDescProduct.Text + "', '" + ddlTipoProduct.Text + "', '" + ddlFornecProduct.Text + "')");
 
                         if (objRetorno == true)
@@ -207,8 +207,8 @@ namespace SGVEC.View.Screen
                 if (ValidateComponents())
                 {
                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_UPDATE_PROD('" + gc.strCodProduct + "', '" + txtNomeProduct.Text + "', '" + txtMarcaProduct.Text + "', '"
-                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + (txtDtCadProduct.Text).Replace("-", "/") + "', '" + txtQuantidadeProduct.Text + "', '"
-                                         + txtDescProduct.Text + "', '" + ddlTipoProduct.Text + "', '" + ddlFornecProduct.Text + "')");   
+                                         + txtPrecoProduct.Text + "', '" + txtCustoProduct.Text + "', '" + Convert.ToDateTime(txtDtCadProduct.Text).ToString("dd/MM/yyyy") + "', '" + txtQuantidadeProduct.Text + "', '"
+                                         + txtDescProduct.Text + "', '" + ddlTipoProduct.Text + "', '" + ddlFornecProduct.Text + "')");
 
                     if (objRetorno != null)
                     {

@@ -100,7 +100,7 @@
                             </div>
                             <div class="row clearfix form-space">
                                 <div class="col-md-9">
-                                    <asp:DropDownList ID="ddlFuncSales" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlFuncSales" Enabled="false" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
@@ -112,7 +112,7 @@
 
                         <div class="col-md-12">
                             <div class="row clearfix form-space">
-                                <asp:GridView CssClass="col-md-12" ID="gvProdutos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                <asp:GridView CssClass="col-md-12" ID="gvProducts" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                     <HeaderStyle BackColor="#b8a6dd" ForeColor="#000" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
                                     <Columns>
@@ -123,12 +123,6 @@
                                         <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
                                     </Columns>
                                 </asp:GridView>
-                            </div>
-
-                            <div class="botoes-forms">
-                                <button id="btnInsertProd" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_Modal">Inserir Produto</button>
-
-                                <asp:Button ID="btnRemoveProd" runat="server" Text="Remover Produto" CssClass="btn btn-outline-danger" BorderStyle="Solid" />
                             </div>
                         </div>
 
@@ -164,6 +158,10 @@
                         </div>
 
                         <div class="botoes-forms">
+                            <button id="btnInsertProd" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_Modal">Inserir Produto</button>
+
+                            <asp:Button ID="btnRemoveProd" runat="server" Text="Remover Produto" CssClass="btn btn-outline-danger" BorderStyle="Solid" />
+
                             <button id="btnSearchSales" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#salesModal">Finalizar Venda</button>
                         </div>
                         <br />
@@ -192,10 +190,34 @@
                                 </div>
 
                                 <div class="modal-body">
+                                    <div class="row clearfix form-space">
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                <asp:TextBox ID="txtCodProduct" type="text" runat="server" placeholder="Código Barras" MaxLength="10"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="input-group">
+                                                <asp:TextBox ID="txtNomeProduct" type="text" runat="server" placeholder="Nome Produto" MaxLength="50"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                                <asp:TextBox ID="txtQuantProduct" type="text" runat="server" placeholder="Quantidade" MaxLength="4"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+                                    <div class="col-footer">
+                                        <button id="btnClearComponents" type="button" class="btn btn-primary float-left">Limpar</button>
+                                    </div>
+                                    <div class="col-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+
+                                        <asp:Button ID="btnAdd" runat="server" Text="Adicionar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnAdd_Click" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -207,6 +229,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../Scripts/Screen/Sales.js"></script>
+    <script src="../../Scripts/Screen/Sales_Insert.js"></script>
 </body>
 </html>

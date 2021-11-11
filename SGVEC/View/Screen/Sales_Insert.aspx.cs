@@ -14,6 +14,7 @@ namespace SGVEC.View.Screen
         private DataManipulation dtManip = new DataManipulation();
         private GeneralComponent gc = new GeneralComponent();
         private string strCode = "0";
+        private int intCodVenda = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,23 @@ namespace SGVEC.View.Screen
                 ddlTipoPagSales.DataTextField = "NOME_TIPO_PAG";
                 ddlTipoPagSales.DataValueField = "COD_TIPO_PAG";
                 ddlTipoPagSales.DataBind();
+
+                txtDtSales.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                cnt.DataBaseConnect();
+                MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT COUNT(COD_VENDA) FROM VENDA");
+
+                if (leitor.Read())
+                {
+                    intCodVenda = (Convert.ToInt32(leitor[0].ToString()) + 1);
+                }
+
+                //Atualiza o grid
+                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                gvProducts.DataBind();
+
+                if (gvProducts.Rows.Count == 0) { lblError.Visible = true; lblError.Text = "Não há produtos adicionados a esta venda atual no sistema!"; }
+                else lblError.Visible = false;
             }
             catch (Exception ex)
             {
@@ -43,8 +61,48 @@ namespace SGVEC.View.Screen
             }
         }
 
+        #region Search Prouct
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((txtCodProduct.Text != "") || (txtNomeProduct.Text != "") && (txtQuantProduct.Text != ""))
+                {
+                    cnt = new Connect();
+                    cnt.DataBaseConnect();
+                    MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO WHERE COD_BARRAS = '" + txtCodProduct.Text + "' OR NOME_PROD = '" + txtNomeProduct.Text + "'");
+
+                    if (leitor.Read())
+                    {
+                        if (Convert.ToInt32(leitor[6].ToString()) > Convert.ToInt32(txtQuantProduct.Text))
+                        {
+                            var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_PRODUTO_VENDA('" + txtQuantProduct.Text + "', '"
+                                                                        + leitor[3].ToString().Replace(',', '.') + "', '" + leitor[0].ToString() + "', '" + intCodVenda + "')");
+
+                            if (objRetorno == true)
+                            {
+                                //Atualiza o grid
+                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                                gvProducts.DataBind();
+
+                                //atualizar quantidade de produtos após feita a inclusão  
+                            }
+                        }
+                        else { lblError.Visible = true; lblError.Text = "Atenção! A quantidade de produtos digitada não existe no estoque!"; }
+                    }
+                }
+                else { lblError.Visible = true; lblError.Text = "Atenção! É preciso digitar um Código de Barras ou Nome e a Quantidade de Produtos para adicionar na Venda!"; }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
+            }
+        }
+        #endregion
+
         #region Insert
-        protected void btnSendInsert_Click()
+        protected void InsertProduct()
         {
             try
             {
@@ -107,15 +165,15 @@ namespace SGVEC.View.Screen
         #region Validate
         private bool ValidateComponents()
         {
-            if (txtNomeCliSales.Text == "") { lblError.Text = ce.ComponentsValidation("Nome Cliente", gc.MSG_NECESSARIO); return false; }
+            if (gvProducts.Rows.Count == 0) { lblError.Text = ce.ComponentsValidation("Atenção!", "Deve-se adicionar pelo um produto na venda!"); return false; }
+            else if (txtNomeCliSales.Text == "") { lblError.Text = ce.ComponentsValidation("Nome Cliente", gc.MSG_NECESSARIO); return false; }
             else if (txtCpfCliSales.Text == "") { lblError.Text = ce.ComponentsValidation("CPF Cliente", gc.MSG_NECESSARIO); return false; }
-            else if (txtDtSales.Text == "") { lblError.Text = ce.ComponentsValidation("Data Venda", gc.MSG_NECESSARIO); return false; }
-            else if (txtValParcSales.Text == "") { lblError.Text = ce.ComponentsValidation("Valor Parcela", gc.MSG_NECESSARIO); return false; }
-            else if (txtTotalSales.Text == "") { lblError.Text = ce.ComponentsValidation("Total da Venda", gc.MSG_NECESSARIO); return false; }
-            else if (gc.CodEmployee == 1) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Atendente
-            else if (gc.CodEmployee == 2) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Caixa
+            //??? else if (txtValParcSales.Text == "") { lblError.Text = ce.ComponentsValidation("Valor Parcela", gc.MSG_NECESSARIO); return false; }
+            //??? else if (txtTotalSales.Text == "") { lblError.Text = ce.ComponentsValidation("Total da Venda", gc.MSG_NECESSARIO); return false; }
             else if (gc.CodEmployee == 5) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Treinador
             else if (gc.CodEmployee == 6) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Técnico de Qualidade         
+            //1 -- Atendente
+            //2 -- Caixa
             //3 -- Gerente de Loja
             //4 -- Gerente de Área
 
@@ -124,19 +182,18 @@ namespace SGVEC.View.Screen
         #endregion
 
         #region SelectedIndex
-        protected void gvSales_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearComponents();
 
-            gc.strCodSales = (sender as LinkButton).CommandArgument; //Código da Venda selecionada no grid
-            //if (gc.strCodSales != "0") { btnSearchEmployee_Click(); }
+            gc.strCodProductSales = (sender as LinkButton).CommandArgument; //Código do Produto/Venda selecionado no grid
         }
         #endregion
 
-        #region btnSave
-        protected void btnSendSave_Click(object sender, EventArgs e)
+        #region btnInsertProd
+        protected void btnSendInsertProd_Click(object sender, EventArgs e)
         {
-            btnSendInsert_Click();
+            InsertProduct();
             ClearComponents();
         }
         #endregion
