@@ -14,6 +14,7 @@ namespace SGVEC.View.Screen
         private DataManipulation dtManip = new DataManipulation();
         private GeneralComponent gc = new GeneralComponent();
         private int intCodVenda = 0;
+        private double inVlTotal = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,13 +22,14 @@ namespace SGVEC.View.Screen
             {
                 lblError.Text = "";
                 lblSucess.Text = "";
+                lblError.Visible = false;
 
                 EnableComponents(false);
 
                 //Preenche o ComboBox com os cadastros da Tabela - Funcionário
                 ddlFuncSales.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM FUNCIONARIO WHERE COD_FUNC = '" + gc.CodEmployeeLog + "'");
                 ddlFuncSales.DataTextField = "NOME_FUNC";
-                ddlFuncSales.DataValueField = "COD_FUNC";
+                ddlFuncSales.DataValueField = "CPF_FUNC";
                 ddlFuncSales.DataBind();
 
                 //Preenche o ComboBox com os cadastros da Tabela - Tipo de Pagamento
@@ -81,6 +83,10 @@ namespace SGVEC.View.Screen
         {
             try
             {
+                lblError.Text = "";
+                lblSucess.Text = "";
+                lblError.Visible = false;
+
                 if ((txtCodProduct.Text != "") || (txtNomeProduct.Text != "") && (txtQuantProduct.Text != ""))
                 {
                     cnt = new Connect();
@@ -104,6 +110,8 @@ namespace SGVEC.View.Screen
                                 cnt = new Connect();
                                 cnt.DataBaseConnect();
                                 MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+
+                                txtTotalSales.Text = "0";
 
                                 while (leitor2.Read())
                                 {
@@ -138,90 +146,121 @@ namespace SGVEC.View.Screen
         #region Remove
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            if (gc.strCodProductSales != "")
+            try
             {
-                //atualiza a quantidade de produtos na base de dados  
-                cnt = new Connect();
-                cnt.DataBaseConnect();
-                MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT QUANTIDADE_PROD, FK_COD_PRODUTO FROM PRODUTO_VENDA WHERE COD_PROD_VENDA = '" + gc.strCodProductSales + "'");
+                lblError.Text = "";
+                lblSucess.Text = "";
+                lblError.Visible = false;
 
-                if (leitor.Read())
+                if (gc.strCodProductSales != "")
                 {
-                    int intQntProductRemoved = Convert.ToInt32(leitor[0].ToString());
-                    int intCodProduct = Convert.ToInt32(leitor[1].ToString());
-
+                    //atualiza a quantidade de produtos na base de dados  
                     cnt = new Connect();
                     cnt.DataBaseConnect();
-                    MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT QUANTIDADE_PROD FROM PRODUTO WHERE COD_BARRAS = '" + intCodProduct + "'");
+                    MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT QUANTIDADE_PROD, FK_COD_PRODUTO FROM PRODUTO_VENDA WHERE COD_PROD_VENDA = '" + gc.strCodProductSales + "'");
 
-                    if (leitor2.Read())
+                    if (leitor.Read())
                     {
-                        int intQntProduct = Convert.ToInt32(leitor2[0].ToString());
+                        int intQntProductRemoved = Convert.ToInt32(leitor[0].ToString());
+                        int intCodProduct = Convert.ToInt32(leitor[1].ToString());
 
-                        int intVlNewProduct = (intQntProduct + intQntProductRemoved);
-                        dtManip.ExecuteStringQuery("UPDATE PRODUTO SET QUANTIDADE_PROD = '" + intVlNewProduct + "' WHERE COD_BARRAS = '" + intCodProduct + "'");
+                        cnt = new Connect();
+                        cnt.DataBaseConnect();
+                        MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT QUANTIDADE_PROD FROM PRODUTO WHERE COD_BARRAS = '" + intCodProduct + "'");
 
-                        //remove o item selecionado da base de dados
-                        var objRetorno = dtManip.ExecuteStringQuery("DELETE FROM PRODUTO_VENDA WHERE COD_PROD_VENDA = '" + gc.strCodProductSales + "'");
-
-                        if (objRetorno == true)
+                        if (leitor2.Read())
                         {
-                            //Atualiza o grid
-                            gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
-                            gvProducts.DataBind();
+                            int intQntProduct = Convert.ToInt32(leitor2[0].ToString());
 
-                            ////Atualiza o valor total da venda
-                            //cnt = new Connect();
-                            //cnt.DataBaseConnect();
-                            //MySqlDataReader leitor3 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                            int intVlNewProduct = (intQntProduct + intQntProductRemoved);
+                            dtManip.ExecuteStringQuery("UPDATE PRODUTO SET QUANTIDADE_PROD = '" + intVlNewProduct + "' WHERE COD_BARRAS = '" + intCodProduct + "'");
 
-                            //while (leitor3.Read())
-                            //{
-                            //    double inVlTotal = 0;
+                            //remove o item selecionado da base de dados
+                            var objRetorno = dtManip.ExecuteStringQuery("DELETE FROM PRODUTO_VENDA WHERE COD_PROD_VENDA = '" + gc.strCodProductSales + "'");
 
-                            //    if (txtTotalSales.Text != "")
-                            //    {
-                            //        inVlTotal = Convert.ToDouble(txtTotalSales.Text);
-                            //    }
-                            //    txtTotalSales.Text = Convert.ToString(inVlTotal + Convert.ToDouble(leitor3[2].ToString()));
-                            //}
+                            if (objRetorno == true)
+                            {
+                                //Atualiza o grid
+                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                                gvProducts.DataBind();
+
+                                //Atualiza o valor total da venda
+                                cnt = new Connect();
+                                cnt.DataBaseConnect();
+                                MySqlDataReader leitor3 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+
+                                txtTotalSales.Text = "0";
+
+                                while (leitor3.Read())
+                                {
+                                    inVlTotal = inVlTotal + Convert.ToDouble(leitor3[2].ToString());
+                                    txtTotalSales.Text = Convert.ToString(inVlTotal);
+                                }
+
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+                lblError.Visible = true;
             }
         }
         #endregion
 
         #region Insert
-        protected void InsertSales()
+        protected void btnSendInsertSales_Click(object sender, EventArgs e)
         {
             try
             {
+                double dblNumParc = 0, dblValParc = 0, dblDesconto = 0, dblTotal = 0;
+
                 lblError.Text = "";
                 lblSucess.Text = "";
+                lblError.Visible = false;
+
+                if (txtNumParcSales.Text != "") { dblNumParc = Convert.ToDouble(txtNumParcSales.Text); }
+                if (txtValParcSales.Text != "") { dblValParc = Convert.ToDouble(txtValParcSales.Text); }
+                if (txtDescontoSales.Text != "") { dblDesconto = Convert.ToDouble(txtDescontoSales.Text); }
+                if (txtTotalSales.Text != "") { dblTotal = Convert.ToDouble(txtTotalSales.Text); }
 
                 if (ValidateComponents())
                 {
-                    //var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_SALE('" + txtCodSales.Text + "', '" + txtNomeCliSales.Text + "', '"
-                    //     + txtCpfCliSales.Text + "', '" + ddlFuncSales.SelectedItem.Text + "', '"
-                    //     + Convert.ToDateTime((txtDtSales.Text).Replace("-", "/")).ToString("dd/MM/yyyy") + "', '" + txtNumParcSales.Text + "', '"
-                    //     + txtValParcSales.Text + "', '" + txtDescontoSales.Text + "', '" + txtTotalSales.Text + "', '" + ddlTipoPagSales.SelectedItem.Text + "')");
+                    var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_SALE('" + intCodVenda + "', '" + txtNomeCliSales.Text + "', '"
+                         + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + dblNumParc + "', '"
+                         + dblValParc + "', '" + dblDesconto + "', '" + dblTotal + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
+                         + ddlTipoPagSales.SelectedItem.Value + "')");
 
-                    //if (objRetorno != null)
-                    //{
-                    //    if (objRetorno == true)
-                    //    {
-                    //        lblSucess.Text = "Venda registrada com sucesso!";
-                    //        lblSucess.Visible = true;
-                    //        ClearComponents();
-                    //    }
-                    //    else
-                    //    {
-                    //        lblError.Text = "Atenção! Venda não registrada, verifique os dados digitados!";
-                    //        lblError.Visible = true;
-                    //        ClearComponents();
-                    //    }
-                    //}
+                    if (objRetorno != null)
+                    {
+                        if (objRetorno == true)
+                        {
+                            cnt = new Connect();
+                            cnt.DataBaseConnect();
+                            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT COUNT(COD_VENDA) FROM VENDA");
+
+                            if (leitor.Read())
+                            {
+                                intCodVenda = (Convert.ToInt32(leitor[0].ToString()) + 1);
+                            }
+
+                            //Atualiza o grid
+                            gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                            gvProducts.DataBind();
+
+                            lblSucess.Text = "Venda registrada com sucesso!";
+                            lblSucess.Visible = true;
+                            ClearComponents();
+                        }
+                        else
+                        {
+                            lblError.Text = "Atenção! Venda não registrada, verifique os dados digitados!";
+                            lblError.Visible = true;
+                            ClearComponents();
+                        }
+                    }
                 }
                 else { lblError.Visible = true; }
             }
@@ -257,8 +296,6 @@ namespace SGVEC.View.Screen
         private bool ValidateComponents()
         {
             if (gvProducts.Rows.Count == 0) { lblError.Text = ce.ComponentsValidation("Atenção!", "Deve-se adicionar pelo um produto na venda!"); return false; }
-            else if (txtNomeCliSales.Text == "") { lblError.Text = ce.ComponentsValidation("Nome Cliente", gc.MSG_NECESSARIO); return false; }
-            else if (txtCpfCliSales.Text == "") { lblError.Text = ce.ComponentsValidation("CPF Cliente", gc.MSG_NECESSARIO); return false; }
             else if (gc.CodEmployee == 5) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Treinador
             else if (gc.CodEmployee == 6) { lblError.Text = ce.ComponentsValidation("", gc.MSG_SEUPERFIL); return false; } //Técnico de Qualidade         
             //1 -- Atendente
@@ -273,18 +310,21 @@ namespace SGVEC.View.Screen
         #region SelectedIndex
         protected void gvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClearComponents();
+            //Atualiza o valor total da venda
+            cnt = new Connect();
+            cnt.DataBaseConnect();
+            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+
+            txtTotalSales.Text = "0";
+
+            while (leitor.Read())
+            {
+                inVlTotal = inVlTotal + Convert.ToDouble(leitor[2].ToString());
+                txtTotalSales.Text = Convert.ToString(inVlTotal);
+            }
 
             gc.strCodProductSales = (sender as LinkButton).CommandArgument; //Código do Produto/Venda selecionado no grid
         }
-        #endregion
-
-        #region btnInsertSales
-        protected void btnSendInsertSales_Click(object sender, EventArgs e)
-        {
-            InsertSales();
-            ClearComponents();
-        }
-        #endregion
+        #endregion        
     }
 }

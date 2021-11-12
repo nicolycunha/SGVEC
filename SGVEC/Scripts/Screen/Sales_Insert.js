@@ -19,17 +19,6 @@
         }
     }
 
-    $('#btnSearchSales').click(function () {
-        $('#btnSave').prop('disabled', false);
-        DisableComponents(true);
-    });
-
-    $('#btnInsertSales').click(function () {
-        $('#txtCodSales').val("");
-        ClearComponents();
-        DisableComponents(false);
-    });
-
     $('#btnClearComponentsModal').click(function () {
         ClearComponentsModal();
     });
