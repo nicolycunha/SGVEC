@@ -5,7 +5,6 @@
     $("#txtNumParcSales").mask("9999");
     $("#txtQuantProduct").mask("9999");
     $("#txtValParcSales").mask("999.00");
-    $("#txtTotalSales").mask("999.00");
     $("#txtDescontoSales").mask("99%");
 
     if ($('#lblError')[0] != undefined) {
@@ -31,8 +30,8 @@
         DisableComponents(false);
     });
 
-    $('#btnClearComponents').click(function () {
-        ClearComponents();
+    $('#btnClearComponentsModal').click(function () {
+        ClearComponentsModal();
     });
 
     $("#gvSales tr").click(function () {
@@ -44,46 +43,37 @@
 
     $('#txtDescontoSales').focusout(function () {
         if ($('#txtDescontoSales').val() != "") {
-            let intNumParcSales = parseFloat($('#txtNumParcSales').val());
-            let intValParcSales = parseFloat($('#txtValParcSales').val());
+            let intValorTotal = parseInt($('#txtTotalSales').val());
             let intValorDesc = parseInt($('#txtDescontoSales').val());
 
-            let intValorTotal = intValParcSales * intNumParcSales;
             let flVlDesconto = parseFloat((intValorDesc / 100) * intValorTotal);
             $('#txtTotalSales').val(intValorTotal - flVlDesconto);
         }
     });
 
-    $('#txtValParcSales').focusout(function () {
-        if ($('#txtNumParcSales').val() != "" && $('#txtNumParcSales').val() != "0") {
-            if ($('#txtDescontoSales').val() != "") {
-                let intNumParcSales = parseFloat($('#txtNumParcSales').val());
-                let intValParcSales = parseFloat($('#txtValParcSales').val());
-                let intValorDesc = parseInt($('#txtDescontoSales').val());
-
-                let intValorTotal = intValParcSales * intNumParcSales;
-                let flVlDesconto = parseFloat((intValorDesc / 100) * intValorTotal);
-                $('#txtTotalSales').val(intValorTotal - flVlDesconto);
-            }
-            else {
-                let intNumParcSales = parseInt($('#txtNumParcSales').val());
-                let intValParcSales = parseInt($('#txtValParcSales').val());
-                $('#txtTotalSales').val(intValParcSales * intNumParcSales);
-            }
+    $('#ddlTipoPagSales').change(function () {
+        if ($('#ddlTipoPagSales').val() == "3") {
+            $('#txtNumParcSales').prop('disabled', false);
+            $('#txtValParcSales').prop('disabled', false);
         }
         else {
-            $('#txtTotalSales').val($('#txtValParcSales').val());
+            $('#txtNumParcSales').prop('disabled', true);
+            $('#txtValParcSales').prop('disabled', true);
         }
     });
 
     function ClearComponents() {
-        $('#txtNomeCliSales').val(""); $('#txtCpfCliSales').val(""); $('#txtNumParcSales').val(""); $('#txtValParcSales').val("");
-        $('#txtDescontoSales').val(""); $('#txtTotalSales').val(""); $('#txtQuantProduct').val("");
+        $('#txtNomeCliSales').val(""); $('#txtCpfCliSales').val(""); $('#txtNumParcSales').val("");
+        $('#txtValParcSales').val(""); $('#txtDescontoSales').val(""); $('#txtQuantProduct').val("");
+    }
+
+    function ClearComponentsModal() {
+        $('#txtCodProduct').val(""); $('#txtNomeProduct').val(""); $('#txtQuantProduct').val("");
     }
 
     function DisableComponents(value) {
-        $('#txtNomeCliSales').prop('disabled', value); $('#txtCpfCliSales').prop('disabled', value); $('#txtNumParcSales').prop('disabled', value);
-        $('#txtValParcSales').prop('disabled', value); $('#txtDescontoSales').prop('disabled', value); $('#txtTotalSales').prop('disabled', value);
-        $('#ddlTipoPagSales').prop('disabled', value); $('#txtQuantProduct').prop('disabled', value);
+        $('#txtNomeCliSales').prop('disabled', value); $('#txtCpfCliSales').prop('disabled', value);
+        $('#txtDescontoSales').prop('disabled', value); $('#ddlTipoPagSales').prop('disabled', value);
+        $('#txtQuantProduct').prop('disabled', value);
     }
 });
