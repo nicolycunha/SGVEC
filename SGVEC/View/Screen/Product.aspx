@@ -91,7 +91,7 @@
                                     <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código de Barras" MaxLength="10"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <div class="input-group">
                                     <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="50"></asp:TextBox>
                                 </div>
@@ -103,10 +103,10 @@
 
                         <div class="row clearfix form-space">
                             <asp:GridView CssClass="col-md-12" ID="gvProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
-                                <AlternatingRowStyle BackColor="#F7F7F7" />
+                                <HeaderStyle BackColor="#4A3C8C" ForeColor="#ffffff" />
+                                <AlternatingRowStyle BackColor="#000000" />
                                 <Columns>
-                                    <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                    <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" />
                                     <asp:BoundField DataField="NOME_PROD" HeaderText="Nome do Produto" />
                                     <asp:BoundField DataField="MARCA_PROD" HeaderText="Marca" />
                                     <asp:BoundField DataField="PRECO_PROD" HeaderText="Preço" />
@@ -121,17 +121,12 @@
                         </div>
 
                         <div class="botoes-forms">
-                            <div class="col-md-3">
-                                <button id="btnSearchProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="btnInsertProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="btnUpdateProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
-                            </div>
+                            <button id="btnSearchProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
+
+                            <button id="btnInsertProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>
+
+                            <button id="btnUpdateProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Alterar</button>
                         </div>
-                        <br />
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
@@ -157,16 +152,19 @@
                                 <div class="modal-body">
                                     <div class="row clearfix">
                                         <div class="col-md-3">
+                                            Cód. Barras
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtCodBarrasProduct" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="Código de Barras"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
+                                            Nome 
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtNomeProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
+                                            Marca
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtMarcaProduct" CssClass="form-control is-invalid" type="text" MaxLength="208" placeholder="Marca"></asp:TextBox>
                                             </div>
@@ -174,49 +172,56 @@
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-3">
+                                            Preço
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtPrecoProduct" CssClass="form-control is-invalid" type="text" MaxLength="10" placeholder="Preço"></asp:TextBox>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row clearfix">
                                         <div class="col-md-3">
+                                            Custo
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="6" placeholder="Custo"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
+                                            Data Cadastro
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="date" MaxLength="6" placeholder="Data de Cadastro"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
+                                            Qtde
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Quantidade"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row clearfix">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
+                                            Descrição
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtDescProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="50" TextMode="MultiLine" Height="100" placeholder="Descrição"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
+                                            Tipo de Produto
                                             <asp:DropDownList ID="ddlTipoProduct" runat="server" DataTextField="NOME_TIPO_PROD" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-3">
+                                            Fornecedor
                                             <asp:DropDownList ID="ddlFornecProduct" runat="server" DataTextField="RAZAO_SOCIAL" CssClass="form-select"></asp:DropDownList>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
-                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    <div class="col-footer">
+                                        <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
+                                    </div>
+                                    <div class="col-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+                                        <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
@@ -85,26 +85,23 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="col-md-12">
-                            <div class="row clearfix">
-                                <br />
-                                <div class="col-md-2">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtCode" runat="server" type="text" placeholder="Código" MaxLength="4"></asp:TextBox>
-                                    </div>
+                        <div class="row clearfix form-space">
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <asp:TextBox ID="txtCode" runat="server" type="text" placeholder="Código" MaxLength="4"></asp:TextBox>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="30"></asp:TextBox>
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="30"></asp:TextBox>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="col-md-4">
                                     <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
                                 </div>
                             </div>
-
-                            <br />
-                            <div class="row clearfix">
+                            <div class="row clearfix form-space">
                                 <asp:GridView CssClass="col-md-12" ID="gvTypeProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                     <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
                                     <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -120,23 +117,15 @@
                                 </asp:GridView>
                             </div>
                         </div>
+                        <div class="botoes-forms">
+                            <button id="btnSearchTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Consultar</button>
 
-                        <br />
-                        <div class="row clearfix">
-                            <div class="col-md-3">
-                                <button id="btnSearchTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Consultar</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="btnInsertTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Incluir</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="btnUpdateTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Alterar</button>
-                            </div>
-                            <div class="col-md-3">
-                                <asp:Button ID="btnDeleteTypeProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
-                            </div>
+                            <button id="btnInsertTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Incluir</button>
+
+                            <button id="btnUpdateTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Alterar</button>
+
+                            <asp:Button ID="btnDeleteTypeProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                         </div>
-                        <br />
                         <div class="row clearfix">
                             <div class="col-md-12">
                                 <div id="divAlertDanger" style="display: none" class="alert alert-danger alert-dismissible">
@@ -162,24 +151,28 @@
                                 <div class="modal-body">
                                     <div class="row clearfix">
                                         <div class="col-md-2">
+                                            Código
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtCodTpProduct" disabled="true" CssClass="form-control" type="text" MaxLength="5" placeholder="Código"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-md-7">
+                                        <div class="col-md-10">
+                                            Nome
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtNameTpProduct" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
-                                    <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    <div class="col-footer">
+                                        <button id="btnClearComponents" type="button" class="btn btn-primary">Limpar</button>
+                                    </div>
+                                    <div class="col-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" runat="server">Fechar</button>
+                                        <asp:Button ID="btnSave" runat="server" Text="Salvar" CssClass="btn btn-success" BorderStyle="Solid" OnClick="btnSendSave_Click" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

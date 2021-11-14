@@ -1,12 +1,20 @@
 ﻿@import "variables.css";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+form{
+    width: 95%;
+}
 
 li.selected {
     background-color: var(--color-primary-transparent);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
+
+li.selected a:hover {
+    color: #fff;
+}
+
 
 .flex-menu {
     display: flex;
