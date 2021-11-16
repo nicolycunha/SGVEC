@@ -222,3 +222,4 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CoreCompileIn
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.pdb
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.AssemblyReference.cache
+C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\iTextSharp.dll
