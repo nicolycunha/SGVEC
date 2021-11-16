@@ -58,14 +58,12 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="/View/Screen/Sales">
-                                    <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
+                                <a href="/View/Screen/Sales_Insert">
                                     Inclusão de Vendas
                                 </a>
                             </li>
                             <li>
                                 <a href="/View/Screen/Sales">
-                                    <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                                     Consulta de Vendas
                                 </a>
                             </li>
