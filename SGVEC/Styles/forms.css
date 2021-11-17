@@ -88,3 +88,7 @@ legend{
     flex-direction: row;
     justify-content: space-between;
 }
+
+.sub-menu li{
+    margin:2px;
+}

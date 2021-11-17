@@ -52,7 +52,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/View/Screen/TypeStorage">
+                        <a href="/View/Screen/TypeProduct">
                             <img src="/images/Dashboard/tipoproduto.png" alt="Ícone de Tipo de Produto pela icons8" />
                             Tipo de produto
                         </a>

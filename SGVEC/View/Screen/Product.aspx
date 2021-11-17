@@ -22,6 +22,12 @@
             <div class="menu">
                 <ul>
                     <li>
+                        <a href="/View/Dashboard">
+                            <img src="/Images/Dashboard/casa.png" alt="Ícone de Dashboard pela icons8" />
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
                         <a href="/View/Screen/Storage">
                             <img src="/images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
                             Estoque

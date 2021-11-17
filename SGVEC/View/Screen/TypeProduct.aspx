@@ -22,6 +22,12 @@
             <div class="menu">
                 <ul>
                     <li>
+                        <a href="/View/Dashboard">
+                            <img src="/Images/Dashboard/casa.png" alt="Ícone de Dashboard pela icons8" />
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
                         <a href="/View/Screen/Storage">
                             <img src="/images/Dashboard/openbox.png" alt="Ícone de Estoque pela icons8" />
                             Estoque
@@ -91,20 +97,18 @@
                                     <asp:TextBox ID="txtCode" runat="server" type="text" placeholder="Código" MaxLength="4"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="input-group">
                                     <asp:TextBox ID="txtName" type="text" runat="server" placeholder="Nome" MaxLength="30"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="col-md-4">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-primary" BorderStyle="Solid" OnClick="btnSearch_Click" />
-                                </div>
+                            <div class="col-md-2">
+                                <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                             </div>
                             <div class="row clearfix form-space">
                                 <asp:GridView CssClass="col-md-12" ID="gvTypeProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
-                                    <AlternatingRowStyle BackColor="#F7F7F7" />
+                                    <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
+                                    <AlternatingRowStyle BackColor="#000000" />
                                     <Columns>
                                         <asp:BoundField DataField="COD_TIPO_PROD" HeaderText="Código" />
                                         <asp:BoundField DataField="NOME_TIPO_PROD" HeaderText="Nome" />
@@ -118,13 +122,13 @@
                             </div>
                         </div>
                         <div class="botoes-forms">
-                            <button id="btnSearchTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Consultar</button>
+                            <button id="btnSearchTypeProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Consultar</button>
 
-                            <button id="btnInsertTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Incluir</button>
+                            <button id="btnInsertTypeProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Incluir</button>
 
-                            <button id="btnUpdateTypeProduct" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Alterar</button>
+                            <button id="btnUpdateTypeProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#typeProductModal">Alterar</button>
 
-                            <asp:Button ID="btnDeleteTypeProduct" runat="server" Text="Deletar" CssClass="btn btn-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
+                            <asp:Button ID="btnDeleteTypeProduct" runat="server" Text="Deletar" CssClass="btn btn-outline-danger" BorderStyle="Solid" OnClick="btnSendDelete_Click" />
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12">
