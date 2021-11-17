@@ -57,17 +57,21 @@
                             Tipo de produto
                         </a>
                     </li>
-                    <li class="selected">
+                     <li>
                         <a href="/View/Screen/Sales">
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
-                            Vendas
+                            Vendas                           
                         </a>
-                    </li>
-                    <li>
-                        <a href="/View/Screen/Report">
-                            <img src="/images/Dashboard/relatorio.png" alt="Ícone de Relatórios pela icons8" />
-                            Relatórios
-                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/View/Screen/Sales_Insert">Inclusão de Vendas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/View/Screen/Sales">Consulta de Vendas
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
                 <footer class="footer">

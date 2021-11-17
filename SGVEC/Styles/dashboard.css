@@ -38,7 +38,6 @@ aside {
 
 div.menu ul {
     list-style-type: none;
-    margin-top: 5px;
 }
 
     div.menu ul li {
@@ -62,10 +61,6 @@ div.menu ul {
                 color: var(--color-primary-hover);
                 text-decoration: none;
             }
-
-                div.menu ul li a:hover > ul.sub-menu {
-                    display:block;
-                }
 
 .manual {
     display: flex;
@@ -164,6 +159,11 @@ div.conteudo {
     backdrop-filter: blur( 16.5px );
     -webkit-backdrop-filter: blur( 16.5px ) !important;
     border-radius: 10px;
+}
+
+
+li:hover > ul.sub-menu {
+    display: block;
 }
 
 li.selected {

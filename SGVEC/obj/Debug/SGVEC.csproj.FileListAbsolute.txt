@@ -147,6 +147,7 @@ C:\Users\55119\Documents\GitHub\SGVEC-OLD\SGVEC\obj\Debug\SGVEC.csproj.AssemblyR
 C:\Users\55119\Documents\GitHub\SGVEC-OLD\SGVEC\obj\Debug\SGVEC.csproj.CoreCompileInputs.cache
 C:\Users\55119\Documents\GitHub\SGVEC-OLD\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\55119\Documents\GitHub\SGVEC-OLD\SGVEC\obj\Debug\SGVEC.pdb
+C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\iTextSharp.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\ApplicationInsights.config
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\roslyn\csc.exe
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\roslyn\csc.exe.config
@@ -180,6 +181,7 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\SGVEC.pdb
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Antlr3.Runtime.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\iTextSharp.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -222,5 +224,3 @@ C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.CoreCompileIn
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.dll
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.pdb
 C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\obj\Debug\SGVEC.csproj.AssemblyReference.cache
-C:\Users\bubuf\source\repos\SGVEC\SGVEC\bin\iTextSharp.dll
-C:\Users\55119\Documents\GitHub\SGVEC\SGVEC\bin\iTextSharp.dll

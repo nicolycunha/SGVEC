@@ -76,12 +76,6 @@
                         </ul>
                         
                     </li>
-                    <li>
-                        <a href="/View/Screen/Report">
-                            <img src="/images/Dashboard/relatorio.png" alt="Ícone de Relatórios pela icons8" />
-                            Relatórios
-                        </a>
-                    </li>
                 </ul>
                 <footer class="footer">
                     <a href="/View/Manual" class="manual">
