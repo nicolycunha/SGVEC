@@ -57,13 +57,13 @@
                             Tipo de produto
                         </a>
                     </li>
-                     <li>
+                     <li class="venda-selected">
                         <a href="/View/Screen/Sales">
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
                         </a>
                         <ul class="sub-menu">
-                            <li>
+                            <li class="sub-selected">
                                 <a href="/View/Screen/Sales_Insert">Inclusão de Vendas
                                 </a>
                             </li>

@@ -77,3 +77,29 @@ legend{
     flex-direction: row;
     justify-content: space-between;
 }
+
+
+li.venda-selected {
+    background-color: var(--color-primary-transparent);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+li.venda-selected:hover {
+    background-color: transparent;
+}
+
+li.venda-selected a:hover {
+    color: #000 !important;
+}
+
+li.sub-selected {
+    background-color: var(--color-primary-transparent);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+    li.sub-selected a:hover {
+        color: #fff !important;
+    }
+

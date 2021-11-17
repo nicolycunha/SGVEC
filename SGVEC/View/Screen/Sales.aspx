@@ -68,7 +68,7 @@
                                     Inclusão de Vendas
                                 </a>
                             </li>
-                            <li>
+                            <li class="selected">
                                 <a href="/View/Screen/Sales">
                                     Consulta de Vendas
                                 </a>

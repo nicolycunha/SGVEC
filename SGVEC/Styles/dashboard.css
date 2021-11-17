@@ -172,10 +172,16 @@ li.selected {
     border-bottom-left-radius: 15px;
 }
 
-    li.selected a:hover {
+    li.selected  a:hover {
         color: #fff !important;
     }
 
 ul.sub-menu {
     display: none;
+    margin-left: 15px;
+    margin-right: -20px;
 }
+
+    ul.sub-menu li {
+        padding: 5px 0 0 10px !important
+    }
