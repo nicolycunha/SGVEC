@@ -52,16 +52,20 @@ div.menu ul {
             color: black;
         }
 
-            div.menu ul li a:hover {
-                color: var(--color-primary-hover);
-                text-decoration: none;
-            }
-
             div.menu ul li a > img {
                 width: 27.5px;
                 height: 27.5px;
                 margin-right: 8px;
             }
+
+            div.menu ul li a:hover {
+                color: var(--color-primary-hover);
+                text-decoration: none;
+            }
+
+                div.menu ul li a:hover > ul.sub-menu {
+                    display:block;
+                }
 
 .manual {
     display: flex;
@@ -78,7 +82,7 @@ div.menu ul {
         margin-right: 15px;
     }
 
-    .manual span{
+    .manual span {
         color: var(--color-text-gray);
     }
 
@@ -160,4 +164,18 @@ div.conteudo {
     backdrop-filter: blur( 16.5px );
     -webkit-backdrop-filter: blur( 16.5px ) !important;
     border-radius: 10px;
+}
+
+li.selected {
+    background-color: var(--color-primary-transparent);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+    li.selected a:hover {
+        color: #fff !important;
+    }
+
+ul.sub-menu {
+    display: none;
 }

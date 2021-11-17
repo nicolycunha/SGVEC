@@ -106,7 +106,7 @@
                     <div class="container shadow bg-white p-3">
                         <div class="col-md-12">
                             <div class="row clearfix form-space">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="input-group">
                                         <asp:TextBox runat="server" ID="txtCode" type="text" placeholder="Código" MaxLength="5"></asp:TextBox>
                                     </div>
@@ -126,7 +126,7 @@
                                         <asp:TextBox ID="txtDateSales" type="date" runat="server" placeholder="Data da Venda" MaxLength="10"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                                 </div>
                             </div>

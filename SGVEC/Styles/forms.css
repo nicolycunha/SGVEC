@@ -5,17 +5,6 @@ form{
     width: 95%;
 }
 
-li.selected {
-    background-color: var(--color-primary-transparent);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
-
-li.selected a:hover {
-    color: #fff;
-}
-
-
 .flex-menu {
     display: flex;
     flex-direction: column;
@@ -87,8 +76,4 @@ legend{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.sub-menu li{
-    margin:2px;
 }
