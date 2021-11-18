@@ -58,7 +58,7 @@
                         </a>
                     </li>
                      <li>
-                        <a href="/View/Screen/Sales">
+                        <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
                         </a>

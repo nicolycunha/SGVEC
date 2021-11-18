@@ -57,8 +57,8 @@
                             Tipo de produto
                         </a>
                     </li>
-                     <li>
-                        <a href="/View/Screen/Sales">
+                    <li>
+                        <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
                         </a>
@@ -127,12 +127,11 @@
                             </asp:GridView>
                         </div>
                         <div class="botoes-forms">
-                            <div class="col-md-3">
-                                <button id="btnSearchStorage" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#StorageModal">Consultar</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button id="btnUpdateStorage" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#StorageModal">Alterar</button>
-                            </div>
+                            <asp:Button ID="btnCreatePDF" runat="server" Text="Gerar Relatório" CssClass="btn btn-outline-secondary" BorderStyle="Solid" OnClick="btnCreatePDF_Click" />
+
+                            <button id="btnSearchStorage" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#StorageModal">Consultar</button>
+
+                            <button id="btnUpdateStorage" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#StorageModal">Alterar</button>
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12">

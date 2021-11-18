@@ -58,7 +58,7 @@
                         </a>
                     </li>
                       <li>
-                        <a href="/View/Screen/Sales">
+                        <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
                         </a>
@@ -131,6 +131,8 @@
                         </div>
 
                         <div class="botoes-forms">
+                            <asp:Button ID="btnCreatePDF" runat="server" Text="Gerar Relatório" CssClass="btn btn-outline-secondary" BorderStyle="Solid" OnClick="btnCreatePDF_Click" />
+
                             <button id="btnSearchProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Consultar</button>
 
                             <button id="btnInsertProduct" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productModal">Incluir</button>

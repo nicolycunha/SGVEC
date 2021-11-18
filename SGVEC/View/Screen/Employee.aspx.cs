@@ -374,8 +374,11 @@ namespace SGVEC.View.Screen
         }
         #endregion
 
+        #region PDF
         protected void btnCreatePDF_Click(object sender, EventArgs e)
         {
+            if (txtCode.Text != "") strCode = txtCode.Text;
+
             Document doc = new Document(PageSize.A3);
             doc.SetMargins(40, 40, 20, 80);
             doc.AddCreationDate();
@@ -387,46 +390,43 @@ namespace SGVEC.View.Screen
 
             string simg = AppDomain.CurrentDomain.BaseDirectory + @"\Images\logo.png";
             iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(simg);
-            img.ScaleAbsolute(90, 60);
+            img.Alignment = Element.ALIGN_CENTER;
+            img.ScaleAbsolute(100, 80);
             doc.Add(img);
 
             Paragraph titulo = new Paragraph();
-            titulo.Font = new Font(Font.DEFAULTSIZE, 40);
-            titulo.Alignment = Element.ALIGN_LEFT;
+            titulo.Font = new Font(Font.DEFAULTSIZE, 30);
+            titulo.Alignment = Element.ALIGN_CENTER;
             titulo.Add("\n\n Funcionários\n\n");
             doc.Add(titulo);
 
             Paragraph paragrafo = new Paragraph("", new Font(Font.BOLD, 10));
             string conteudo = "Este arquivo contém uma lista de todos os funcionários cadastrados no sistema!\n\n\n";
+            paragrafo.Alignment = Element.ALIGN_CENTER;
             paragrafo.Add(conteudo);
             doc.Add(paragrafo);
-           
-            PdfPTable table = new PdfPTable(9);            
+
+            PdfPTable table = new PdfPTable(6);
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
 
+            table.AddCell("Código");
+            table.AddCell("CPF");
+            table.AddCell("Nome");
+            table.AddCell("Data Nascimento");
+            table.AddCell("Cidade");
+            table.AddCell("Data de Desligamento");
+
             if (leitor != null)
             {
+
                 while (leitor.Read())
                 {
-                    table.AddCell("CPF");
-                    table.AddCell("Nome");
-                    table.AddCell("Data Nascimento");
-                    table.AddCell("Telefone");
-                    table.AddCell("Celular");
-                    table.AddCell("CEP");
-                    table.AddCell("Cidade");
-                    table.AddCell("UF");
-                    table.AddCell("Data de Desligamento");
-
+                    table.AddCell(leitor[0].ToString());
                     table.AddCell(leitor[1].ToString());
                     table.AddCell(leitor[2].ToString());
                     table.AddCell(leitor[4].ToString());
-                    table.AddCell(leitor[5].ToString());
-                    table.AddCell(leitor[6].ToString());
-                    table.AddCell(leitor[10].ToString());
                     table.AddCell(leitor[11].ToString());
-                    table.AddCell(leitor[12].ToString());
                     table.AddCell(leitor[15].ToString());
                 }
             }
@@ -436,5 +436,6 @@ namespace SGVEC.View.Screen
 
             System.Diagnostics.Process.Start(caminho); //Starta o pdf
         }
+        #endregion
     }
 }

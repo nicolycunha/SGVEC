@@ -3,6 +3,9 @@ using SGVEC.Models;
 using SGVEC.Controller;
 using MySql.Data.MySqlClient;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace SGVEC.View.Screen
 {
@@ -323,6 +326,70 @@ namespace SGVEC.View.Screen
         {
             btnSendInsert_Click();
             ClearComponents();
+        }
+        #endregion
+
+        #region PDF
+        protected void btnCreatePDF_Click(object sender, EventArgs e)
+        {
+            if (txtCode.Text != "") strCode = txtCode.Text;
+
+            Document doc = new Document(PageSize.A3);
+            doc.SetMargins(40, 40, 20, 80);
+            doc.AddCreationDate();
+            string caminho = AppDomain.CurrentDomain.BaseDirectory + @"\PDF\Supplier.pdf";
+
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(caminho, FileMode.Create));
+
+            doc.Open();
+
+            string simg = AppDomain.CurrentDomain.BaseDirectory + @"\Images\logo.png";
+            iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(simg);
+            img.Alignment = Element.ALIGN_CENTER;
+            img.ScaleAbsolute(100, 80);
+            doc.Add(img);
+
+            Paragraph titulo = new Paragraph();
+            titulo.Font = new Font(Font.DEFAULTSIZE, 30);
+            titulo.Alignment = Element.ALIGN_CENTER;
+            titulo.Add("\n\n Fornecedor\n\n");
+            doc.Add(titulo);
+
+            Paragraph paragrafo = new Paragraph("", new Font(Font.BOLD, 10));
+            string conteudo = "Este arquivo contém uma lista de todos os fonecedores cadastrados no sistema!\n\n\n";
+            paragrafo.Alignment = Element.ALIGN_CENTER;
+            paragrafo.Add(conteudo);
+            doc.Add(paragrafo);
+
+            PdfPTable table = new PdfPTable(6);
+            cnt.DataBaseConnect();
+            MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FORNEC('" + strCode + "', '" + txtCNPJ.Text.ToString() + "', '" + txtRazao.Text.ToString() + "')");
+
+            table.AddCell("Código");
+            table.AddCell("Razão Social");
+            table.AddCell("CNPJ");
+            table.AddCell("CEP");
+            table.AddCell("Cidade");
+            table.AddCell("Telefone");
+
+            if (leitor != null)
+            {
+
+                while (leitor.Read())
+                {
+                    table.AddCell(leitor[0].ToString());
+                    table.AddCell(leitor[1].ToString());
+                    table.AddCell(leitor[2].ToString());
+                    table.AddCell(leitor[6].ToString());
+                    table.AddCell(leitor[7].ToString());
+                    table.AddCell(leitor[9].ToString());
+                }
+            }
+
+            doc.Add(table);
+            doc.Close();
+
+            System.Diagnostics.Process.Start(caminho); //Starta o pdf
         }
         #endregion
     }
