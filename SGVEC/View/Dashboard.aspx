@@ -98,40 +98,104 @@
                 <h4>Seja bem vindo(a)
                    <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label>
                 </h4>
+                <br />
 
-                <div class="card p-4 col-md-4">
-                    <canvas id="myChart"></canvas>
+                <div class="card p-3 col-md-5">
+                    <canvas id="myChart_Product"></canvas>
 
                     <script>
-                        const labels = [
-                            'January',
-                            'February',
-                            'March',
-                            'April',
-                            'May',
-                            'June',
-                        ];
+                        var _data = <%=GetDataProduct()%>;
+                        var _labels = <%=GetNameProduct()%>;
 
-                        const data = {
-                            labels: labels,
+                        const labels_Product = _labels;
+
+                        const data_Product = {
+                            labels: labels_Product,
                             datasets: [{
-                                label: 'My First dataset',
+                                label: 'Produtos',
                                 backgroundColor: 'rgb(78, 32, 169)',
                                 borderColor: 'rgb(78, 32, 169)',
-                                data: [0, 10, 5, 2, 20, 30, 45],
+                                data: _data,
                             }]
                         };
 
-                        const config = {
-                            type: 'line',
-                            data: data,
-                            options: {}
+                        const config_Product = {
+                            type: 'bar',
+                            data: data_Product,
+                            options: {
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: 'Total de produtos',
+                                        padding: {
+                                            top: 10,
+                                            bottom: 30
+                                        }
+                                    },
+                                }
+                            }
                         };
 
-                        var myChart = new Chart(
-                            document.getElementById('myChart'),
-                            config
+                        var myChart_Product = new Chart(
+                            document.getElementById('myChart_Product'),
+                            config_Product
                         );
+                    </script>
+                </div>
+                <br />
+                <br />
+                <div class="card p-3 col-md-7">
+                    <canvas id="myChart_Sales"></canvas>
+
+                    <script>
+                            var _data = <%=GetDataSales()%>;
+
+                            const labels_Sales = [
+                                'Janeiro',
+                                'Fevereiro',
+                                'Março',
+                                'Abril',
+                                'Maio',
+                                'Junho',
+                                'Julho',
+                                'Agosto',
+                                'Setembro',
+                                'Outubro',
+                                'Novembro',
+                                'Dezembro'
+                            ];
+
+                            const data_Sales = {
+                                labels: labels_Sales,
+                                datasets: [{
+                                    label: 'Vendas',
+                                    backgroundColor: 'rgb(78, 32, 169)',
+                                    borderColor: 'rgb(78, 32, 169)',
+                                    data: _data
+                                }]
+                            };
+
+                            const config_Sales = {
+                                type: 'line',
+                                data: data_Sales,
+                                options: {
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: 'Total de vendas por mês',
+                                            padding: {
+                                                top: 5,
+                                                bottom: 30
+                                            }
+                                        }
+                                    }
+                                }
+                            };
+
+                            var myChart_Sales = new Chart(
+                                document.getElementById('myChart_Sales'),
+                                config_Sales
+                            );
                     </script>
                 </div>
             </div>
