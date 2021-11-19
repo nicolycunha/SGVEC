@@ -117,8 +117,8 @@
                         </div>
                         <div class="row clearfix form-space">
                             <asp:GridView CssClass="col-md-12" ID="gvSupplier" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                <HeaderStyle BackColor="#4A3C8C" ForeColor="#F7F7F7" />
-                                <AlternatingRowStyle BackColor="#F7F7F7" />
+                                <HeaderStyle BackColor="#4E20A9" ForeColor="#FFFFFF" />
+                                <AlternatingRowStyle BackColor="#b8a6dd" />
                                 <Columns>
                                     <asp:BoundField DataField="COD_FORNEC" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                     <asp:BoundField DataField="RAZAO_SOCIAL" HeaderText="Razão Social" />

@@ -113,8 +113,8 @@
 
                         <div class="row clearfix form-space">
                             <asp:GridView CssClass="col-md-12" ID="gvProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                <HeaderStyle BackColor="#4A3C8C" ForeColor="#ffffff" />
-                                <AlternatingRowStyle BackColor="#000000" />
+                                <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
+                                <AlternatingRowStyle BackColor="#b8a6dd" />
                                 <Columns>
                                     <asp:BoundField DataField="COD_BARRAS" HeaderText="Código" />
                                     <asp:BoundField DataField="NOME_PROD" HeaderText="Nome do Produto" />

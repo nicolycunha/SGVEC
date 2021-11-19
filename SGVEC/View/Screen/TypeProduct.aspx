@@ -57,7 +57,7 @@
                             Tipo de produto
                         </a>
                     </li>
-                     <li>
+                    <li>
                         <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
@@ -109,21 +109,21 @@
                             <div class="col-md-2">
                                 <asp:Button ID="btnSearch" runat="server" Text="Pesquisar" CssClass="btn btn-outline-primary btn-sm" BorderStyle="Solid" OnClick="btnSearch_Click" />
                             </div>
-                            <div class="row clearfix form-space">
-                                <asp:GridView CssClass="col-md-12" ID="gvTypeProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
-                                    <AlternatingRowStyle BackColor="#000000" />
-                                    <Columns>
-                                        <asp:BoundField DataField="COD_TIPO_PROD" HeaderText="Código" />
-                                        <asp:BoundField DataField="NOME_TIPO_PROD" HeaderText="Nome" />
-                                        <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_TIPO_PROD") %>' OnClick="gvTypeProduct_SelectedIndexChanged"></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
+                        </div>
+                        <div class="row clearfix form-space">
+                            <asp:GridView CssClass="col-md-12" ID="gvTypeProduct" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
+                                <AlternatingRowStyle BackColor="#b8a6dd" />
+                                <Columns>
+                                    <asp:BoundField DataField="COD_TIPO_PROD" HeaderText="Código" />
+                                    <asp:BoundField DataField="NOME_TIPO_PROD" HeaderText="Nome" />
+                                    <asp:TemplateField HeaderText="-">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_TIPO_PROD") %>' OnClick="gvTypeProduct_SelectedIndexChanged"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
                         </div>
                         <div class="botoes-forms">
                             <asp:Button ID="btnCreatePDF" runat="server" Text="Gerar Relatório" CssClass="btn btn-outline-secondary" BorderStyle="Solid" OnClick="btnCreatePDF_Click" />
@@ -189,7 +189,7 @@
                     </div>
                 </form>
             </div>
-        </main>
+    </main>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

@@ -120,7 +120,7 @@
                             <div class="row clearfix form-space">
                                 <asp:GridView CssClass="col-md-12" ID="gvEmployee" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                     <HeaderStyle BackColor="#4E20A9" ForeColor="#ffffff" />
-                                    <AlternatingRowStyle BackColor="#000000" />
+                                    <AlternatingRowStyle BackColor="#b8a6dd" />
                                     <Columns>
                                         <asp:BoundField DataField="COD_FUNC" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
                                         <asp:BoundField DataField="NOME_FUNC" HeaderText="Nome" />
