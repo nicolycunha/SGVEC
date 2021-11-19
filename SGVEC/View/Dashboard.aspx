@@ -100,8 +100,36 @@
                 </h4>
                 <br />
 
-                <div class="card p-3 col-md-5">
-                    <canvas id="myChart_Product"></canvas>
+                <div class="p-3 col-md-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <canvas id="myChart_Product"></canvas>
+                        </div>
+                        <div class="row col-md-4">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img src="../Images/Dashboard/graph.png" width="80px" />
+                                </div>
+                                <div class="col-md-7">
+                                    <asp:Label runat="server" Font-Bold="true" Text="Total de Vendas"></asp:Label>
+                                    <br />
+                                    <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
+                                    <asp:Label runat="server" ID="lblVlTotalSales"></asp:Label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img src="../Images/Dashboard/graph.png" width="80px" />
+                                </div>
+                                <div class="col-md-7">
+                                    <asp:Label runat="server" Font-Bold="true" Text="Total de Produtos"></asp:Label>
+                                    <br />
+                                    <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
+                                    <asp:Label runat="server" ID="lblVlTotalProd"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <script>
                         var _data = <%=GetDataProduct()%>;
@@ -113,8 +141,8 @@
                             labels: labels_Product,
                             datasets: [{
                                 label: 'Produtos',
-                                backgroundColor: 'rgb(78, 32, 169)',
-                                borderColor: 'rgb(78, 32, 169)',
+                                backgroundColor: 'rgb(78, 32, 169, 0.75)',
+                                borderColor: 'rgb(78, 32, 169, 0.75)',
                                 data: _data,
                             }]
                         };
@@ -144,58 +172,58 @@
                 </div>
                 <br />
                 <br />
-                <div class="card p-3 col-md-7">
+                <div class="p-3 col-md-10">
                     <canvas id="myChart_Sales"></canvas>
 
                     <script>
-                            var _data = <%=GetDataSales()%>;
+                        var _data = <%=GetDataSales()%>;
 
-                            const labels_Sales = [
-                                'Janeiro',
-                                'Fevereiro',
-                                'Março',
-                                'Abril',
-                                'Maio',
-                                'Junho',
-                                'Julho',
-                                'Agosto',
-                                'Setembro',
-                                'Outubro',
-                                'Novembro',
-                                'Dezembro'
-                            ];
+                        const labels_Sales = [
+                            'Janeiro',
+                            'Fevereiro',
+                            'Março',
+                            'Abril',
+                            'Maio',
+                            'Junho',
+                            'Julho',
+                            'Agosto',
+                            'Setembro',
+                            'Outubro',
+                            'Novembro',
+                            'Dezembro'
+                        ];
 
-                            const data_Sales = {
-                                labels: labels_Sales,
-                                datasets: [{
-                                    label: 'Vendas',
-                                    backgroundColor: 'rgb(78, 32, 169)',
-                                    borderColor: 'rgb(78, 32, 169)',
-                                    data: _data
-                                }]
-                            };
+                        const data_Sales = {
+                            labels: labels_Sales,
+                            datasets: [{
+                                label: 'Vendas',
+                                backgroundColor: 'rgb(78, 32, 169, 0.75)',
+                                borderColor: 'rgb(78, 32, 169, 0.75)',
+                                data: _data
+                            }]
+                        };
 
-                            const config_Sales = {
-                                type: 'line',
-                                data: data_Sales,
-                                options: {
-                                    plugins: {
-                                        title: {
-                                            display: true,
-                                            text: 'Total de vendas por mês',
-                                            padding: {
-                                                top: 5,
-                                                bottom: 30
-                                            }
+                        const config_Sales = {
+                            type: 'line',
+                            data: data_Sales,
+                            options: {
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: 'Total de vendas por mês',
+                                        padding: {
+                                            top: 5,
+                                            bottom: 30
                                         }
                                     }
                                 }
-                            };
+                            }
+                        };
 
-                            var myChart_Sales = new Chart(
-                                document.getElementById('myChart_Sales'),
-                                config_Sales
-                            );
+                        var myChart_Sales = new Chart(
+                            document.getElementById('myChart_Sales'),
+                            config_Sales
+                        );
                     </script>
                 </div>
             </div>

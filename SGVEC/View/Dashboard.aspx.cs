@@ -19,6 +19,8 @@ namespace SGVEC.View
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + 0 + "', '" + gc.CPF + "', '" + gc.Name + "')");
 
             if (leitor.Read()) { gc.CodEmployeeLog = Convert.ToInt32(leitor[0].ToString()); gc.CodEmployee = Convert.ToInt32(leitor[16].ToString()); lblNomeFunc.Text = leitor[2].ToString(); }
+
+            GetTotal();
         }
 
         protected string GetDataSales()
@@ -109,7 +111,8 @@ namespace SGVEC.View
         {
             cnt = new Connect();
             cnt.DataBaseConnect();
-            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT P.QUANTIDADE_PROD FROM PRODUTO P INNER JOIN TIPO_PRODUTO TP ON P.FK_COD_TIPO_PROD = TP.COD_TIPO_PROD");
+            MySqlDataReader leitor = dtManip.ExecuteDataReader(@"SELECT SUM(P.QUANTIDADE_PROD) FROM PRODUTO P INNER JOIN TIPO_PRODUTO TP ON P.FK_COD_TIPO_PROD = TP.COD_TIPO_PROD
+                            GROUP BY P.FK_COD_TIPO_PROD");
 
             DataTable data = new DataTable();
 
@@ -135,12 +138,12 @@ namespace SGVEC.View
             return strDatas;
         }
 
-
         protected string GetNameProduct()
         {
             cnt = new Connect();
             cnt.DataBaseConnect();
-            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT TP.NOME_TIPO_PROD FROM PRODUTO P INNER JOIN TIPO_PRODUTO TP ON P.FK_COD_TIPO_PROD = TP.COD_TIPO_PROD");
+            MySqlDataReader leitor = dtManip.ExecuteDataReader(@"SELECT TP.NOME_TIPO_PROD FROM PRODUTO P INNER JOIN TIPO_PRODUTO TP ON P.FK_COD_TIPO_PROD = TP.COD_TIPO_PROD
+                            GROUP BY P.FK_COD_TIPO_PROD");
 
             DataTable data = new DataTable();
 
@@ -164,6 +167,26 @@ namespace SGVEC.View
             strDatas = strDatas + "]";
 
             return strDatas;
+        }
+
+        protected void GetTotal()
+        {
+            cnt = new Connect();
+            cnt.DataBaseConnect();
+            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT SUM(TOTAL_VENDA) FROM VENDA");
+
+            if (leitor.Read()) {
+                lblVlTotalSales.Text = leitor[0].ToString();
+            }
+
+            cnt = new Connect();
+            cnt.DataBaseConnect();
+            MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT SUM(QUANTIDADE_PROD) FROM PRODUTO");
+
+            if (leitor2.Read())
+            {
+                lblVlTotalProd.Text = leitor2[0].ToString();
+            }
         }
     }
 }

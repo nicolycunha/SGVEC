@@ -137,14 +137,13 @@
     <Content Include="Images\Dashboard\casa.png" />
     <Content Include="Images\Dashboard\codbarras.png" />
     <Content Include="Images\Dashboard\fornecedor.png" />
-    <Content Include="Images\Dashboard\funcionario.png" />
+    <Content Include="Images\Dashboard\graph.png" />
     <Content Include="Images\Dashboard\info.png" />
     <Content Include="Images\Dashboard\openbox.png" />
     <Content Include="Images\Dashboard\relatorio.png" />
     <Content Include="Images\Dashboard\sair.png" />
     <Content Include="Images\Dashboard\shopify.png" />
     <Content Include="Images\Dashboard\tipoproduto.png" />
-    <Content Include="Images\Employee\icons8-pesquisa-propriedade-30.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\Screen\Employee.js" />
     <Content Include="Scripts\Screen\Product.js" />
