@@ -105,6 +105,24 @@ namespace SGVEC.View.Screen
         protected global::System.Web.UI.WebControls.TextBox txtNomeProduct;
 
         /// <summary>
+        /// Controle txtDtCadProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDtCadProduct;
+
+        /// <summary>
+        /// Controle txtQuantidadeProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQuantidadeProduct;
+
+        /// <summary>
         /// Controle txtMarcaProduct.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,24 @@ namespace SGVEC.View.Screen
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMarcaProduct;
+
+        /// <summary>
+        /// Controle ddlTipoProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoProduct;
+
+        /// <summary>
+        /// Controle ddlFornecProduct.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFornecProduct;
 
         /// <summary>
         /// Controle txtPrecoProduct.
@@ -132,24 +168,6 @@ namespace SGVEC.View.Screen
         protected global::System.Web.UI.WebControls.TextBox txtCustoProduct;
 
         /// <summary>
-        /// Controle txtDtCadProduct.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtCadProduct;
-
-        /// <summary>
-        /// Controle txtQuantidadeProduct.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantidadeProduct;
-
-        /// <summary>
         /// Controle txtDescProduct.
         /// </summary>
         /// <remarks>
@@ -157,24 +175,6 @@ namespace SGVEC.View.Screen
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescProduct;
-
-        /// <summary>
-        /// Controle ddlTipoProduct.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoProduct;
-
-        /// <summary>
-        /// Controle ddlFornecProduct.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFornecProduct;
 
         /// <summary>
         /// Controle btnSave.

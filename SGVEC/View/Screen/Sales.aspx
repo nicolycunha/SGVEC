@@ -57,28 +57,25 @@
                             Tipo de produto
                         </a>
                     </li>
-                    <li class="selected">
-                        <a href="/View/Screen/Sales">
+                     <li class="venda-selected">
+                        <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
-                            Vendas
+                            Vendas                           
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="/View/Screen/Sales_Insert">
-                                    Inclusão de Vendas
+                                <a href="/View/Screen/Sales_Insert">Inclusão de Vendas
                                 </a>
                             </li>
-                            <li class="selected">
-                                <a href="/View/Screen/Sales">
-                                    Consulta de Vendas
+                            <li class="sub-selected">
+                                <a href="/View/Screen/Sales">Consulta de Vendas
                                 </a>
                             </li>
                         </ul>
-                        
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual">
+                    <a href="/View/Manual.pdf" class="manual" target="_blank">
                         <img src="/images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>

@@ -159,15 +159,6 @@ namespace SGVEC.View.Screen
         protected global::System.Web.UI.WebControls.TextBox txtNumSupplier;
 
         /// <summary>
-        /// Controle txtBairroSupplier.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBairroSupplier;
-
-        /// <summary>
         /// Controle txtCEPSupplier.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace SGVEC.View.Screen
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCEPSupplier;
+
+        /// <summary>
+        /// Controle txtBairroSupplier.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBairroSupplier;
 
         /// <summary>
         /// Controle txtCidadeSupplier.

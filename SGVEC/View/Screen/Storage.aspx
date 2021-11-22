@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual">
+                    <a href="/View/Manual.pdf" class="manual" target="_blank">
                         <img src="/images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>
@@ -156,26 +156,30 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            Cód Barras
+                                    <fieldset>
+                                        <legend>Informações</legend>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-3">
+                                                Cód Barras
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodBarrasStorage" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="Código de Barras"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCodBarrasStorage" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="__________"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            Nome
+                                            </div>
+                                            <div class="col-md-7">
+                                                Nome
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtNomeStorage" CssClass="form-control is-invalid" type="text" MaxLength="50" placeholder="Nome Produto"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            Qtde
+                                            </div>
+                                            <div class="col-md-2">
+                                                Qtde
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtQuantidadeStorage" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Quantidade"></asp:TextBox>
                                             </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </fieldset>
                                 </div>
 
                                 <div class="modal-footer">
