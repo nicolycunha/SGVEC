@@ -77,7 +77,7 @@
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual">
+                    <a href="/View/Manual" class="manual" download="Manual.pdf">
                         <img src="../Images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>

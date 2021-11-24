@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/View/Screen/Product">
+                        <a href="/View/Screen/Supplier">
                             <img src="/images/Dashboard/fornecedor.png" alt="Ícone de Fornecedor pela icons8" />
                             Fornecedor
                         </a>
@@ -57,7 +57,7 @@
                             Tipo de produto
                         </a>
                     </li>
-                      <li>
+                    <li>
                         <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual">
+                    <a href="/View/Manual.pdf" class="manual" target="_blank">
                         <img src="/images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>
@@ -166,7 +166,7 @@
                                         <div class="col-md-3">
                                             Cód. Barras
                                             <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCodBarrasProduct" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="Código de Barras"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtCodBarrasProduct" disabled="true" CssClass="form-control" type="text" MaxLength="10" placeholder="__________"></asp:TextBox>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -176,52 +176,54 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            Marca
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtMarcaProduct" CssClass="form-control is-invalid" type="text" MaxLength="208" placeholder="Marca"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-3">
-                                            Preço
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtPrecoProduct" CssClass="form-control is-invalid" type="text" MaxLength="10" placeholder="Preço"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            Custo
-                                            <div class="input-group">
-                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="6" placeholder="Custo"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
                                             Data Cadastro
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtDtCadProduct" CssClass="form-control" Enabled="false" type="date" MaxLength="6" placeholder="Data de Cadastro"></asp:TextBox>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row clearfix">
                                         <div class="col-md-3">
                                             Qtde
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtQuantidadeProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="5" placeholder="Quantidade"></asp:TextBox>
                                             </div>
                                         </div>
+                                        <div class="col-md-5">
+                                            Marca
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtMarcaProduct" CssClass="form-control is-invalid" type="text" MaxLength="208" placeholder="Marca"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            Tipo de Produto
+                                            <asp:DropDownList ID="ddlTipoProduct" runat="server" DataTextField="NOME_TIPO_PROD" CssClass="form-select"></asp:DropDownList>
+                                        </div>
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-md-6">
+                                            Fornecedor
+                                            <asp:DropDownList ID="ddlFornecProduct" runat="server" DataTextField="RAZAO_SOCIAL" CssClass="form-select"></asp:DropDownList>
+                                        </div>
+                                        <div class="col-md-3">
+                                            Preço
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtPrecoProduct" CssClass="form-control is-invalid" type="text" MaxLength="10" placeholder="R$ 0,00"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            Custo
+                                            <div class="input-group">
+                                                <asp:TextBox runat="server" ID="txtCustoProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="6" placeholder="R$ 0,00"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
                                             Descrição
                                             <div class="input-group">
                                                 <asp:TextBox runat="server" ID="txtDescProduct" CssClass="form-control" Enabled="false" type="text" MaxLength="50" TextMode="MultiLine" Height="100" placeholder="Descrição"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            Tipo de Produto
-                                            <asp:DropDownList ID="ddlTipoProduct" runat="server" DataTextField="NOME_TIPO_PROD" CssClass="form-select"></asp:DropDownList>
-                                        </div>
-                                        <div class="col-md-3">
-                                            Fornecedor
-                                            <asp:DropDownList ID="ddlFornecProduct" runat="server" DataTextField="RAZAO_SOCIAL" CssClass="form-select"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>

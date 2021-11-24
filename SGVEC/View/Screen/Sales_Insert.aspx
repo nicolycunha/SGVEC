@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual">
+                    <a href="/View/Manual.pdf" class="manual" target="_blank">
                         <img src="/images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>
@@ -95,30 +95,34 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="row clearfix">
+                        <div class="row clearfix form-space">
                             <div class="col-md-8">
+                                Nome Cliente
                                 <div class="input-group">
                                     <asp:TextBox ID="txtNomeCliSales" type="text" runat="server" placeholder="Nome Cliente" MaxLength="14"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-4">
+                                CPF Cliente
                                 <div class="input-group">
-                                    <asp:TextBox ID="txtCpfCliSales" type="text" runat="server" placeholder="CPF Cliente" MaxLength="14"></asp:TextBox>
+                                    <asp:TextBox ID="txtCpfCliSales" type="text" runat="server" placeholder="___.___.___-__" MaxLength="14"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
-                        <br />
-                        <div class="row clearfix">
+                        <div class="row clearfix form-space">
                             <div class="col-md-8">
-                                <asp:DropDownList ID="ddlFuncSales" Enabled="false" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
+                                Nome Funcionário
+                                    <div class="input-group">
+                                        <asp:DropDownList ID="ddlFuncSales" Enabled="false" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
+                                    </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                Data de venda
                                 <div class="input-group">
                                     <asp:TextBox ID="txtDtSales" type="date" Enabled="false" runat="server" placeholder="Data da Venda" MaxLength="10"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
-                        <br />
 
                         <div class="row clearfix form-space">
                             <asp:GridView CssClass="col-md-12" ID="gvProducts" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
@@ -138,37 +142,38 @@
                             </asp:GridView>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
+                        <div class="row clearfix form-space">
+                            <div class="col-md-4">
+                                Tipo de Pagamento
                                     <asp:DropDownList ID="ddlTipoPagSales" runat="server" DataTextField="NOME_TIPO_PAG" CssClass="form-select"></asp:DropDownList>
-                                </div>
-                                <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                Nº de parcelas
                                     <div class="input-group">
                                         <asp:TextBox ID="txtNumParcSales" Enabled="false" type="text" runat="server" placeholder="Número Parcelas" MaxLength="2"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtValParcSales" Enabled="false" type="text" runat="server" placeholder="Valor Parcelas" MaxLength="14"></asp:TextBox>
-                                    </div>
-                                </div>
                             </div>
-                            <br />
-                            <div class="row clearfix">
-                                <div class="col-md-4">
+                            <div class="col-md-4">
+                                Valor da parcela
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtDescontoSales" type="text" runat="server" placeholder="Desconto" MaxLength="10"></asp:TextBox>
+                                        <asp:TextBox ID="txtValParcSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="14"></asp:TextBox>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <asp:TextBox ID="txtTotalSales" Enabled="false" type="text" runat="server" placeholder="Total da Venda" MaxLength="10"></asp:TextBox>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                        <br />
+                        <div class="row clearfix form-space">
+                            <div class="col-md-4">
+                                Desconto
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtDescontoSales" type="text" runat="server" placeholder="0%" MaxLength="10"></asp:TextBox>
+                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                Total
+                                    <div class="input-group">
+                                        <asp:TextBox ID="txtTotalSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="10"></asp:TextBox>
+                                    </div>
+                            </div>
+                        </div>
 
                         <div class="botoes-forms">
                             <button id="btnInsertProd" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_Modal">Inserir Produto</button>
@@ -177,7 +182,6 @@
 
                             <asp:Button ID="btnInsertSales" runat="server" Text="Finalizar Venda" CssClass="btn btn-outline-primary" BorderStyle="Solid" OnClick="btnSendInsertSales_Click" />
                         </div>
-                        <br />
 
                         <div class="row clearfix">
                             <div class="col-md-12">
