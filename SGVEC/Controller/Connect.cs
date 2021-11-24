@@ -64,5 +64,10 @@ namespace SGVEC.Controller
                 return false;
             }
         }
+
+        public void closeConection()
+        {
+            cn.Close();
+        }
     }
 }

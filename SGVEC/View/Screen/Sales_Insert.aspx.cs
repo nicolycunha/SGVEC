@@ -86,7 +86,7 @@ namespace SGVEC.View.Screen
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if ((txtCodProduct.Text != "") || (txtNomeProduct.Text != "") && (txtQuantProduct.Text != ""))
+                if (((txtCodProduct.Text != "") && (txtQuantProduct.Text != "")) || (txtNomeProduct.Text != "") )
                 {
                     cnt = new Connect();
                     cnt.DataBaseConnect();
@@ -138,6 +138,7 @@ namespace SGVEC.View.Screen
             {
                 lblError.Text = ex.Message;
                 lblError.Visible = true;
+                cnt.closeConection();
             }
         }
         #endregion

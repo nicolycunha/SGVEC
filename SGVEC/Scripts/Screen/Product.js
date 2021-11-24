@@ -17,8 +17,7 @@
         }
     }
 
-    $('#btnSearchProduct').click(function () {
-        $('#btnClearComponents').prop('disabled', true);
+    $('#btnSearchProduct').click(function () {        
         DisableComponents(true);
     });
 
@@ -52,7 +51,7 @@
     }
 
     function DisableComponents(value) {
-        $('#btnSave').prop('disabled', value);
+        $('#btnSave').prop('disabled', value); $('#btnClearComponents').prop('disabled', value);
         $('#txtCodBarrasProduct').prop('disabled', value); $('#txtNomeProduct').prop('disabled', value);
         $('#txtMarcaProduct').prop('disabled', value); $('#txtPrecoProduct').prop('disabled', value);
         $('#txtCustoProduct').prop('disabled', value); $('#txtDtCadProduct').prop('disabled', value);

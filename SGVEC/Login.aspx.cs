@@ -38,6 +38,7 @@ namespace SGVEC
                     cnt.DataBaseConnect();
                     if (cnt.ExecuteStringQuery("CALL PROC_LOGIN_FUNC('" + txtLogin.Text.ToString() + "', '" + txtPassword.Text.ToString() + "')"))
                     {
+                        cnt = new Connect();
                         cnt.DataBaseConnect();
                         MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_LOGIN_FUNC('" + txtLogin.Text.ToString() + "', '" + txtPassword.Text.ToString() + "')");
 
@@ -56,6 +57,7 @@ namespace SGVEC
                     }
                     else
                     {
+                        cnt.closeConection();
                         lblError.Text = "Email ou Senha inválidos.";
                     }
 

@@ -21,20 +21,16 @@
 
     $('#btnSearchSupplier').click(function () {
         DisableComponents(true);
-        $('#btnSave').prop('disabled', false);
-        $('#btnClearComponents').prop('disabled', true);
     });
 
     $('#btnInsertSupplier').click(function () {
         $('#txtCodSupplier').val("");
         ClearComponents();
         DisableComponents(false);
-        $('#btnClearComponents').prop('disabled', false);
     });
 
     $('#btnUpdateSupplier').click(function () {
         DisableComponents(false);
-        $('#btnClearComponents').prop('disabled', false);   
     });
 
     $('#btnClearComponents').click(function () {
@@ -48,7 +44,8 @@
         $('#txtUFSupplier').val("");                
     }
 
-    function DisableComponents(value) {
+    function DisableComponents(value) {        
+        $('#btnSave').prop('disabled', value); $('#btnClearComponents').prop('disabled', value);
         $('#txtRazaoSupplier').prop('disabled', value); $('#txtCNPJSupplier').prop('disabled', value);
         $('#txtNumTelSupplier').prop('disabled', value); $('#txtEndecSupplier').prop('disabled', value);
         $('#txtNumSupplier').prop('disabled', value); $('#txtBairroSupplier').prop('disabled', value);

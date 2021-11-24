@@ -18,7 +18,6 @@
     }
 
     $('#btnSearchStorage').click(function () {
-        $('#btnClearComponents').prop('disabled', true);
         DisableComponents(true);
     });
 
@@ -49,7 +48,7 @@
     }
 
     function DisableComponents(value) {
-        $('#btnSave').prop('disabled', value);
+        $('#btnSave').prop('disabled', value); $('#btnClearComponents').prop('disabled', value);        
         $('#txtCodBarrasStorage').prop('disabled', value); $('#txtNomeStorage').prop('disabled', value);        
         $('#txtQuantidadeStorage').prop('disabled', value);
     }

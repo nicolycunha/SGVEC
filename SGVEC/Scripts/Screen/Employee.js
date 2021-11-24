@@ -1,6 +1,4 @@
 ﻿$(document).ready(function () {
-    var tpBtn = 0;
-
     $("#txtCode").mask("9999");
     $("#txtCodEmployee").mask("9999");
     $("#txtNumEndecEmployee").mask("9999");
@@ -24,15 +22,14 @@
     }
 
     $('#btnSearchEmployee').click(function () {
-        $('#btnSave').prop('disabled', false);
         DisableComponents(true);
     });
 
-    $('#btnInsertEmployee').click(function () {
-        tpBtn = 1;
-        $('#txtCodEmployee').val("");
-        ClearComponents();
+    $('#btnInsertEmployee').click(function () {      
+        ClearComponents();        
         DisableComponents(false);
+        $('#txtCodEmployee').val("");
+        $('#txtCpfEmployee').val("");
     });
 
     $('#btnUpdateEmployee').click(function () {
@@ -53,9 +50,6 @@
 
 
     function ClearComponents() {
-        if (tpBtn == 1) {
-            $('#txtCpfEmployee').val("");
-        }
         $('#txtNomeEmployee').val(""); $('#txtRGEmployee').val(""); $('#txtDtNascEmployee').val(""); $('#txtTelEmployee').val("");
         $('#txtCelEmployee').val(""); $('#txtEnderecoEmployee').val(""); $('#txtNumEndecEmployee').val("");
         $('#txtBairroEmployee').val(""); $('#txtCepEmployee').val(""); $('#txtCidadeEmployee').val("");

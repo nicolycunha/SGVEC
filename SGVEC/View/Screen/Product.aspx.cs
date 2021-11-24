@@ -99,7 +99,7 @@ namespace SGVEC.View.Screen
                         txtQuantidadeProduct.Text = leitor[6].ToString();
                         txtDescProduct.Text = leitor[7].ToString();
                         ddlTipoProduct.SelectedValue = leitor[8].ToString();
-                        ddlFornecProduct.SelectedValue = leitor[8].ToString();
+                        ddlFornecProduct.SelectedValue = leitor[9].ToString();
                     }
                     else { lblError.Text = "Não há produtos com essas informações no sistema!"; }
                 }
