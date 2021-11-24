@@ -57,7 +57,7 @@
                             Tipo de produto
                         </a>
                     </li>
-                     <li class="venda-selected">
+                    <li class="venda-selected">
                         <a>
                             <img src="/images/Dashboard/shopify.png" alt="Ícone de Vendas pela icons8" />
                             Vendas                           
@@ -107,6 +107,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br />
                         <div class="row clearfix">
                             <div class="col-md-8">
                                 <asp:DropDownList ID="ddlFuncSales" Enabled="false" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
@@ -117,24 +118,25 @@
                                 </div>
                             </div>
                         </div>
+                        <br />
 
-                            <div class="row clearfix form-space">
-                                <asp:GridView CssClass="col-md-12" ID="gvProducts" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
-                                    <HeaderStyle BackColor="#4E20A9" ForeColor="#FFFFFF" />
-                                    <AlternatingRowStyle BackColor="#b8a6dd" />
-                                    <Columns>
-                                        <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
-                                        <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
-                                        <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
-                                        <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
-                                        <asp:TemplateField HeaderText="-">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_PROD_VENDA") %>' OnClick="gvProducts_SelectedIndexChanged"></asp:LinkButton>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
+                        <div class="row clearfix form-space">
+                            <asp:GridView CssClass="col-md-12" ID="gvProducts" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
+                                <HeaderStyle BackColor="#4E20A9" ForeColor="#FFFFFF" />
+                                <AlternatingRowStyle BackColor="#b8a6dd" />
+                                <Columns>
+                                    <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                    <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
+                                    <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
+                                    <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
+                                    <asp:TemplateField HeaderText="-">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_PROD_VENDA") %>' OnClick="gvProducts_SelectedIndexChanged"></asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
 
                         <div class="col-md-12">
                             <div class="row clearfix">
@@ -152,6 +154,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <br />
                             <div class="row clearfix">
                                 <div class="col-md-4">
                                     <div class="input-group">

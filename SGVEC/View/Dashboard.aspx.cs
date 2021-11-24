@@ -169,14 +169,18 @@ namespace SGVEC.View
             return strDatas;
         }
 
-        protected void GetTotal()
-        {
+        protected bool GetTotal()
+        {            
             cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT SUM(TOTAL_VENDA) FROM VENDA");
 
             if (leitor.Read()) {
                 lblVlTotalSales.Text = leitor[0].ToString();
+            }
+            else
+            {
+                return false;
             }
 
             cnt = new Connect();
@@ -187,6 +191,12 @@ namespace SGVEC.View
             {
                 lblVlTotalProd.Text = leitor2[0].ToString();
             }
+            else
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
