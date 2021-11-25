@@ -77,7 +77,7 @@
                     </li>
                 </ul>
                 <footer class="footer">
-                    <a href="/View/Manual" class="manual" download="Manual.pdf">
+                    <a href="/View/Manual.pdf" class="manual" target="_blank">
                         <img src="../Images/Dashboard/info.png" alt="Ícone de Manual de informações pela icons8" />
                         <span>&copy; <%: DateTime.Now.Year %> - SGVEC - Sistema Gerenciador de Vendas e Estoque</span>
                     </a>
@@ -95,38 +95,45 @@
             </header>
 
             <div class="conteudo">
-                <h4>Seja bem vindo(a)
+                <h4 class="title-dash">Seja bem vindo(a)
                    <asp:Label runat="server" ID="lblNomeFunc">Nome do Usuário</asp:Label>
                 </h4>
-                <br />
 
                 <div class="p-3 col-md-12">
                     <div class="row">
                         <div class="col-md-8">
-                            <canvas id="myChart_Product"></canvas>
+                            <div class="card card-produtos">
+                                <canvas id="myChart_Product"></canvas>
+                            </div>
                         </div>
                         <div class="row col-md-4">
                             <div class="row">
-                                <div class="col-md-5">
-                                    <img src="../Images/Dashboard/graph.png" width="80px" />
+                                <div class="card">
+                                    <div class="col-md-5 icon-graph">
+                                        <img src="../Images/Dashboard/graph.png" />
+                                    </div>
+                                    <div class="col-md-7">
+                                        <asp:Label runat="server" CssClass="graph-title" Text="Total de Vendas"></asp:Label>
+                                       
+                                        <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
+                                        <asp:Label runat="server" ID="lblVlTotalSales"></asp:Label>
+                                    </div>
                                 </div>
-                                <div class="col-md-7">
-                                    <asp:Label runat="server" Font-Bold="true" Text="Total de Vendas"></asp:Label>
-                                    <br />
-                                    <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
-                                    <asp:Label runat="server" ID="lblVlTotalSales"></asp:Label>
-                                </div>
+
                             </div>
                             <div class="row">
-                                <div class="col-md-5">
-                                    <img src="../Images/Dashboard/graph.png" width="80px" />
+                                <div class="card">
+                                    <div class="col-md-5 icon-graph">
+                                        <img src="../Images/Dashboard/graph.png" />
+                                    </div>
+                                    <div class="col-md-7">
+                                        <asp:Label runat="server" CssClass="graph-title" Text="Total de Produtos"></asp:Label>
+                                      
+                                        <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
+                                        <asp:Label runat="server" ID="lblVlTotalProd"></asp:Label>
+                                    </div>
                                 </div>
-                                <div class="col-md-7">
-                                    <asp:Label runat="server" Font-Bold="true" Text="Total de Produtos"></asp:Label>
-                                    <br />
-                                    <asp:Label runat="server" Font-Bold="true" Text="$"></asp:Label>
-                                    <asp:Label runat="server" ID="lblVlTotalProd"></asp:Label>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -170,10 +177,11 @@
                         );
                     </script>
                 </div>
-                <br />
-                <br />
-                <div class="p-3 col-md-10">
-                    <canvas id="myChart_Sales"></canvas>
+
+                <div class="p-3 col-md-11">
+                    <div class="card card-vendas">
+                        <canvas id="myChart_Sales"></canvas>
+                    </div>
 
                     <script>
                         var _data = <%=GetDataSales()%>;
@@ -227,7 +235,7 @@
                     </script>
                 </div>
             </div>
-        </main>
+    </main>
     </div>
 
 </body>

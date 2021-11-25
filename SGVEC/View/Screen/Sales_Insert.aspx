@@ -96,13 +96,13 @@
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
                         <div class="row clearfix form-space">
-                            <div class="col-md-8">
+                            <div class="col-md-5">
                                 Nome Cliente
                                 <div class="input-group">
                                     <asp:TextBox ID="txtNomeCliSales" type="text" runat="server" placeholder="Nome Cliente" MaxLength="14"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 CPF Cliente
                                 <div class="input-group">
                                     <asp:TextBox ID="txtCpfCliSales" type="text" runat="server" placeholder="___.___.___-__" MaxLength="14"></asp:TextBox>
