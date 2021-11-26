@@ -99,7 +99,7 @@
                             <div class="col-md-6">
                                 Nome Cliente
                                 <div class="input-group">
-                                    <asp:TextBox ID="txtNomeCliSales" type="text" runat="server" placeholder="Nome Cliente" MaxLength="14"></asp:TextBox>
+                                    <asp:TextBox ID="txtNomeCliSales" type="text" runat="server" placeholder="Nome Cliente" MaxLength="50"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -122,11 +122,6 @@
                                         <asp:DropDownList ID="ddlFuncSales" Enabled="false" runat="server" DataTextField="NOME_FUNC" CssClass="form-select"></asp:DropDownList>
                                     </div>
                             </div>
-
-                            <div class="col-md-6">
-                                Tipo de Pagamento
-                                    <asp:DropDownList ID="ddlTipoPagSales" runat="server" DataTextField="NOME_TIPO_PAG" CssClass="form-select"></asp:DropDownList>
-                            </div>
                         </div>
 
                         <div class="row clearfix form-space">
@@ -135,9 +130,11 @@
                                 <AlternatingRowStyle BackColor="#b8a6dd" />
                                 <Columns>
                                     <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                    <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
+                                    <asp:BoundField DataField="COD_BARRAS" HeaderText="Código Barras" />
+                                    <asp:BoundField DataField="NOME_PROD" HeaderText="Nome Produto" />
                                     <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
                                     <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
-                                    <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
                                     <asp:TemplateField HeaderText="-">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkSelect" Text="Selecionar" runat="server" CommandArgument='<%# Eval("COD_PROD_VENDA") %>' OnClick="gvProducts_SelectedIndexChanged"></asp:LinkButton>
@@ -149,6 +146,10 @@
 
                         <div class="row clearfix form-space">
                             <div class="col-md-3">
+                                Tipo de Pagamento
+                                    <asp:DropDownList ID="ddlTipoPagSales" runat="server" DataTextField="NOME_TIPO_PAG" CssClass="form-select"></asp:DropDownList>
+                            </div>
+                            <div class="col-md-3">
                                 Nº de parcelas
                                     <div class="input-group">
                                         <asp:TextBox ID="txtNumParcSales" Enabled="false" type="text" runat="server" placeholder="Número Parcelas" MaxLength="2"></asp:TextBox>
@@ -159,7 +160,9 @@
                                     <div class="input-group">
                                         <asp:TextBox ID="txtValParcSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="14"></asp:TextBox>
                                     </div>
-                            </div>
+                            </div>                            
+                        </div>
+                        <div class="row clearfix form-space">
                             <div class="col-md-3">
                                 Desconto
                                     <div class="input-group">
@@ -167,7 +170,7 @@
                                     </div>
                             </div>
                             <div class="col-md-3">
-                                Total
+                                Total da Venda
                                     <div class="input-group">
                                         <asp:TextBox ID="txtTotalSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="10"></asp:TextBox>
                                     </div>

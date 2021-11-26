@@ -48,7 +48,10 @@ namespace SGVEC.View.Screen
                 }
 
                 //Atualiza o grid
-                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                gvProducts.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
+                                                                            LPAD(P.COD_BARRAS, 10,'0') AS COD_BARRAS, PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
+                                                                            INNER JOIN PRODUTO AS P ON P.COD_BARRAS = PV.FK_COD_PRODUTO 
+                                                                            WHERE FK_COD_VENDA = '" + intCodVenda + "'");
                 gvProducts.DataBind();
 
                 if (gvProducts.Rows.Count == 0) { lblError.Visible = true; lblError.Text = "Não há produtos adicionados a esta venda atual no sistema!"; }
@@ -86,7 +89,7 @@ namespace SGVEC.View.Screen
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if (((txtCodProduct.Text != "") && (txtQuantProduct.Text != "")) || (txtNomeProduct.Text != "") )
+                if (((txtCodProduct.Text != "") && (txtQuantProduct.Text != "")) || (txtNomeProduct.Text != ""))
                 {
                     cnt = new Connect();
                     cnt.DataBaseConnect();
@@ -102,7 +105,10 @@ namespace SGVEC.View.Screen
                             if (objRetorno == true)
                             {
                                 //Atualiza o grid
-                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
+                                                                            LPAD(P.COD_BARRAS, 10,'0') AS COD_BARRAS, PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
+                                                                            INNER JOIN PRODUTO AS P ON P.COD_BARRAS = PV.FK_COD_PRODUTO 
+                                                                            WHERE FK_COD_VENDA = '" + intCodVenda + "'");
                                 gvProducts.DataBind();
 
                                 //Atualiza o valor total da venda
@@ -215,22 +221,19 @@ namespace SGVEC.View.Screen
         {
             try
             {
-                double dblNumParc = 0, dblValParc = 0, dblDesconto = 0, dblTotal = 0;
+                string strDesconto = "";
 
                 lblError.Text = "";
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if (txtNumParcSales.Text != "") { dblNumParc = Convert.ToDouble(txtNumParcSales.Text); }
-                if (txtValParcSales.Text != "") { dblValParc = Convert.ToDouble(txtValParcSales.Text); }
-                if (txtDescontoSales.Text != "") { dblDesconto = Convert.ToDouble(txtDescontoSales.Text); }
-                if (txtTotalSales.Text != "") { dblTotal = Convert.ToDouble(txtTotalSales.Text); }
+                if (txtDescontoSales.Text != "") { strDesconto = txtDescontoSales.Text.Replace("%", ""); }
 
                 if (ValidateComponents())
                 {
                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_SALE('" + intCodVenda + "', '" + txtNomeCliSales.Text + "', '"
-                         + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + dblNumParc + "', '"
-                         + dblValParc + "', '" + dblDesconto + "', '" + dblTotal + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
+                         + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + txtNumParcSales.Text + "', '"
+                         + txtValParcSales.Text + "', '" + strDesconto + "', '" + txtTotalSales.Text + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
                          + ddlTipoPagSales.SelectedItem.Value + "')");
 
                     if (objRetorno != null)

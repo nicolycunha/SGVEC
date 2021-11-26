@@ -131,6 +131,9 @@
                                         <asp:BoundField DataField="NOME_CLIENTE" HeaderText="Nome Cliente" />
                                         <asp:BoundField DataField="CPF_CLIENTE" HeaderText="CPF Cliente" />
                                         <asp:BoundField DataField="DATA_VENDA" HeaderText="Data Venda" />
+                                        <asp:BoundField DataField="NUM_PARCELAS_VENDA" HeaderText="Nº Parcelas" />
+                                        <asp:BoundField DataField="VALOR_PARCELAS_VENDA" HeaderText="Valor Parcelas" />
+                                        <asp:BoundField DataField="DESCONTO_VENDA" HeaderText="Desconto" />
                                         <asp:BoundField DataField="TOTAL_VENDA" HeaderText="Total Venda" />
                                         <asp:BoundField DataField="FK_CPF_FUNC" HeaderText="CPF Funcionário" />
                                         <asp:TemplateField HeaderText="-">
@@ -179,10 +182,10 @@
                                                 <AlternatingRowStyle BackColor="#F7F7F7" />
                                                 <Columns>
                                                     <asp:BoundField DataField="COD_PROD_VENDA" HeaderText="Código" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol" />
+                                                    <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
+                                                    <asp:BoundField DataField="NOME_PROD" HeaderText="Nome Produto" />
                                                     <asp:BoundField DataField="QUANTIDADE_PROD" HeaderText="Quantidade Produto" />
                                                     <asp:BoundField DataField="VALOR_UNITARIO_PROD" HeaderText="Valor Unitário" />
-                                                    <asp:BoundField DataField="FK_COD_PRODUTO" HeaderText="Código Produto" />
-                                                    <asp:BoundField DataField="FK_COD_VENDA" HeaderText="Código Venda" />
                                                 </Columns>
                                             </asp:GridView>
                                         </div>

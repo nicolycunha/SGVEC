@@ -39,8 +39,9 @@ namespace SGVEC.View
             data.Columns.Add(new DataColumn("Hours", typeof(string)));
 
             while (leitor.Read())
-            {               
-                switch (Convert.ToDateTime(leitor[3].ToString()).ToString("MM")) {
+            {
+                switch (Convert.ToDateTime(leitor[3].ToString()).ToString("MM"))
+                {
                     case "01":
                         janeiro = janeiro + 1;
                         break;
@@ -170,12 +171,13 @@ namespace SGVEC.View
         }
 
         protected bool GetTotal()
-        {            
+        {
             cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT SUM(TOTAL_VENDA) FROM VENDA");
 
-            if (leitor.Read()) {
+            if (leitor.Read())
+            {
                 lblVlTotalSales.Text = leitor[0].ToString();
             }
             else

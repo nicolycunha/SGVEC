@@ -5,6 +5,7 @@
     $("#txtNumParcSales").mask("9999");
     $("#txtQuantProduct").mask("9999");
     $("#txtValParcSales").mask("999.00");
+    $("#txtTotalSales").mask("999.00");
     $("#txtDescontoSales").mask("99%");
 
     if ($('#lblError')[0] != undefined) {
@@ -40,14 +41,22 @@
         }
     });
 
+    $('#txtNumParcSales').focusout(function () {
+        if ($('#txtTotalSales').val() != "") {
+            let intValorTotal = parseInt($('#txtTotalSales').val());
+            let intNumParc = parseInt($('#txtNumParcSales').val());
+
+            let flVlParcelas = parseFloat(intValorTotal / intNumParc);
+            $('#txtValParcSales').val(flVlParcelas);
+        }
+    });
+
     $('#ddlTipoPagSales').change(function () {
         if ($('#ddlTipoPagSales').val() == "3") {
             $('#txtNumParcSales').prop('disabled', false);
-            $('#txtValParcSales').prop('disabled', false);
         }
         else {
             $('#txtNumParcSales').prop('disabled', true);
-            $('#txtValParcSales').prop('disabled', true);
         }
     });
 

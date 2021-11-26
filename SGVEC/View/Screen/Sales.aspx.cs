@@ -47,7 +47,7 @@ namespace SGVEC.View.Screen
             {
                 string strDtSales = "";
 
-                if(txtDateSales.Text != "") { strDtSales = Convert.ToDateTime((txtDateSales.Text).Replace("-", "/")).ToString("dd/MM/yyyy"); }
+                if (txtDateSales.Text != "") { strDtSales = Convert.ToDateTime((txtDateSales.Text).Replace("-", "/")).ToString("dd/MM/yyyy"); }
 
                 gc.strCodSales = "0";
 
@@ -76,7 +76,10 @@ namespace SGVEC.View.Screen
                 if (gc.strCodSales != "0")
                 {
                     cnt.DataBaseConnect();
-                    gvProdutos.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + gc.strCodSales + "'");
+                    gvProdutos.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
+                                                                            PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
+                                                                            INNER JOIN PRODUTO AS P ON P.COD_BARRAS = PV.FK_COD_PRODUTO 
+                                                                            WHERE FK_COD_VENDA = '" + gc.strCodSales + "'");
                     gvProdutos.DataBind();
 
                     if (gvProdutos.Rows.Count == 0) { lblError.Visible = true; lblError.Text = "Não há produtos registrados nessa venda no sistema!"; }
