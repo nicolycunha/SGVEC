@@ -62,16 +62,15 @@ namespace SGVEC.View.Screen
                 cnt.DataBaseConnect();
                 MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
 
+                txtTotalSales.Text = "0";
+                inVlTotal = 0;
+
                 while (leitor2.Read())
                 {
-                    double inVlTotal = 0;
-
-                    if (txtTotalSales.Text != "")
-                    {
-                        inVlTotal = Convert.ToDouble(txtTotalSales.Text);
-                    }
-                    txtTotalSales.Text = Convert.ToString(inVlTotal + Convert.ToDouble(leitor2[2].ToString()));
+                    inVlTotal = inVlTotal + (Convert.ToInt32(leitor2[1].ToString()) * Convert.ToDouble(leitor2[2].ToString()));
                 }
+
+                txtTotalSales.Text = Convert.ToString(inVlTotal);
             }
             catch (Exception ex)
             {
@@ -89,7 +88,7 @@ namespace SGVEC.View.Screen
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if (((txtCodProduct.Text != "") && (txtQuantProduct.Text != "")) || (txtNomeProduct.Text != ""))
+                if (((txtCodProduct.Text != "") && (txtQuantProduct.Text != "")) || (txtNomeProduct.Text != "" && (txtQuantProduct.Text != "")))
                 {
                     cnt = new Connect();
                     cnt.DataBaseConnect();
@@ -117,17 +116,14 @@ namespace SGVEC.View.Screen
                                 MySqlDataReader leitor2 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
 
                                 txtTotalSales.Text = "0";
+                                inVlTotal = 0;
 
                                 while (leitor2.Read())
                                 {
-                                    double inVlTotal = 0;
-
-                                    if (txtTotalSales.Text != "")
-                                    {
-                                        inVlTotal = Convert.ToDouble(txtTotalSales.Text);
-                                    }
-                                    txtTotalSales.Text = Convert.ToString(inVlTotal + Convert.ToDouble(leitor2[2].ToString()));
+                                    inVlTotal = inVlTotal + (Convert.ToInt32(leitor2[1].ToString()) * Convert.ToDouble(leitor2[2].ToString()));                                    
                                 }
+
+                                txtTotalSales.Text = Convert.ToString(inVlTotal);
 
                                 //atualiza a quantidade de produtos na base de dados  
                                 int intQntProduct = Convert.ToInt32(leitor[6].ToString());
@@ -187,7 +183,10 @@ namespace SGVEC.View.Screen
                             if (objRetorno == true)
                             {
                                 //Atualiza o grid
-                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                                gvProducts.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
+                                                                            LPAD(P.COD_BARRAS, 10,'0') AS COD_BARRAS, PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
+                                                                            INNER JOIN PRODUTO AS P ON P.COD_BARRAS = PV.FK_COD_PRODUTO 
+                                                                            WHERE FK_COD_VENDA = '" + intCodVenda + "'");
                                 gvProducts.DataBind();
 
                                 //Atualiza o valor total da venda
@@ -196,13 +195,14 @@ namespace SGVEC.View.Screen
                                 MySqlDataReader leitor3 = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
 
                                 txtTotalSales.Text = "0";
+                                inVlTotal = 0;
 
                                 while (leitor3.Read())
                                 {
-                                    inVlTotal = inVlTotal + Convert.ToDouble(leitor3[2].ToString());
-                                    txtTotalSales.Text = Convert.ToString(inVlTotal);
+                                    inVlTotal = inVlTotal + (Convert.ToInt32(leitor3[1].ToString()) * Convert.ToDouble(leitor3[2].ToString()));
                                 }
 
+                                txtTotalSales.Text = Convert.ToString(inVlTotal);
                             }
                         }
                     }
@@ -221,19 +221,23 @@ namespace SGVEC.View.Screen
         {
             try
             {
-                string strDesconto = "";
-
+                string strDesconto = "0";
+                int intNumParc = 0;
+                double dblValParc = 0, dblTotal = 0;
                 lblError.Text = "";
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if (txtDescontoSales.Text != "") { strDesconto = txtDescontoSales.Text.Replace("%", ""); }
+                if(txtDescontoSales.Text != "") { strDesconto = txtDescontoSales.Text.Replace("%", ""); }
+                if(txtNumParcSales.Text != "") { intNumParc = Convert.ToInt32(txtNumParcSales.Text); }
+                if (txtValParcSales.Text != "") { dblValParc = Convert.ToDouble(txtValParcSales.Text); }
+                if (txtTotalSales.Text != "") { dblTotal = Convert.ToInt32(txtTotalSales.Text); }
 
                 if (ValidateComponents())
                 {
                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_SALE('" + intCodVenda + "', '" + txtNomeCliSales.Text + "', '"
-                         + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + txtNumParcSales.Text + "', '"
-                         + txtValParcSales.Text + "', '" + strDesconto + "', '" + txtTotalSales.Text + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
+                         + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + intNumParc + "', '"
+                         + dblValParc + "', '" + strDesconto + "', '" + dblTotal + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
                          + ddlTipoPagSales.SelectedItem.Value + "')");
 
                     if (objRetorno != null)
@@ -250,7 +254,10 @@ namespace SGVEC.View.Screen
                             }
 
                             //Atualiza o grid
-                            gvProducts.DataSource = dtManip.ExecDtTableStringQuery("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
+                            gvProducts.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
+                                                                            LPAD(P.COD_BARRAS, 10,'0') AS COD_BARRAS, PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
+                                                                            INNER JOIN PRODUTO AS P ON P.COD_BARRAS = PV.FK_COD_PRODUTO 
+                                                                            WHERE FK_COD_VENDA = '" + intCodVenda + "'");
                             gvProducts.DataBind();
 
                             lblSucess.Text = "Venda registrada com sucesso!";
@@ -313,19 +320,6 @@ namespace SGVEC.View.Screen
         #region SelectedIndex
         protected void gvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Atualiza o valor total da venda
-            cnt = new Connect();
-            cnt.DataBaseConnect();
-            MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT * FROM PRODUTO_VENDA WHERE FK_COD_VENDA = '" + intCodVenda + "'");
-
-            txtTotalSales.Text = "0";
-
-            while (leitor.Read())
-            {
-                inVlTotal = inVlTotal + Convert.ToDouble(leitor[2].ToString());
-                txtTotalSales.Text = Convert.ToString(inVlTotal);
-            }
-
             gc.strCodProductSales = (sender as LinkButton).CommandArgument; //Código do Produto/Venda selecionado no grid
         }
         #endregion       

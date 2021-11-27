@@ -95,7 +95,7 @@
             <div class="conteudo">
                 <form id="form1" runat="server">
                     <div class="container shadow bg-white p-3">
-                        <div class="row clearfix form-space">
+                        <div class="row clearfix">
                             <div class="col-md-6">
                                 Nome Cliente
                                 <div class="input-group">
@@ -115,7 +115,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix form-space">
+                        <br />
+                        <div class="row clearfix">
                             <div class="col-md-6">
                                 Nome Funcionário
                                     <div class="input-group">
@@ -123,8 +124,9 @@
                                     </div>
                             </div>
                         </div>
+                        <br />
 
-                        <div class="row clearfix form-space">
+                        <div class="row clearfix">
                             <asp:GridView CssClass="col-md-12" ID="gvProducts" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="Double" BorderWidth="2px" CellPadding="5" GridLines="Horizontal">
                                 <HeaderStyle BackColor="#4E20A9" ForeColor="#FFFFFF" />
                                 <AlternatingRowStyle BackColor="#b8a6dd" />
@@ -144,7 +146,8 @@
                             </asp:GridView>
                         </div>
 
-                        <div class="row clearfix form-space">
+                        <br />
+                        <div class="row clearfix">
                             <div class="col-md-3">
                                 Tipo de Pagamento
                                     <asp:DropDownList ID="ddlTipoPagSales" runat="server" DataTextField="NOME_TIPO_PAG" CssClass="form-select"></asp:DropDownList>
@@ -162,7 +165,8 @@
                                     </div>
                             </div>                            
                         </div>
-                        <div class="row clearfix form-space">
+                        <br />
+                        <div class="row clearfix">
                             <div class="col-md-3">
                                 Desconto
                                     <div class="input-group">
@@ -176,6 +180,7 @@
                                     </div>
                             </div>
                         </div>
+                        <br />
 
                         <div class="botoes-forms">
                             <button id="btnInsertProd" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#product_Modal">Inserir Produto</button>

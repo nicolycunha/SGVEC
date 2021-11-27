@@ -28,6 +28,8 @@ namespace SGVEC.View.Screen
 
                 if (txtCode.Text != "") strCode = txtCode.Text;
 
+                txtDtCadProduct.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
                 //Atualiza o grid
                 gvProduct.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_PROD('" + strCode + "', '" + txtName.Text.ToString() + "')");
                 gvProduct.DataBind();

@@ -45,17 +45,16 @@
     });
 
     function ClearComponents() {
-        $('#txtCodBarrasProduct').val(""); $('#txtNomeProduct').val("");
-        $('#txtMarcaProduct').val(""); $('#txtPrecoProduct').val(""); $('#txtCustoProduct').val("");
-        $('#txtDtCadProduct').val(""); $('#txtQuantidadeProduct').val(""); $('#txtDescProduct').val("");
+        $('#txtCodBarrasProduct').val(""); $('#txtNomeProduct').val(""); $('#txtMarcaProduct').val("");
+        $('#txtPrecoProduct').val(""); $('#txtCustoProduct').val(""); $('#txtQuantidadeProduct').val(""); $('#txtDescProduct').val("");
     }
 
     function DisableComponents(value) {
         $('#btnSave').prop('disabled', value); $('#btnClearComponents').prop('disabled', value);
         $('#txtCodBarrasProduct').prop('disabled', value); $('#txtNomeProduct').prop('disabled', value);
         $('#txtMarcaProduct').prop('disabled', value); $('#txtPrecoProduct').prop('disabled', value);
-        $('#txtCustoProduct').prop('disabled', value); $('#txtDtCadProduct').prop('disabled', value);
-        $('#txtQuantidadeProduct').prop('disabled', value); $('#txtDescProduct').prop('disabled', value);  
-        $('#ddlTipoProduct').prop('disabled', value); $('#ddlFornecProduct').prop('disabled', value);         
+        $('#txtCustoProduct').prop('disabled', value); $('#txtQuantidadeProduct').prop('disabled', value);
+        $('#txtDescProduct').prop('disabled', value); $('#ddlTipoProduct').prop('disabled', value);
+        $('#ddlFornecProduct').prop('disabled', value);         
     }
 });
