@@ -39,6 +39,7 @@ namespace SGVEC.View.Screen
 
                 txtDtSales.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
+                cnt = new Connect();
                 cnt.DataBaseConnect();
                 MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT COUNT(COD_VENDA) FROM VENDA");
 
@@ -140,7 +141,6 @@ namespace SGVEC.View.Screen
             {
                 lblError.Text = ex.Message;
                 lblError.Visible = true;
-                cnt.closeConection();
             }
         }
         #endregion

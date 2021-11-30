@@ -20,6 +20,7 @@ namespace SGVEC.Controller
         {
             try
             {
+                cn.Close();
                 cn.Open();
                 return cn;
             }
@@ -52,15 +53,18 @@ namespace SGVEC.Controller
                     gc.CPF = leitor.GetString(1);
                     gc.Name = leitor.GetString(2);
                     cm.Connection.Close();
+                    cn.Close();
                     return true;
                 }
 
                 cm.Connection.Close();
+                cn.Close();
                 return false;
             }
             catch
             {
                 cm.Connection.Close();
+                cn.Close();
                 return false;
             }
         }

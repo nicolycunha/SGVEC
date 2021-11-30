@@ -73,6 +73,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodSupplier != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FORNEC('" + gc.strCodSupplier + "', '', '')");
 
@@ -108,6 +109,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodSupplier != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FORNEC('" + gc.strCodSupplier + "', '" + txtCNPJSupplier.Text.ToString() + "', '')");
 
@@ -362,6 +364,7 @@ namespace SGVEC.View.Screen
             doc.Add(paragrafo);
 
             PdfPTable table = new PdfPTable(6);
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FORNEC('" + strCode + "', '" + txtCNPJ.Text.ToString() + "', '" + txtRazao.Text.ToString() + "')");
 

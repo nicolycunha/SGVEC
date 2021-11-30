@@ -73,6 +73,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodProduct != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_PROD('" + gc.strCodProduct + "', '')");
 
@@ -217,6 +218,7 @@ namespace SGVEC.View.Screen
             doc.Add(paragrafo);
 
             PdfPTable table = new PdfPTable(4);
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_PROD('" + strCode + "', '" + txtName.Text.ToString() + "')");
 

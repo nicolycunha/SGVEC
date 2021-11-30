@@ -15,6 +15,7 @@ namespace SGVEC.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + 0 + "', '" + gc.CPF + "', '" + gc.Name + "')");
 

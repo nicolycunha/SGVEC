@@ -83,6 +83,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodEmployee != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + gc.strCodEmployee + "', '', '')");
 
@@ -134,6 +135,7 @@ namespace SGVEC.View.Screen
                     }
                     else { strDtDesligamento = ""; }
 
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + gc.strCodEmployee + "', '" + txtCPF.Text.ToString() + "', '')");
 
@@ -407,6 +409,7 @@ namespace SGVEC.View.Screen
             doc.Add(paragrafo);
 
             PdfPTable table = new PdfPTable(6);
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_FUNC('" + strCode + "', '" + txtCPF.Text.ToString() + "', '" + txtName.Text.ToString() + "')");
 

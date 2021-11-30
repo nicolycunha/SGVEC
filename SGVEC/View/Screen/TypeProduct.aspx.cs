@@ -19,7 +19,7 @@ namespace SGVEC.View.Screen
         protected void Page_Load(object sender, EventArgs e)
         {
             try
-            {
+            {               
                 //Atualiza o grid
                 gvTypeProduct.DataSource = dtManip.ExecDtTableStringQuery("CALL PROC_SELECT_TYPE_PROD('" + strCode + "', '" + txtName.Text.ToString() + "')");
                 gvTypeProduct.DataBind();
@@ -60,6 +60,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodTypeProduct != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT * FROM TIPO_PRODUTO WHERE COD_TIPO_PROD ='" + gc.strCodTypeProduct + "'");
 
@@ -228,6 +229,7 @@ namespace SGVEC.View.Screen
 
                 if (gc.strCodTypeProduct != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     MySqlDataReader leitor = dtManip.ExecuteDataReader("SELECT * FROM TIPO_PRODUTO WHERE COD_TIPO_PROD ='" + gc.strCodTypeProduct + "'");
 
@@ -281,6 +283,7 @@ namespace SGVEC.View.Screen
             doc.Add(paragrafo);
 
             PdfPTable table = new PdfPTable(2);
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_TYPE_PROD('" + strCode + "', '" + txtName.Text.ToString() + "')");
 

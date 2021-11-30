@@ -75,6 +75,7 @@ namespace SGVEC.View.Screen
             {
                 if (gc.strCodSales != "0")
                 {
+                    cnt = new Connect();
                     cnt.DataBaseConnect();
                     gvProdutos.DataSource = dtManip.ExecDtTableStringQuery(@"SELECT PV.COD_PROD_VENDA, PV.QUANTIDADE_PROD, PV.VALOR_UNITARIO_PROD, P.NOME_PROD, 
                                                                             PV.FK_COD_VENDA FROM PRODUTO_VENDA AS PV 
@@ -136,6 +137,7 @@ namespace SGVEC.View.Screen
             doc.Add(paragrafo);
 
             PdfPTable table = new PdfPTable(6);
+            cnt = new Connect();
             cnt.DataBaseConnect();
             MySqlDataReader leitor = dtManip.ExecuteDataReader("CALL PROC_SELECT_SALE('" + strCode + "', '" + txtCpfCli.Text.ToString() + "', '" + txtCpfFunc.Text.ToString() + "', '" + txtDateSales.Text.ToString() + "')");
 
