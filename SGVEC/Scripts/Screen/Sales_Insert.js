@@ -24,6 +24,10 @@
         ClearComponentsModal();
     });
 
+    $('#btnInsertProd').click(function () {
+        ClearComponentsModal();
+    });    
+
     $("#gvSales tr").click(function () {
         var selected = $(this).hasClass("selecionado");
         $("#gvSales tr").removeClass("selecionado");
@@ -35,9 +39,13 @@
         if ($('#txtDescontoSales').val() != "") {
             let intValorTotal = parseInt($('#txtTotalSales').val());
             let intValorDesc = parseInt($('#txtDescontoSales').val());
+            let intNumParc = parseInt($('#txtNumParcSales').val());
 
-            let flVlDesconto = parseFloat((intValorDesc / 100) * intValorTotal);
+            let flVlDesconto = parseFloat((intValorTotal / 100) * intValorDesc);
             $('#txtTotalSales').val(intValorTotal - flVlDesconto);
+
+            let flVlParcelas = parseFloat((intValorTotal - flVlDesconto) / intNumParc);
+            $('#txtValParcSales').val(flVlParcelas);
         }
     });
 

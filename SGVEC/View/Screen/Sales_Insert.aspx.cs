@@ -221,24 +221,35 @@ namespace SGVEC.View.Screen
         {
             try
             {
-                string strDesconto = "0";
+                int intDesconto = 0;
                 int intNumParc = 0;
                 double dblValParc = 0, dblTotal = 0;
                 lblError.Text = "";
                 lblSucess.Text = "";
                 lblError.Visible = false;
 
-                if(txtDescontoSales.Text != "") { strDesconto = txtDescontoSales.Text.Replace("%", ""); }
-                if(txtNumParcSales.Text != "") { intNumParc = Convert.ToInt32(txtNumParcSales.Text); }
-                if (txtValParcSales.Text != "") { dblValParc = Convert.ToDouble(txtValParcSales.Text); }
-                if (txtTotalSales.Text != "") { dblTotal = Convert.ToInt32(txtTotalSales.Text); }
+                if (txtTotalSales.Text != "")
+                {
+                    dblTotal = Double.Parse(txtTotalSales.Text);
+                }
+
+                if (txtDescontoSales.Text != "") {
+                    intDesconto = Convert.ToInt32(txtDescontoSales.Text.Replace("%", ""));
+                    dblTotal = (((Double.Parse(txtTotalSales.Text) / 100) * intDesconto));
+                    dblTotal = (Double.Parse(txtTotalSales.Text) - dblTotal);
+                }                
+
+                if (txtNumParcSales.Text != "") {
+                    intNumParc = Convert.ToInt32(txtNumParcSales.Text);
+                    dblValParc = (dblTotal / intNumParc);
+                }                
 
                 if (ValidateComponents())
                 {
                     var objRetorno = dtManip.ExecuteStringQuery("CALL PROC_INSERT_SALE('" + intCodVenda + "', '" + txtNomeCliSales.Text + "', '"
                          + txtCpfCliSales.Text + "', '" + Convert.ToDateTime(txtDtSales.Text).ToString("dd/MM/yyyy") + "', '" + intNumParc + "', '"
-                         + dblValParc + "', '" + strDesconto + "', '" + dblTotal + "', '" + ddlFuncSales.SelectedItem.Value + "', '"
-                         + ddlTipoPagSales.SelectedItem.Value + "')");
+                         + dblValParc.ToString().Replace(',', '.') + "', '" + intDesconto.ToString().Replace(',', '.') + "', '" + dblTotal.ToString().Replace(',', '.') 
+                         + "', '" + ddlFuncSales.SelectedItem.Value + "', '" + ddlTipoPagSales.SelectedItem.Value + "')");
 
                     if (objRetorno != null)
                     {

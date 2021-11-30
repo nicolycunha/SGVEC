@@ -161,7 +161,7 @@
                             <div class="col-md-3">
                                 Valor da parcela
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtValParcSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="14"></asp:TextBox>
+                                        <asp:TextBox ID="txtValParcSales" Enabled="false" type="text" runat="server" MaxLength="14"></asp:TextBox>
                                     </div>
                             </div>                            
                         </div>
@@ -176,7 +176,7 @@
                             <div class="col-md-3">
                                 Total da Venda
                                     <div class="input-group">
-                                        <asp:TextBox ID="txtTotalSales" Enabled="false" type="text" runat="server" placeholder="R$ 0,00" MaxLength="10"></asp:TextBox>
+                                        <asp:TextBox ID="txtTotalSales" Enabled="false" type="text" runat="server" MaxLength="10"></asp:TextBox>
                                     </div>
                             </div>
                         </div>
