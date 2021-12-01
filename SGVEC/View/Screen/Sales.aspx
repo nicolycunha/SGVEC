@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/View/Screen/Sales">
+                        <a href="/View/Screen/Employee">
                             <img src="/images/Dashboard/businessman.png" alt="Ícone de Funcionários pela icons8" />
                             Funcionários
                         </a>
